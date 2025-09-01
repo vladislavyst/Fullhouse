@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,7 +5,7 @@ import { MapPin, Calendar, Square } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const Projects = () => {
+const Properties = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ 
     threshold: 0.1, 
     delay: 200,
@@ -76,221 +75,128 @@ const Projects = () => {
             Реализованные проекты
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-=======
-import { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, Square, Eye } from 'lucide-react';
-import projectResidential from '@/assets/project-residential.jpg';
-import projectCommercial from '@/assets/project-commercial.jpg';
-import projectVilla from '@/assets/project-villa.jpg';
-
-const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filters = [
-    { id: 'all', label: 'Все проекты' },
-    { id: 'residential', label: 'Жилые' },
-    { id: 'commercial', label: 'Коммерческие' },
-    { id: 'private', label: 'Частные дома' }
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: 'ЖК "Морской бриз"',
-      category: 'residential',
-      image: projectResidential,
-      location: 'Новороссийск, ул. Набережная',
-      completion: '2024',
-      area: '45,000 м²',
-      status: 'Завершен',
-      description: 'Премиальный жилой комплекс с видом на море. 12 этажей, 240 квартир, подземная парковка.',
-      features: ['Панорамные окна', 'Море в 50 м', 'Детский сад', 'Фитнес-центр']
-    },
-    {
-      id: 2,
-      title: 'Бизнес-центр "Адмирал"',
-      category: 'commercial',
-      image: projectCommercial,
-      location: 'Новороссийск, пр. Ленина',
-      completion: '2023',
-      area: '25,000 м²',
-      status: 'Завершен',
-      description: 'Современный бизнес-центр класса А в центре города. 15 этажей офисных помещений.',
-      features: ['Класс А', 'Центр города', 'Паркинг 200 мест', 'Конференц-залы']
-    },
-    {
-      id: 3,
-      title: 'Коттеджный поселок "Южная долина"',
-      category: 'private',
-      image: projectVilla,
-      location: 'Новороссийск, пос. Южная Озереевка',
-      completion: '2024',
-      area: '15,000 м²',
-      status: 'В процессе',
-      description: 'Элитный коттеджный поселок из 24 домов с индивидуальным дизайном и благоустройством.',
-      features: ['24 дома', 'Индивидуальный дизайн', 'Закрытая территория', 'Озеленение']
-    }
-  ];
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
-  return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 text-sm font-medium text-primary mb-4">
-            <Eye className="w-4 h-4" />
-            <span>Наши проекты</span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Реализованные проекты
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
-            Более 500 успешно завершенных проектов различного масштаба и сложности. 
-            Каждый проект — это воплощение качества и профессионализма.
+            Наши лучшие работы, которые демонстрируют качество и профессионализм 
+            строительной компании Fullhouse. Каждый проект уникален и создан с любовью.
           </p>
         </div>
 
-<<<<<<< HEAD
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => {
-            const slug = project.id === 1 ? 'forest-residence' : project.id === 2 ? 'lucky-house' : 'parkfield';
-            return (
-              <Card
-                key={project.id}
-                className="fh-card group"
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                  opacity: isVisible ? 1 : 0
-                }}
-              >
-                <div className="fh-card__image">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  <Badge className="fh-badge-primary">{project.status}</Badge>
-                </div>
-                <CardContent className="fh-card__body">
-                  <h3 className="fh-card__title group-hover:text-blue-700">{project.title}</h3>
-                  <p className="fh-card__desc">{project.description}</p>
-
-                  <div className="fh-card__meta">
-                    <div className="flex items-center gap-1"><MapPin className="w-4 h-4" />{project.location}</div>
-                    <div className="flex items-center gap-1"><Calendar className="w-4 h-4" />{project.completion}</div>
-                    <div className="flex items-center gap-1"><Square className="w-4 h-4" />{project.area}</div>
-                  </div>
-
-                  <div className="mt-4">
-                    <Button asChild variant="default" className="w-full fh-btn-primary group-hover:shadow-xl">
-                      <Link to={`/projects/${slug}`}>Подробнее</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-=======
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {filters.map((filter) => (
-            <Button
-              key={filter.id}
-              variant={activeFilter === filter.id ? "default" : "outline"}
-              onClick={() => setActiveFilter(filter.id)}
-              className="min-w-[120px]"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <Card 
+              key={project.id} 
+              className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 bg-white"
             >
-              {filter.label}
-            </Button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredProjects.map((project) => (
-            <Card key={project.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 bg-white">
               {/* Project Image */}
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
-                  alt={project.title}
+                  alt={`${project.title} - ${project.area}, ${project.location}, ${project.completion}`}
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge 
-                    variant={project.status === 'Завершен' ? 'default' : 'secondary'}
-                    className={project.status === 'Завершен' ? 'bg-success text-success-foreground' : 'bg-warning text-warning-foreground'}
-                  >
+                  <Badge className="bg-green-600 text-white">
                     {project.status}
                   </Badge>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <Button variant="secondary" size="sm" className="w-full">
-                      Подробнее
-                    </Button>
+                <div className="absolute top-4 right-4">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 w-10 h-10 p-0"
+                    onClick={() => handleFavorite(project.id)}
+                  >
+                    ♥
+                  </Button>
+                </div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="text-white font-bold text-xl bg-black/50 backdrop-blur-sm px-3 py-1 rounded">
+                    {project.area}
                   </div>
                 </div>
               </div>
 
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                   {project.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Project Details */}
                 <div className="space-y-2 mb-4">
-                  <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                    <MapPin className="w-3 h-3" />
+                  <div className="flex items-center space-x-2 text-sm text-slate-600">
+                    <MapPin className="w-4 h-4" />
                     <span>{project.location}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                    <Calendar className="w-3 h-3" />
-                    <span>Завершение: {project.completion}</span>
+                  <div className="flex items-center space-x-2 text-sm text-slate-600">
+                    <Calendar className="w-4 h-4" />
+                    <span>{project.completion}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                    <Square className="w-3 h-3" />
-                    <span>Площадь: {project.area}</span>
+                  <div className="flex items-center space-x-2 text-sm text-slate-600">
+                    <Square className="w-4 h-4" />
+                    <span>{project.area}</span>
                   </div>
                 </div>
 
+                <p className="text-slate-600 mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+
                 {/* Features */}
-                <div className="space-y-1">
-                  {project.features.map((feature, index) => (
+                <div className="space-y-1 mb-6">
+                  {project.features.slice(0, 3).map((feature, index) => (
                     <div key={index} className="flex items-center space-x-2 text-xs">
-                      <div className="w-1 h-1 bg-accent rounded-full"></div>
-                      <span className="text-muted-foreground">{feature}</span>
+                      <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+                      <span className="text-slate-600">{feature}</span>
                     </div>
                   ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2">
+                  <Button 
+                    onClick={() => handleViewProject(project.id)}
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    Подробнее
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => handleShare(project.id)}
+                    className="px-3"
+                  >
+                    Поделиться
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <p className="text-muted-foreground mb-6">
-            Хотите увидеть больше наших работ или обсудить свой проект?
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-bold text-slate-800 mb-6">
+            Хотите такой же проект?
+          </h3>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Свяжитесь с нами для обсуждения вашего проекта. Мы поможем воплотить 
+            ваши мечты в реальность.
           </p>
-          <Button variant="accent" size="lg">
-            Посмотреть все проекты
-          </Button>
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3">
+                Обсудить проект
+              </Button>
+            </Link>
+            <Link to="/projects">
+              <Button variant="outline" className="px-8 py-3">
+                Все проекты
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default Properties;

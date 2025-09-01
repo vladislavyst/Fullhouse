@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { ShoppingCart, TrendingUp, Calculator, Users, FileText, Check } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useRef, useState } from 'react';
@@ -98,315 +97,209 @@ const Services = () => {
       <circle cx="65" cy="30" r="12" fill="#10B981" opacity="0.9"/>
       <path d="M50 70 Q65 55 80 70 L80 85 L50 85 Z" fill="#10B981" opacity="0.7"/>
       {/* Speech bubbles */}
-      <ellipse cx="25" cy="15" rx="12" ry="8" fill="#F3F4F6" stroke="#D1D5DB" strokeWidth="1"/>
-      <path d="M25 23 L20 28 L30 28 Z" fill="#F3F4F6"/>
-      <ellipse cx="75" cy="15" rx="12" ry="8" fill="#F3F4F6" stroke="#D1D5DB" strokeWidth="1"/>
-      <path d="M75 23 L70 28 L80 28 Z" fill="#F3F4F6"/>
-      {/* Question and exclamation */}
-      <text x="25" y="18" textAnchor="middle" fontSize="8" fill="#6B7280" fontWeight="bold">?</text>
-      <text x="75" y="18" textAnchor="middle" fontSize="8" fill="#6B7280" fontWeight="bold">!</text>
-      {/* Handshake */}
-      <ellipse cx="50" cy="50" rx="8" ry="4" fill="#FCD34D" opacity="0.8"/>
+      <path d="M15 45 Q15 35 25 35 L35 35 Q45 35 45 45 L45 55 Q45 65 35 65 L25 65 Q15 65 15 55 Z" fill="#FEF3C7" opacity="0.9"/>
+      <path d="M55 45 Q55 35 65 35 L75 35 Q85 35 85 45 L85 55 Q85 65 75 65 L65 65 Q55 65 55 55 Z" fill="#D1FAE5" opacity="0.9"/>
+      {/* Question marks */}
+      <text x="30" y="50" textAnchor="middle" fontSize="8" fill="#D97706" fontWeight="bold">?</text>
+      <text x="70" y="50" textAnchor="middle" fontSize="8" fill="#059669" fontWeight="bold">?</text>
     </svg>
   );
+
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ 
+    threshold: 0.1, 
+    delay: 100,
+    animation: 'fade-in'
+  });
 
   const services = [
     {
       icon: BuyingIcon,
-=======
-import { ShoppingCart, TrendingUp, Calculator, Users, FileText, Headphones } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-
-const Services = () => {
-  const services = [
-    {
-      icon: ShoppingCart,
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Покупка недвижимости',
-      description: 'Поможем найти идеальную квартиру или дом в соответствии с вашими потребностями и бюджетом',
-      features: ['Подбор объектов', 'Проверка документов', 'Торг с продавцом', 'Сопровождение сделки']
+      description: 'Полное сопровождение покупки от подбора до получения ключей',
+      features: [
+        'Подбор объектов по вашим критериям',
+        'Организация просмотров в удобное время',
+        'Проверка юридической чистоты документов',
+        'Помощь в торгах и переговорах с продавцом',
+        'Сопровождение сделки в МФЦ или у нотариуса',
+        'Помощь в оформлении коммунальных услуг'
+      ],
+      process: [
+        'Консультация и определение потребностей',
+        'Подбор подходящих вариантов',
+        'Организация просмотров',
+        'Проверка документов',
+        'Оформление сделки'
+      ]
     },
     {
-<<<<<<< HEAD
       icon: SellingIcon,
-=======
-      icon: TrendingUp,
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Продажа недвижимости',
-      description: 'Продадим вашу недвижимость быстро и по максимальной цене с полным юридическим сопровождением',
-      features: ['Оценка стоимости', 'Подготовка документов', 'Реклама и показы', 'Безопасная сделка']
+      description: 'Продадим вашу недвижимость быстро и по максимальной цене',
+      features: [
+        'Профессиональная оценка рыночной стоимости',
+        'Подготовка документов для продажи',
+        'Фотосъемка и создание рекламных материалов',
+        'Размещение на всех популярных площадках',
+        'Организация показов потенциальным покупателям',
+        'Ведение переговоров и заключение сделки'
+      ],
+      process: [
+        'Оценка недвижимости',
+        'Подготовка к продаже',
+        'Реклама и продвижение',
+        'Показы покупателям',
+        'Заключение сделки'
+      ]
     },
     {
-<<<<<<< HEAD
       icon: MortgageIcon,
-=======
-      icon: Calculator,
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
-      title: 'Ипотека',
-      description: 'Подберем оптимальную ипотечную программу среди 25+ банков-партнеров с лучшими условиями',
-      features: ['Расчет ипотеки', '25+ банков-партнеров', 'Ставка от 12%', 'Быстрое одобрение']
+      title: 'Ипотечное кредитование',
+      description: 'Поможем получить ипотеку на лучших условиях',
+      features: [
+        'Работа с 25+ банками-партнерами',
+        'Ставки от 12% годовых',
+        'Первоначальный взнос от 10%',
+        'Помощь в сборе документов',
+        'Подача заявок во все банки одновременно',
+        'Сопровождение до получения средств'
+      ],
+      process: [
+        'Консультация по программам',
+        'Подбор оптимального банка',
+        'Подготовка документов',
+        'Подача заявки',
+        'Получение одобрения'
+      ],
+      banks: [
+        { name: 'Сбербанк', rate: 'от 12%' },
+        { name: 'ВТБ', rate: 'от 12.5%' },
+        { name: 'Альфа-банк', rate: 'от 13%' },
+        { name: 'Газпромбанк', rate: 'от 13.2%' }
+      ]
     },
     {
-<<<<<<< HEAD
       icon: ConsultationIcon,
-=======
-      icon: Users,
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
-      title: 'Консультации',
-      description: 'Профессиональные консультации по всем вопросам недвижимости от опытных экспертов',
-      features: ['Бесплатная консультация', 'Оценка недвижимости', 'Юридическая помощь', 'Рыночная аналитика']
+      title: 'Консультационные услуги',
+      description: 'Экспертные консультации по всем вопросам недвижимости',
+      features: [
+        'Оценка рыночной стоимости недвижимости',
+        'Анализ инвестиционной привлекательности',
+        'Юридическое сопровождение сделок',
+        'Консультации по налогообложению',
+        'Помощь в решении спорных вопросов',
+        'Рекомендации по оптимизации инвестиций'
+      ],
+      process: [
+        'Анализ вашей ситуации',
+        'Разработка стратегии',
+        'Предоставление рекомендаций',
+        'Сопровождение реализации',
+        'Контроль результата'
+      ]
     }
   ];
 
-<<<<<<< HEAD
-  const headerRef = useRef<HTMLDivElement | null>(null);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [visibleCards, setVisibleCards] = useState<boolean[]>(() => services.map(() => false));
-
-  useEffect(() => {
-    const headerObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsHeaderVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    if (headerRef.current) headerObserver.observe(headerRef.current);
-    return () => headerObserver.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const target = entry.target as HTMLDivElement;
-          const index = Number(target.dataset.index);
-          if (Number.isFinite(index) && entry.isIntersecting) {
-            setVisibleCards((prev) => {
-              if (prev[index]) return prev;
-              const copy = [...prev];
-              copy[index] = true;
-              return copy;
-            });
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
-    );
-
-    cardRefs.current.forEach((node) => {
-      if (node) observer.observe(node);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="services" className="relative py-24 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
-      {/* Decorative background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-80 w-[56rem] rounded-full bg-accent/10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative">
+    <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="container mx-auto px-4">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-16">
-          <h2
-            className={`text-4xl lg:text-5xl font-bold tracking-tight text-slate-800 mb-4 transition-all duration-700 ease-out ${
-              isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}
-            style={{ transitionDelay: '120ms' }}
-          >
-            Полный спектр услуг по недвижимости
+        <div className={`text-center mb-16 transition-all duration-800 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`}>
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+            Наши услуги
           </h2>
-          <p
-            className={`text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
-              isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}
-            style={{ transitionDelay: '240ms' }}
-          >
-            От поиска до заключения сделки — мы берём на себя все этапы, обеспечивая безопасность,
-            прозрачность и выгодные условия на каждом шаге.
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Полный спектр услуг в сфере недвижимости. От покупки и продажи 
+            до ипотечного кредитования и консультаций.
           </p>
-
-          {/* Social proof */}
-          <div
-            className={`mt-8 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 ease-out ${
-              isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}
-            style={{ transitionDelay: '360ms' }}
-          >
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/60 backdrop-blur px-3 py-1 text-sm text-muted-foreground">
-              <span className="h-2 w-2 rounded-full bg-green-500"></span>
-              100+ успешных сделок
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/60 backdrop-blur px-3 py-1 text-sm text-muted-foreground">
-              ⭐ 4.9/5 рейтинг клиентов
-            </span>
-          </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, index) => {
-            const isVisible = visibleCards[index];
-            const baseDelay = index * 120; // stagger between cards
-            return (
-              <div
-                key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
-                data-index={index}
-                className={`transition-all duration-700 ease-out will-change-transform ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
-                style={{ transitionDelay: `${baseDelay}ms` }}
-              >
-                <Card
-                  className="group relative border border-gray-200 bg-white/90 backdrop-blur hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl"
-                >
-                  <CardContent className="p-7 lg:p-8 text-center">
-                    <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-3 w-20 h-20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200 mx-auto">
-                      <service.icon />
-                    </div>
-
-                    <h3
-                      className={`text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors transition-opacity duration-700 ${
-                        isVisible ? 'opacity-100' : 'opacity-0'
-                      }`}
-                      style={{ transitionDelay: `${baseDelay + 120}ms` }}
-                    >
+        <div className="grid lg:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="bg-blue-100 p-3 rounded-lg w-16 h-16 flex items-center justify-center">
+                    <service.icon />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">
                       {service.title}
                     </h3>
-
-                    <p
-                      className={`text-slate-600 mb-5 leading-relaxed transition-all duration-700 ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
-                      }`}
-                      style={{ transitionDelay: `${baseDelay + 180}ms` }}
-                    >
+                    <p className="text-slate-600">
                       {service.description}
                     </p>
+                  </div>
+                </div>
 
-                    <div className="grid grid-cols-1 gap-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className={`inline-flex items-center gap-2 text-sm text-muted-foreground transition-all duration-700 ${
-                            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
-                          }`}
-                          style={{ transitionDelay: `${baseDelay + 220 + featureIndex * 70}ms` }}
-                        >
-                          <Check className="h-4 w-4 text-blue-600" />
-                          <span>{feature}</span>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-slate-800 mb-3">Что входит в услугу:</h4>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-2">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-slate-600">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-slate-800 mb-3">Как проходит работа:</h4>
+                    <div className="grid grid-cols-5 gap-2">
+                      {service.process.map((step, idx) => (
+                        <div key={idx} className="text-center">
+                          <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">
+                            {idx + 1}
+                          </div>
+                          <p className="text-xs text-slate-600">{step}</p>
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                  {/* Glow ring on hover */}
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-accent/0 group-hover:ring-4 group-hover:ring-accent/10 transition-[box-shadow,opacity] duration-300"></div>
-                </Card>
-              </div>
-            );
-          })}
-=======
-  return (
-    <section id="services" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-accent/10 rounded-full px-4 py-2 text-sm font-medium text-accent mb-4">
-            <Headphones className="w-4 h-4" />
-            <span>Наши услуги</span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Полный спектр услуг по недвижимости
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            От поиска до заключения сделки — мы берем на себя все этапы работы с недвижимостью, 
-            обеспечивая безопасность и выгодные условия
-          </p>
-        </div>
+                  </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-xl transition-all duration-300 border-0 bg-white hover:-translate-y-1"
-            >
-              <CardContent className="p-8">
-                <div className="bg-gradient-accent rounded-xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-8 h-8 text-accent-foreground" />
-                </div>
-                
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-2 text-sm">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-                      <span className="text-muted-foreground">{feature}</span>
+                  {service.banks && (
+                    <div>
+                      <h4 className="font-semibold text-slate-800 mb-3">Банки-партнеры:</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {service.banks.map((bank, idx) => (
+                          <div key={idx} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span className="font-medium">{bank.name}</span>
+                            <span className="text-blue-600 font-semibold">{bank.rate}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
+                  )}
+
+                  <Link to="/contact">
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                      Получить консультацию
+                    </button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
           ))}
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
         </div>
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-<<<<<<< HEAD
-          <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
-            <div className="pointer-events-none absolute inset-0 opacity-30"
-            >
-              <div className="absolute -top-32 right-10 h-64 w-64 rounded-full bg-white/20 blur-3xl"></div>
-              <div className="absolute -bottom-24 left-10 h-64 w-64 rounded-full bg-accent/40 blur-3xl"></div>
-            </div>
-            <h3 className="relative text-2xl lg:text-3xl font-bold mb-4">
-              Готовы найти недвижимость мечты?
-            </h3>
-            <p className="relative text-primary-foreground/90 mb-8 text-lg max-w-2xl mx-auto">
-              Получите бесплатную консультацию — подберём лучшие варианты под ваш бюджет и пожелания
-            </p>
-            <div className="relative flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="bg-accent hover:bg-accent-dark px-8 py-3 rounded-lg font-semibold transition-colors text-center">
-                Получить консультацию
-              </Link>
-              <Link to="/catalog" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors text-center">
-                Посмотреть каталог
-              </Link>
-=======
-          <div className="bg-primary rounded-2xl p-8 lg:p-12 text-white">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              Готовы найти недвижимость мечты?
-            </h3>
-            <p className="text-primary-foreground/90 mb-8 text-lg max-w-2xl mx-auto">
-              Получите бесплатную консультацию и подберем лучшие варианты под ваш бюджет
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-accent hover:bg-accent-dark px-8 py-3 rounded-lg font-semibold transition-colors">
-                Получить консультацию
-              </button>
-              <button className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Посмотреть каталог
-              </button>
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-6">
+            Нужна помощь с недвижимостью?
+          </h3>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Оставьте заявку и мы свяжемся с вами в течение 15 минут
+          </p>
+          <Link to="/contact">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+              Оставить заявку
+            </button>
+          </Link>
         </div>
       </div>
     </section>

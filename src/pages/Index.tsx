@@ -1,15 +1,11 @@
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-<<<<<<< HEAD
 import Stats from '../components/Stats';
-=======
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
 import Services from '../components/Services';
 import Properties from '../components/Properties';
 import Calculator from '../components/Calculator';
 import About from '../components/About';
 import Footer from '../components/Footer';
-<<<<<<< HEAD
 import ProjectsShowcase from '../components/ProjectsShowcase';
 import PWAInstaller from '../components/PWAInstaller';
 import PageTransition from '../components/PageTransition';
@@ -39,27 +35,12 @@ const Index = () => {
         <Services />
         <Properties />
         <ProjectsShowcase />
-=======
-
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Properties />
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
         <Calculator />
         <About />
       </main>
       <Footer />
-<<<<<<< HEAD
       <PWAInstaller />
     </PageTransition>
-=======
-    </div>
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
   );
 };
 

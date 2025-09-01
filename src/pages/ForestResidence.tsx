@@ -184,83 +184,65 @@ const ForestResidence = () => {
   }, [isModalOpen]);
 
   return (
-    <div className="min-h-screen bg-background" itemScope itemType="https://schema.org/Organization">
+    <div className="min-h-screen bg-background">
       <Header />
       
       {/* Breadcrumbs для SEO */}
-      <nav className="bg-blue-50/50 py-3 border-b border-blue-100" aria-label="Хлебные крошки">
+      <nav className="bg-muted/30 py-3 border-b" aria-label="Хлебные крошки">
         <div className="container mx-auto px-4">
-          <ol className="flex items-center space-x-2 text-sm text-slate-600" itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link to="/" className="hover:text-blue-600 transition-colors" itemProp="item">
-                <span itemProp="name">Главная</span>
+          <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <li>
+              <Link to="/" className="hover:text-primary transition-colors">
+                Главная
               </Link>
-              <meta itemProp="position" content="1" />
             </li>
-            <li className="flex items-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <ChevronRight className="w-4 h-4 mx-1 text-blue-400" />
-              <Link to="/projects" className="hover:text-blue-600 transition-colors" itemProp="item">
-                <span itemProp="name">Проекты</span>
+            <li className="flex items-center">
+              <ChevronRight className="w-4 h-4 mx-1" />
+              <Link to="/projects" className="hover:text-primary transition-colors">
+                Проекты
               </Link>
-              <meta itemProp="position" content="2" />
             </li>
-            <li className="flex items-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <ChevronRight className="w-4 h-4 mx-1 text-blue-400" />
-              <span className="text-blue-600 font-medium" aria-current="page" itemProp="item">
-                <span itemProp="name">Forest Residence</span>
+            <li className="flex items-center">
+              <ChevronRight className="w-4 h-4 mx-1" />
+              <span className="text-primary font-medium" aria-current="page">
+                Forest Residence
               </span>
-              <meta itemProp="position" content="3" />
             </li>
           </ol>
         </div>
       </nav>
       
-      {/* SEO: Информация об организации */}
-      <div itemProp="name" className="hidden">Fullhouse - Строительная компания</div>
-      <div itemProp="url" className="hidden">https://fullhouse-neo.ru</div>
-      <div itemProp="description" className="hidden">Строительная компания Fullhouse специализируется на строительстве премиальных домов и резиденций в Краснодарском крае</div>
-      
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100" itemScope itemType="https://schema.org/House">
+        <section className="py-16 bg-gradient-subtle" itemScope itemType="https://schema.org/House">
           <div className="container mx-auto px-4">
             <div className="flex items-center space-x-4 mb-6">
-              <Button variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50" asChild>
+              <Button variant="outline" size="sm" asChild>
                 <Link to="/projects">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Назад к проектам
                 </Link>
               </Button>
-              <Badge className="bg-blue-600 text-white border-0">Завершен</Badge>
+              <Badge variant="secondary">Завершен</Badge>
             </div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold text-slate-800 mb-6" itemProp="name">
+            <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6" itemProp="name">
               Forest Residence
             </h1>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center space-x-2">
-                <Square className="w-5 h-5 text-blue-600" />
-                <span className="text-slate-600" itemProp="floorSize">350 м²</span>
+                <Square className="w-5 h-5 text-accent" />
+                <span className="text-muted-foreground" itemProp="floorSize">350 м²</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Calendar className="w-5 h-5 text-blue-600" />
-                <span className="text-slate-600">Завершен в 2024</span>
+                <Calendar className="w-5 h-5 text-accent" />
+                <span className="text-muted-foreground">Завершен в 2024</span>
               </div>
               <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-blue-600" />
-                <span className="text-slate-600" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                  <span itemProp="addressLocality">Адрау-Дюрсо</span>
-                </span>
+                <MapPin className="w-5 h-5 text-accent" />
+                <span className="text-muted-foreground" itemProp="address">Адрау-Дюрсо</span>
               </div>
-            </div>
-            
-            {/* SEO: Предложение для поисковых систем */}
-            <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="hidden">
-              <meta itemProp="availability" content="https://schema.org/InStock" />
-              <meta itemProp="category" content="Готовый дом" />
-              <meta itemProp="priceCurrency" content="RUB" />
-              <span itemProp="description">Премиальная резиденция Forest Residence готова к показу</span>
             </div>
           </div>
         </section>
@@ -270,7 +252,7 @@ const ForestResidence = () => {
           <div className="container mx-auto px-4">
             {/* Hero Image Carousel */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-primary mb-8 text-center">
                 Галерея проекта Forest Residence
               </h2>
               
@@ -288,7 +270,6 @@ const ForestResidence = () => {
                               className="w-full h-[600px] lg:h-[700px] object-cover"
                               poster="/Forest Residence.jpeg"
                               muted
-                              itemProp="video"
                             >
                               <source src={item.src} type="video/mp4" />
                             </video>
@@ -308,7 +289,6 @@ const ForestResidence = () => {
                               src={item.src} 
                               alt={item.alt}
                               className="w-full h-[600px] lg:h-[700px] object-cover group-hover:scale-105 transition-transform duration-500"
-                              itemProp="image"
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                               <ZoomIn className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
@@ -334,7 +314,6 @@ const ForestResidence = () => {
                         autoPlay
                         className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
                         poster="/Forest Residence.jpeg"
-                        itemProp="video"
                       >
                         <source src={allImages[selectedImageIndex].src} type="video/mp4" />
                         Ваш браузер не поддерживает воспроизведение видео.
@@ -344,7 +323,6 @@ const ForestResidence = () => {
                         src={allImages[selectedImageIndex].src} 
                         alt={allImages[selectedImageIndex].alt}
                         className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-                        itemProp="image"
                       />
                     )}
                     
@@ -386,7 +364,7 @@ const ForestResidence = () => {
                     
                     {/* Image Description */}
                     <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                      <p className="text-white text-base bg-black/60 px-4 py-2 rounded-full backdrop-blur-sm" itemProp="description">
+                      <p className="text-white text-base bg-black/60 px-4 py-2 rounded-full backdrop-blur-sm">
                         {allImages[selectedImageIndex].alt}
                       </p>
                     </div>
@@ -403,10 +381,10 @@ const ForestResidence = () => {
               
               {/* Media Counter and Instructions */}
               <div className="text-center mt-6 space-y-2">
-                <p className="text-slate-600">
+                <p className="text-muted-foreground">
                   Пролистайте для просмотра всех материалов проекта: 11 фото + видео-тур
                 </p>
-                <p className="text-sm text-blue-600 font-medium flex items-center justify-center gap-2">
+                <p className="text-sm text-accent font-medium flex items-center justify-center gap-2">
                   <ZoomIn className="w-4 h-4" />
                   Нажмите для просмотра в полном разрешении
                 </p>
@@ -426,7 +404,6 @@ const ForestResidence = () => {
                         onPlay={() => setIsVideoPlaying(true)}
                         onPause={() => setIsVideoPlaying(false)}
                         onEnded={() => setIsVideoPlaying(false)}
-                        itemProp="video"
                       >
                         <source src="/Forest/Forest VID.mp4" type="video/mp4" />
                         Ваш браузер не поддерживает воспроизведение видео.
@@ -446,8 +423,8 @@ const ForestResidence = () => {
                 {/* Interactive Thumbnail Gallery */}
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-                      <ImageIcon className="w-5 h-5 mr-2 text-blue-600" />
+                    <h3 className="text-lg font-semibold text-primary mb-4 flex items-center">
+                      <ImageIcon className="w-5 h-5 mr-2" />
                       Быстрый просмотр
                     </h3>
                     <div className="grid grid-cols-3 lg:grid-cols-4 gap-3">
@@ -463,7 +440,6 @@ const ForestResidence = () => {
                                 className="rounded-lg h-24 lg:h-28 w-full object-cover"
                                 poster="/Forest Residence.jpeg"
                                 muted
-                                itemProp="video"
                               >
                                 <source src={item.src} type="video/mp4" />
                               </video>
@@ -482,7 +458,6 @@ const ForestResidence = () => {
                                 src={item.src} 
                                 alt={item.alt}
                                 className="rounded-lg h-24 lg:h-28 w-full object-cover hover:scale-110 transition-transform border-2 border-transparent hover:border-accent shadow-md hover:shadow-xl"
-                                itemProp="image"
                               />
                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 rounded-lg flex items-center justify-center">
                                 <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
@@ -500,31 +475,27 @@ const ForestResidence = () => {
               <div className="space-y-8">
                 <Card>
                   <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold text-slate-800 mb-6">
+                    <h2 className="text-2xl font-bold text-primary mb-6">
                       О проекте
                     </h2>
-                    <p className="text-slate-600 mb-6 leading-relaxed" itemProp="description">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       Премиальная резиденция Forest Residence — это воплощение современной архитектуры 
-                      в гармонии с природой. Расположенная в живописной лесной зоне 
-                      <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                        <span itemProp="addressLocality">Адрау-Дюрсо</span>, 
-                        <span itemProp="addressRegion">Краснодарский край</span>
-                      </span>, резиденция 
+                      в гармонии с природой. Расположенная в живописной лесной зоне, резиденция 
                       предлагает уединение и комфорт высочайшего уровня.
                     </p>
                     
                     <div className="grid grid-cols-2 gap-6 mb-6">
                       <div>
-                        <h3 className="font-semibold text-slate-800 mb-2">Характеристики</h3>
-                        <ul className="space-y-1 text-sm text-slate-600">
-                          <li itemProp="numberOfRooms">• Общая площадь: 350 м²</li>
+                        <h3 className="font-semibold text-primary mb-2">Характеристики</h3>
+                        <ul className="space-y-1 text-sm text-muted-foreground">
+                          <li>• Общая площадь: 350 м²</li>
                           <li>• Этажность: 2 этажа</li>
-                          <li itemProp="numberOfBedrooms">• Спальни: 4</li>
-                          <li itemProp="numberOfBathrooms">• Санузлы: 3</li>
+                          <li>• Спальни: 4</li>
+                          <li>• Санузлы: 3</li>
                         </ul>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-slate-800 mb-2">Особенности</h3>
+                        <h3 className="font-semibold text-primary mb-2">Особенности</h3>
                         <ul className="space-y-1 text-sm text-muted-foreground">
                           <li>• Панорамные окна</li>
                           <li>• Лесная зона</li>
@@ -534,47 +505,35 @@ const ForestResidence = () => {
                       </div>
                     </div>
 
-                    <Button size="lg" className="w-full fh-btn-primary" asChild>
-                      <Link to="/contact" itemProp="url">
+                    <Button size="lg" className="w-full bg-accent hover:bg-accent-dark" asChild>
+                      <Link to="/contact">
                         Заказать похожий проект
                       </Link>
                     </Button>
-                    
-                    {/* SEO: Контактная информация */}
-                    <div itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint" className="hidden">
-                      <meta itemProp="contactType" content="customer service" />
-                      <meta itemProp="availableLanguage" content="Russian" />
-                      <span itemProp="description">Свяжитесь с нами для заказа похожего проекта</span>
-                    </div>
                   </CardContent>
                 </Card>
 
                 {/* Technical Details */}
                 <Card>
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-semibold text-slate-800 mb-4">
+                    <h3 className="text-xl font-semibold text-primary mb-4">
                       Технические решения
                     </h3>
-                    <div className="space-y-4 text-sm text-slate-600">
+                    <div className="space-y-4 text-sm text-muted-foreground">
                       <div>
-                        <strong className="text-slate-800">Фундамент:</strong> Монолитная плита
+                        <strong className="text-primary">Фундамент:</strong> Монолитная плита
                       </div>
                       <div>
-                        <strong className="text-slate-800">Стены:</strong> Газобетон + облицовочный кирпич
+                        <strong className="text-primary">Стены:</strong> Газобетон + облицовочный кирпич
                       </div>
                       <div>
-                        <strong className="text-slate-800">Кровля:</strong> Металлочерепица
+                        <strong className="text-primary">Кровля:</strong> Металлочерепица
                       </div>
                       <div>
-                        <strong className="text-slate-800">Отопление:</strong> Газовый котел + теплый пол
+                        <strong className="text-primary">Отопление:</strong> Газовый котел + теплый пол
                       </div>
                       <div>
-                        <strong className="text-slate-800">Окна:</strong> Энергосберегающие стеклопакеты
-                      </div>
-                      <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                        <strong className="text-slate-800">Адрес:</strong> 
-                        <span itemProp="addressLocality">Адрау-Дюрсо</span>, 
-                        <span itemProp="addressRegion">Краснодарский край</span>
+                        <strong className="text-primary">Окна:</strong> Энергосберегающие стеклопакеты
                       </div>
                     </div>
                   </CardContent>
@@ -583,59 +542,50 @@ const ForestResidence = () => {
                 {/* FAQ Section для SEO */}
                 <Card>
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-semibold text-slate-800 mb-6">
+                    <h3 className="text-xl font-semibold text-primary mb-6">
                       Часто задаваемые вопросы
                     </h3>
                     <div className="space-y-6">
                       <details className="group">
-                        <summary className="flex justify-between items-center cursor-pointer list-none text-slate-800 font-medium hover:text-blue-600 transition-colors">
+                        <summary className="flex justify-between items-center cursor-pointer list-none text-primary font-medium hover:text-accent transition-colors">
                           <span>Где находится проект Forest Residence?</span>
-                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform text-blue-600" />
+                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform" />
                         </summary>
-                        <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                          Проект Forest Residence расположен в живописной лесной зоне 
-                          <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                            <span itemProp="addressLocality">Адрау-Дюрсо</span>, 
-                            <span itemProp="addressRegion">Краснодарский край</span>
-                          </span>. 
+                        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+                          Проект Forest Residence расположен в живописной лесной зоне Адрау-Дюрсо, Краснодарский край. 
                           Уникальное местоположение обеспечивает уединение и близость к природе.
                         </p>
                       </details>
                       
                       <details className="group">
-                        <summary className="flex justify-between items-center cursor-pointer list-none text-slate-800 font-medium hover:text-blue-600 transition-colors">
+                        <summary className="flex justify-between items-center cursor-pointer list-none text-primary font-medium hover:text-accent transition-colors">
                           <span>Какая площадь у резиденции?</span>
-                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform text-blue-600" />
+                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform" />
                         </summary>
-                        <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                          Общая площадь Forest Residence составляет <span itemProp="floorSize">350 м²</span>. 
-                          Дом имеет 2 этажа, <span itemProp="numberOfBedrooms">4 спальни</span>, 
-                          <span itemProp="numberOfBathrooms">3 санузла</span> 
+                        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+                          Общая площадь Forest Residence составляет 350 м². Дом имеет 2 этажа, 4 спальни, 3 санузла 
                           и просторную террасу площадью 50 м².
                         </p>
                       </details>
                       
                       <details className="group">
-                        <summary className="flex justify-between items-center cursor-pointer list-none text-slate-800 font-medium hover:text-blue-600 transition-colors">
+                        <summary className="flex justify-between items-center cursor-pointer list-none text-primary font-medium hover:text-accent transition-colors">
                           <span>Какие особенности отделки?</span>
-                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform text-blue-600" />
+                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform" />
                         </summary>
-                        <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                           Резиденция выполнена с премиум отделкой: панорамные окна, качественные материалы, 
-                          современная сантехника и продуманная планировка для максимального комфорта. 
-                          <span itemProp="description">Это воплощение современной архитектуры в гармонии с природой.</span>
+                          современная сантехника и продуманная планировка для максимального комфорта.
                         </p>
                       </details>
                       
                       <details className="group">
-                        <summary className="flex justify-between items-center cursor-pointer list-none text-slate-800 font-medium hover:text-blue-600 transition-colors">
+                        <summary className="flex justify-between items-center cursor-pointer list-none text-primary font-medium hover:text-accent transition-colors">
                           <span>Можно ли заказать похожий проект?</span>
-                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform text-blue-600" />
+                          <ChevronRight className="w-5 h-5 transform group-open:rotate-90 transition-transform" />
                         </summary>
-                        <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                          Да, <span itemProp="provider" itemScope itemType="https://schema.org/Organization">
-                            <span itemProp="name">строительная компания Fullhouse</span>
-                          </span> готова реализовать похожий проект под ваши требования. 
+                        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+                          Да, строительная компания Fullhouse готова реализовать похожий проект под ваши требования. 
                           Свяжитесь с нами для обсуждения деталей и получения коммерческого предложения.
                         </p>
                       </details>

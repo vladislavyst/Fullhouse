@@ -153,7 +153,6 @@ All colors MUST be HSL. Professional construction industry aesthetics.
   body {
     @apply bg-background text-foreground;
   }
-<<<<<<< HEAD
 }
 
 /* Custom Animations */
@@ -411,6 +410,4 @@ html {
   .fh-btn-primary {
     @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg;
   }
-=======
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
 }

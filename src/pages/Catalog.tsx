@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
-=======
-import { useState } from 'react';
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -19,7 +15,6 @@ const Catalog = () => {
   const [districtFilter, setDistrictFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
 
-<<<<<<< HEAD
   useEffect(() => {
     document.title = "Каталог домов и коттеджей - Проекты под ключ в Новороссийске | Fullhouse";
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -28,8 +23,6 @@ const Catalog = () => {
     }
   }, []);
 
-=======
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
   // Extended properties data
   const allProperties = [
     {
@@ -170,19 +163,11 @@ const Catalog = () => {
         <section className="py-16 bg-gradient-subtle">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-<<<<<<< HEAD
               Каталог домов и коттеджей под ключ в Новороссийске
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Более 15 готовых проектов домов от 5.8 млн руб. 
               Планы, цены, сроки строительства. Найдите дом вашей мечты!
-=======
-              Каталог недвижимости
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Более 1200 объектов недвижимости в Новороссийске. 
-              Найдите идеальный вариант для жизни или инвестиций.
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
             </p>
           </div>
         </section>
@@ -277,11 +262,7 @@ const Catalog = () => {
                   <div className="relative overflow-hidden">
                     <img 
                       src={property.image} 
-<<<<<<< HEAD
                       alt={`${property.title} - ${property.area} м², ${property.rooms} комн., ${property.address}, цена ${property.price.toLocaleString('ru-RU')} ₽`}
-=======
-                      alt={property.title}
->>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                       className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
