@@ -1,4 +1,39 @@
-# Деплой на Vercel
+# Деплой
+
+Ниже две опции для деплоя: на Timeweb (S3-совместимое хранилище) и на Vercel.
+
+## Деплой на Timeweb (Object Storage, статика)
+
+Этот проект — SPA на Vite, его удобно раздавать как статические файлы через Timeweb Cloud Object Storage (S3-совместимое хранилище) с включённым статическим хостингом.
+
+### Шаги в Timeweb
+
+1. Создайте бакет в Object Storage и включите Static Website Hosting.
+2. Установите:
+   - Index document: `index.html`
+   - Error document: `index.html` (для SPA-роутинга)
+3. Включите публичный доступ к бакету или сконфигурируйте публичный CDN на него.
+4. Сохраните значения для GitHub Secrets:
+   - `TW_S3_ENDPOINT` — эндпоинт S3 (например, `https://s3.timeweb.cloud`)
+   - `TW_S3_BUCKET_NAME` — имя бакета
+   - `TW_ACCESS_KEY_ID` — Access Key ID
+   - `TW_SECRET_ACCESS_KEY` — Secret Access Key
+   - (опционально) `TW_AWS_REGION` — регион для подписи (если требуется), иначе по умолчанию `us-east-1`
+
+### GitHub Actions
+
+В репозитории добавлен workflow `.github/workflows/deploy-timeweb.yml`.
+
+- Триггеры: push в ветку `main` и ручной запуск (workflow_dispatch)
+- Действия: сборка `npm ci && npm run build` и загрузка содержимого `dist/` в бакет Timeweb через `aws s3 sync` с кастомным `--endpoint-url`
+
+После установки секретов изменения будут автоматически публиковаться при каждом пуше в `main`.
+
+### Кеширование (опционально)
+
+Для агрессивного кеширования ассетов (JS/CSS с хешами) и некешируемых HTML можно раскомментировать дополнительные команды в workflow, устанавливающие разные заголовки `Cache-Control`.
+
+## Деплой на Vercel
 
 Этот проект настроен для автоматического деплоя на Vercel. Следуйте этим инструкциям:
 

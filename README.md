@@ -62,7 +62,8 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/450f5dad-b0ec-448b-8c7d-bc48c0708ddb) and click on Share -> Publish.
+- Timeweb Object Storage (static hosting): see `DEPLOY.md` -> "Деплой на Timeweb"
+- Vercel: see `DEPLOY.md` -> "Деплой на Vercel"
 
 ## Can I connect a custom domain to my Lovable project?
 
