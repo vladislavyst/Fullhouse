@@ -158,8 +158,8 @@ const ProjectsShowcase = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg">
-            <Link to="/projects">Все проекты</Link>
+          <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-xl border-2 border-white/20 backdrop-blur-sm font-semibold px-8 py-4 text-lg">
+            <Link to="/projects">Смотреть проекты</Link>
           </Button>
         </div>
       </div>
