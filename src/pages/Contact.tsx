@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+<<<<<<< HEAD
 import { useSEO, seoConfigs } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactSchema from '@/components/ContactSchema';
@@ -42,12 +43,24 @@ const Contact = () => {
         ]} 
       />
       
+=======
+
+const Contact = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-subtle">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6">
+<<<<<<< HEAD
               Контакты строительной компании Fullhouse
+=======
+              Контакты
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Свяжитесь с нами любым удобным способом. Мы работаем 7 дней в неделю 
@@ -74,6 +87,7 @@ const Contact = () => {
                           <div className="bg-accent/10 p-3 rounded-lg">
                             <MapPin className="w-6 h-6 text-accent" />
                           </div>
+<<<<<<< HEAD
                           <div 
                             itemScope 
                             itemType="https://schema.org/PostalAddress"
@@ -82,12 +96,22 @@ const Contact = () => {
                             <p className="text-muted-foreground mb-2">
                               <span itemProp="postalCode">353900</span>, г. <span itemProp="addressLocality">Новороссийск</span><br />
                               <span itemProp="streetAddress">ул. Хворостьянского, 4</span>
+=======
+                          <div>
+                            <h3 className="font-semibold text-primary mb-2">Наш офис</h3>
+                            <p className="text-muted-foreground mb-2">
+                              353900, г. Новороссийск<br />
+                              ул. Хворостьянского, 4
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                             </p>
                             <p className="text-sm text-muted-foreground">
                               2 этаж, офис 205
                             </p>
+<<<<<<< HEAD
                             <meta itemProp="addressRegion" content="Краснодарский край" />
                             <meta itemProp="addressCountry" content="RU" />
+=======
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                           </div>
                         </div>
                       </CardContent>
@@ -99,6 +123,7 @@ const Contact = () => {
                           <div className="bg-accent/10 p-3 rounded-lg">
                             <Phone className="w-6 h-6 text-accent" />
                           </div>
+<<<<<<< HEAD
                           <div 
                             itemScope 
                             itemType="https://schema.org/ContactPoint"
@@ -110,10 +135,17 @@ const Contact = () => {
                                 className="hover:text-accent transition-colors"
                                 itemProp="telephone"
                               >
+=======
+                          <div>
+                            <h3 className="font-semibold text-primary mb-2">Телефоны</h3>
+                            <p className="text-muted-foreground mb-1">
+                              <a href="tel:+78617123456" className="hover:text-accent transition-colors">
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                                 +7 (8617) 12-34-56
                               </a>
                             </p>
                             <p className="text-muted-foreground mb-2">
+<<<<<<< HEAD
                               <a 
                                 href="tel:+79881234567" 
                                 className="hover:text-accent transition-colors"
@@ -125,6 +157,15 @@ const Contact = () => {
                             <meta itemProp="contactType" content="customer service" />
                             <meta itemProp="availableLanguage" content="Russian" />
                             <meta itemProp="areaServed" content="RU" />
+=======
+                              <a href="tel:+79001234567" className="hover:text-accent transition-colors">
+                                +7 (900) 123-45-67
+                              </a>
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              Звонки принимаются 24/7
+                            </p>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                           </div>
                         </div>
                       </CardContent>
@@ -139,6 +180,7 @@ const Contact = () => {
                           <div>
                             <h3 className="font-semibold text-primary mb-2">Email</h3>
                             <p className="text-muted-foreground mb-1">
+<<<<<<< HEAD
                               <a 
                                 href="mailto:info@sk-fullhouse.com" 
                                 className="hover:text-accent transition-colors"
@@ -155,6 +197,20 @@ const Contact = () => {
                                 sales@sk-fullhouse.com
                               </a>
                             </p>
+=======
+                              <a href="mailto:info@fullhouse-nvr.ru" className="hover:text-accent transition-colors">
+                                info@fullhouse-nvr.ru
+                              </a>
+                            </p>
+                            <p className="text-muted-foreground mb-2">
+                              <a href="mailto:sales@fullhouse-nvr.ru" className="hover:text-accent transition-colors">
+                                sales@fullhouse-nvr.ru
+                              </a>
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              Ответим в течение 1 часа
+                            </p>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                           </div>
                         </div>
                       </CardContent>
@@ -166,6 +222,7 @@ const Contact = () => {
                           <div className="bg-accent/10 p-3 rounded-lg">
                             <Clock className="w-6 h-6 text-accent" />
                           </div>
+<<<<<<< HEAD
                           <div 
                             itemScope 
                             itemType="https://schema.org/OpeningHoursSpecification"
@@ -180,6 +237,18 @@ const Contact = () => {
                             <meta itemProp="dayOfWeek" content="Monday Tuesday Wednesday Thursday Friday Saturday Sunday" />
                             <meta itemProp="opens" content="09:00" />
                             <meta itemProp="closes" content="18:00" />
+=======
+                          <div>
+                            <h3 className="font-semibold text-primary mb-2">Часы работы</h3>
+                            <div className="space-y-1 text-muted-foreground">
+                              <p>Пн-Пт: 9:00 - 19:00</p>
+                              <p>Сб: 10:00 - 17:00</p>
+                              <p>Вс: 11:00 - 16:00</p>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-2">
+                              Показы объектов в любое время
+                            </p>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                           </div>
                         </div>
                       </CardContent>
@@ -190,6 +259,7 @@ const Contact = () => {
 
               {/* Contact Form */}
               <div>
+<<<<<<< HEAD
                 <Card className="border-0 shadow-lg">
                   <CardContent className="p-8">
                     <h2 className="text-2xl font-bold text-primary mb-6">
@@ -197,6 +267,15 @@ const Contact = () => {
                     </h2>
                     <p className="text-muted-foreground mb-6">
                       Заполните форму, и мы свяжемся с вами в течение 30 минут
+=======
+                <Card className="border-0 shadow-xl">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-bold text-primary mb-6">
+                      Обратная связь
+                    </h3>
+                    <p className="text-muted-foreground mb-8">
+                      Оставьте ваши контактные данные, и мы свяжемся с вами в течение 15 минут
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                     </p>
                     
                     <form className="space-y-6">
@@ -205,17 +284,28 @@ const Contact = () => {
                           <Label htmlFor="name">Ваше имя *</Label>
                           <Input 
                             id="name"
+<<<<<<< HEAD
                             placeholder="Иван Иванов"
                             required
                           />
                         </div>
                         
+=======
+                            placeholder="Введите ваше имя"
+                            required
+                          />
+                        </div>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                         <div className="space-y-2">
                           <Label htmlFor="phone">Телефон *</Label>
                           <Input 
                             id="phone"
                             type="tel"
+<<<<<<< HEAD
                             placeholder="+7 (999) 123-45-67"
+=======
+                            placeholder="+7 (___) ___-__-__"
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                             required
                           />
                         </div>
@@ -306,6 +396,7 @@ const Contact = () => {
 
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
+<<<<<<< HEAD
                 <div 
                   className="bg-gray-200 rounded-lg h-96 flex items-center justify-center"
                   itemScope 
@@ -323,6 +414,12 @@ const Contact = () => {
                       </span>
                     </p>
                   </div>
+=======
+                <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+                  <p className="text-muted-foreground">
+                    Здесь будет интерактивная карта
+                  </p>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
                 </div>
               </div>
               
@@ -363,6 +460,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
+<<<<<<< HEAD
 
         {/* Map Section */}
         <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -480,6 +578,8 @@ const Contact = () => {
 
         {/* Внутренние ссылки для SEO */}
 
+=======
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       </main>
 
       <Footer />

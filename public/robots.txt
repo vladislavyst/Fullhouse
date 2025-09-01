@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 User-agent: *
 Allow: /
 
@@ -21,3 +22,19 @@ Sitemap: https://sk-fullhouse.com/sitemap.xml
 
 # Время задержки между запросами (в секундах)
 Crawl-delay: 1
+=======
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d

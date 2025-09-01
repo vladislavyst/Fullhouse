@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ShoppingCart, TrendingUp, Calculator, Users, FileText, Check } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useRef, useState } from 'react';
@@ -112,30 +113,52 @@ const Services = () => {
   const services = [
     {
       icon: BuyingIcon,
+=======
+import { ShoppingCart, TrendingUp, Calculator, Users, FileText, Headphones } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+
+const Services = () => {
+  const services = [
+    {
+      icon: ShoppingCart,
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Покупка недвижимости',
       description: 'Поможем найти идеальную квартиру или дом в соответствии с вашими потребностями и бюджетом',
       features: ['Подбор объектов', 'Проверка документов', 'Торг с продавцом', 'Сопровождение сделки']
     },
     {
+<<<<<<< HEAD
       icon: SellingIcon,
+=======
+      icon: TrendingUp,
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Продажа недвижимости',
       description: 'Продадим вашу недвижимость быстро и по максимальной цене с полным юридическим сопровождением',
       features: ['Оценка стоимости', 'Подготовка документов', 'Реклама и показы', 'Безопасная сделка']
     },
     {
+<<<<<<< HEAD
       icon: MortgageIcon,
+=======
+      icon: Calculator,
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Ипотека',
       description: 'Подберем оптимальную ипотечную программу среди 25+ банков-партнеров с лучшими условиями',
       features: ['Расчет ипотеки', '25+ банков-партнеров', 'Ставка от 12%', 'Быстрое одобрение']
     },
     {
+<<<<<<< HEAD
       icon: ConsultationIcon,
+=======
+      icon: Users,
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
       title: 'Консультации',
       description: 'Профессиональные консультации по всем вопросам недвижимости от опытных экспертов',
       features: ['Бесплатная консультация', 'Оценка недвижимости', 'Юридическая помощь', 'Рыночная аналитика']
     }
   ];
 
+<<<<<<< HEAD
   const headerRef = useRef<HTMLDivElement | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
 
@@ -291,10 +314,62 @@ const Services = () => {
               </div>
             );
           })}
+=======
+  return (
+    <section id="services" className="py-20 bg-gradient-subtle">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-accent/10 rounded-full px-4 py-2 text-sm font-medium text-accent mb-4">
+            <Headphones className="w-4 h-4" />
+            <span>Наши услуги</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
+            Полный спектр услуг по недвижимости
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            От поиска до заключения сделки — мы берем на себя все этапы работы с недвижимостью, 
+            обеспечивая безопасность и выгодные условия
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Card 
+              key={index} 
+              className="group hover:shadow-xl transition-all duration-300 border-0 bg-white hover:-translate-y-1"
+            >
+              <CardContent className="p-8">
+                <div className="bg-gradient-accent rounded-xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-8 h-8 text-accent-foreground" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center space-x-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                      <span className="text-muted-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
         </div>
 
         {/* CTA Section */}
         <div className="text-center mt-16">
+<<<<<<< HEAD
           <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
             <div className="pointer-events-none absolute inset-0 opacity-30"
             >
@@ -314,6 +389,22 @@ const Services = () => {
               <Link to="/catalog" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors text-center">
                 Посмотреть каталог
               </Link>
+=======
+          <div className="bg-primary rounded-2xl p-8 lg:p-12 text-white">
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+              Готовы найти недвижимость мечты?
+            </h3>
+            <p className="text-primary-foreground/90 mb-8 text-lg max-w-2xl mx-auto">
+              Получите бесплатную консультацию и подберем лучшие варианты под ваш бюджет
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-accent hover:bg-accent-dark px-8 py-3 rounded-lg font-semibold transition-colors">
+                Получить консультацию
+              </button>
+              <button className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+                Посмотреть каталог
+              </button>
+>>>>>>> 39d3f718b0d8f7b0390d11e523d856b03bc5bd8d
             </div>
           </div>
         </div>
