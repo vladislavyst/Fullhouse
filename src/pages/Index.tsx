@@ -24,9 +24,7 @@ const Index = () => {
           '/LOGO fullhouse.png',
           '/Hero-mobile.jpg'
         ]}
-        preloadVideos={[
-          '/Forest/Forest VID.mp4'
-        ]}
+        preloadVideos={[]}
       />
       <Header />
       <main>

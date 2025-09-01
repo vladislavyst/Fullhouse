@@ -1,5 +1,6 @@
 import { ShoppingCart, TrendingUp, Calculator, Users, FileText, Check } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -219,14 +220,14 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-start space-x-4 mb-6">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
+              <CardContent className="p-8 h-full flex flex-col">
+                <div className="flex items-start space-x-4 mb-4">
                   <div className="bg-blue-100 p-3 rounded-lg w-16 h-16 flex items-center justify-center">
                     <service.icon />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-1">
                       {service.title}
                     </h3>
                     <p className="text-slate-600">
@@ -235,51 +236,11 @@ const Services = () => {
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">Что входит в услугу:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-slate-600">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">Как проходит работа:</h4>
-                    <div className="grid grid-cols-5 gap-2">
-                      {service.process.map((step, idx) => (
-                        <div key={idx} className="text-center">
-                          <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-2">
-                            {idx + 1}
-                          </div>
-                          <p className="text-xs text-slate-600">{step}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {service.banks && (
-                    <div>
-                      <h4 className="font-semibold text-slate-800 mb-3">Банки-партнеры:</h4>
-                      <div className="grid grid-cols-2 gap-3">
-                        {service.banks.map((bank, idx) => (
-                          <div key={idx} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                            <span className="font-medium">{bank.name}</span>
-                            <span className="text-blue-600 font-semibold">{bank.rate}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
+                <div className="mt-auto">
                   <Link to="/contact">
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    <Button className="w-full" size="lg" variant="accent">
                       Получить консультацию
-                    </button>
+                    </Button>
                   </Link>
                 </div>
               </CardContent>

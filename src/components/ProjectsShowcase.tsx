@@ -154,57 +154,7 @@ const ProjectsShowcase = () => {
           ))}
         </div>
 
-        {/* Video Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-800 mb-4">Видео наших проектов</h3>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Посмотрите как выглядят наши дома в реальности
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Forest Residence Video */}
-            <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-200">
-              <h4 className="text-xl font-semibold text-slate-800 mb-4 text-center">
-                🏠 Forest Residence
-              </h4>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  src="https://drive.google.com/file/d/1P3QPwGKBS7xCe-3kvINr030Wyyk44AdA/preview"
-                  width="100%"
-                  height="300"
-                  allow="autoplay"
-                  className="rounded-lg"
-                  title="Forest Residence - Строительная компания Fullhouse"
-                ></iframe>
-              </div>
-              <p className="text-slate-600 text-sm text-center mt-3">
-                Эксклюзивный проект в Новороссийске
-              </p>
-            </div>
-            
-            {/* Lucky House Video */}
-            <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-200">
-              <h4 className="text-xl font-semibold text-slate-800 mb-4 text-center">
-                🏡 Lucky House
-              </h4>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  src="https://drive.google.com/file/d/1Mtu0iRMfUcIj0TPZFP_OR0Krk0lbMX32/preview"
-                  width="100%"
-                  height="300"
-                  allow="autoplay"
-                  className="rounded-lg"
-                  title="Lucky House - Строительная компания Fullhouse"
-                ></iframe>
-              </div>
-              <p className="text-slate-600 text-sm text-center mt-3">
-                Современный дизайн и качество
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* Video Section removed per request */}
 
         {/* CTA */}
         <div className="text-center mt-12">
