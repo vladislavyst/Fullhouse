@@ -1,11 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Clock, Shield, Home, CheckCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const DreamHouses = () => {
-  const { ref: sectionRef, isVisible: isSectionVisible } = useScrollAnimation({ threshold: 0.2, delay: 200 });
-  
   const features = [
     {
       icon: Award,
@@ -40,7 +37,7 @@ const DreamHouses = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
@@ -50,9 +47,7 @@ const DreamHouses = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Main Content */}
-        <div className={`text-center mb-16 transition-all duration-1000 ease-out ${
-          isSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 rounded-full px-6 py-3 text-sm font-medium mb-6 border border-blue-200">
             <Home className="w-5 h-5 text-blue-600" />
             <span className="text-blue-800">Строительная компания</span>
@@ -107,10 +102,7 @@ const DreamHouses = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:scale-105 ${
-                isSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${300 + index * 100}ms` }}
+              className="group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:scale-105"
             >
               <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
                 <feature.icon className="w-8 h-8 text-white" />
@@ -130,9 +122,7 @@ const DreamHouses = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className={`text-center mt-16 transition-all duration-1000 ease-out ${
-          isSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <div className="text-center mt-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-50 to-orange-50 rounded-full px-6 py-3 border border-amber-200 mb-6">
             <Star className="w-5 h-5 text-amber-600" />
             <span className="text-amber-800 font-medium">Гарантированное качество</span>
