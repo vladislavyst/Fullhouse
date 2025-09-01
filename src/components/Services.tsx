@@ -116,88 +116,22 @@ const Services = () => {
     {
       icon: BuyingIcon,
       title: 'Покупка недвижимости',
-      description: 'Полное сопровождение покупки от подбора до получения ключей',
-      features: [
-        'Подбор объектов по вашим критериям',
-        'Организация просмотров в удобное время',
-        'Проверка юридической чистоты документов',
-        'Помощь в торгах и переговорах с продавцом',
-        'Сопровождение сделки в МФЦ или у нотариуса',
-        'Помощь в оформлении коммунальных услуг'
-      ],
-      process: [
-        'Консультация и определение потребностей',
-        'Подбор подходящих вариантов',
-        'Организация просмотров',
-        'Проверка документов',
-        'Оформление сделки'
-      ]
+      description: 'Полное сопровождение от подбора до получения ключей'
     },
     {
       icon: SellingIcon,
       title: 'Продажа недвижимости',
-      description: 'Продадим вашу недвижимость быстро и по максимальной цене',
-      features: [
-        'Профессиональная оценка рыночной стоимости',
-        'Подготовка документов для продажи',
-        'Фотосъемка и создание рекламных материалов',
-        'Размещение на всех популярных площадках',
-        'Организация показов потенциальным покупателям',
-        'Ведение переговоров и заключение сделки'
-      ],
-      process: [
-        'Оценка недвижимости',
-        'Подготовка к продаже',
-        'Реклама и продвижение',
-        'Показы покупателям',
-        'Заключение сделки'
-      ]
+      description: 'Быстрая продажа по максимальной цене'
     },
     {
       icon: MortgageIcon,
       title: 'Ипотечное кредитование',
-      description: 'Поможем получить ипотеку на лучших условиях',
-      features: [
-        'Работа с 25+ банками-партнерами',
-        'Ставки от 12% годовых',
-        'Первоначальный взнос от 10%',
-        'Помощь в сборе документов',
-        'Подача заявок во все банки одновременно',
-        'Сопровождение до получения средств'
-      ],
-      process: [
-        'Консультация по программам',
-        'Подбор оптимального банка',
-        'Подготовка документов',
-        'Подача заявки',
-        'Получение одобрения'
-      ],
-      banks: [
-        { name: 'Сбербанк', rate: 'от 12%' },
-        { name: 'ВТБ', rate: 'от 12.5%' },
-        { name: 'Альфа-банк', rate: 'от 13%' },
-        { name: 'Газпромбанк', rate: 'от 13.2%' }
-      ]
+      description: 'Лучшие условия от 25+ банков-партнеров'
     },
     {
       icon: ConsultationIcon,
       title: 'Консультационные услуги',
-      description: 'Экспертные консультации по всем вопросам недвижимости',
-      features: [
-        'Оценка рыночной стоимости недвижимости',
-        'Анализ инвестиционной привлекательности',
-        'Юридическое сопровождение сделок',
-        'Консультации по налогообложению',
-        'Помощь в решении спорных вопросов',
-        'Рекомендации по оптимизации инвестиций'
-      ],
-      process: [
-        'Анализ вашей ситуации',
-        'Разработка стратегии',
-        'Предоставление рекомендаций',
-        'Сопровождение реализации',
-        'Контроль результата'
-      ]
+      description: 'Экспертные консультации по недвижимости'
     }
   ];
 
@@ -218,27 +152,25 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
-              <CardContent className="p-8 h-full flex flex-col">
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="bg-blue-100 p-3 rounded-lg w-16 h-16 flex items-center justify-center">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white h-full">
+              <CardContent className="p-6 h-full flex flex-col">
+                <div className="text-center mb-4">
+                  <div className="bg-blue-100 p-4 rounded-lg w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <service.icon />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-1">
-                      {service.title}
-                    </h3>
-                    <p className="text-slate-600">
-                      {service.description}
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm">
+                    {service.description}
+                  </p>
                 </div>
 
                 <div className="mt-auto">
                   <Link to="/contact">
-                    <Button className="w-full" size="lg" variant="accent">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300" size="sm">
                       Получить консультацию
                     </Button>
                   </Link>
@@ -249,17 +181,11 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold text-slate-800 mb-6">
-            Нужна помощь с недвижимостью?
-          </h3>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            Оставьте заявку и мы свяжемся с вами в течение 15 минут
-          </p>
+        <div className="text-center mt-12">
           <Link to="/contact">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-              Оставить заявку
-            </button>
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-8 py-4 shadow-xl">
+              Получить бесплатную консультацию
+            </Button>
           </Link>
         </div>
       </div>
