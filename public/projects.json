@@ -1,0 +1,672 @@
+[
+  {
+    "title": "Алстен",
+    "slug": "alsten",
+    "price": "от 14 087 500 руб.",
+    "area": "275 м²",
+    "buildingArea": "500 м²",
+    "terracesArea": "134 м²",
+    "floors": 1,
+    "width": "21,15м",
+    "length": "27,85м",
+    "stats": {
+      "bathrooms": 3,
+      "garage": 1,
+      "bedrooms": 4,
+      "wardrobes": 3
+    },
+    "size": "27,85 × 21,15",
+    "buildTime": "от 7 мес.",
+    "imageUrl": "/projects/alsten/alsten-01.jpg",
+    "gallery": [
+      "/projects/alsten/alsten-01.jpg",
+      "/projects/alsten/alsten-02.jpg",
+      "/projects/alsten/alsten-03.jpg",
+      "/projects/alsten/alsten-04.jpg",
+      "/projects/alsten/alsten-05.jpg",
+      "/projects/alsten/alsten-06.jpg",
+      "/projects/alsten/alsten-07.jpg",
+      "/projects/alsten/alsten-08.jpg"
+    ],
+    "plans": [
+      "/projects/alsten/alsten-08.jpg"
+    ],
+    "about": "Современный одноэтажный дом с продуманной планировкой, просторными светлыми зонами и акцентом на энергоэффективность и комфорт. Проект Алстен предлагает четыре спальни с тремя гардеробными, три санузла и встроенный гараж. Просторная кухня-гостиная с выходом на террасу создает идеальное пространство для семейного отдыха. Качественные материалы и лаконичная архитектура делают проект Алстен актуальным, функциональным и энергоэффективным.",
+    "url": ""
+  },
+  {
+    "title": "Пескара",
+    "slug": "peskara",
+    "price": "от 16 320 035 руб.",
+    "area": "296,94 м²",
+    "buildingArea": "300 м²",
+    "terracesArea": "70 м²",
+    "size": "13,5 × 24,6",
+    "buildTime": "от 7 мес.",
+    "floors": 2,
+    "width": "24,6м",
+    "length": "13,5м",
+    "imageUrl": "/projects/peskara/peskara-03.jpg",
+    "gallery": [
+      "/projects/peskara/peskara-01.jpg",
+      "/projects/peskara/peskara-02.jpg",
+      "/projects/peskara/peskara-03.jpg",
+      "/projects/peskara/peskara-04.jpg",
+      "/projects/peskara/peskara-05.jpg",
+      "/projects/peskara/peskara-06.jpg"
+    ],
+    "plans": [],
+    "stats": {
+      "garage": 1,
+      "wardrobes": 2,
+      "bedrooms": 5,
+      "bathrooms": 4
+    },
+    "about": "Современный двухэтажный дом в стиле хай-тек с преобладанием прямых линий, стеклянных поверхностей и минималистичного дизайна. Проект Пескара сочетает уют и функциональность. На первом этаже расположена общая зона с просторной гостиной и кухней-столовой, где легко помещается большая компания. Огромная терраса площадью 70 м² предлагает прекрасный вид и идеальное место для отдыха и барбекю. Приватная зона на втором этаже включает мастер-спальню с собственным санузлом, три дополнительные спальни, гардеробную и общий санузел. Дом создает прекрасное пространство для семейного отдыха и повседневной жизни.",
+    "url": "",
+    "planVariants": [
+      "/projects/peskara/plan-variant-01.jpg",
+      "/projects/peskara/plan-variant-02.jpg",
+      "/projects/peskara/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "title": "Гавана",
+    "slug": "gavana",
+    "price": "от 6 155 000 руб.",
+    "area": "130 м²",
+    "size": "12,1 × 20,8",
+    "buildTime": "от 4 мес.",
+    "imageUrl": "/projects/gavana/gavana-01.jpg",
+    "gallery": [
+      "/projects/gavana/gavana-01.jpg",
+      "/projects/gavana/gavana-02.jpg",
+      "/projects/gavana/gavana-03.jpg",
+      "/projects/gavana/gavana-04.jpg",
+      "/projects/gavana/gavana-05.jpg",
+      "/projects/gavana/gavana-06.jpg",
+      "/projects/gavana/gavana-07.jpg",
+      "/projects/gavana/gavana-08.jpg",
+      "/projects/gavana/gavana-09.jpg",
+      "/projects/gavana/gavana-10.jpg",
+      "/projects/gavana/gavana-11.jpg"
+    ],
+    "plans": [
+      "/projects/gavana/plan-01.jpg"
+    ],
+    "about": "Гармонично сконструированный одноэтажный дом для семьи из 4-х человек, где простор обеспечен каждому. Проект Гавана отличается продуманной планировкой с удобным входом через крыльцо. Прихожая служит функциональным пространством для верхней одежды и обуви. Из объединенной кухни-гостиной можно выйти на террасу, которая также служит вторым входом в дом. В доме три просторные спальни с гардеробными, две ванные комнаты и котельная с дополнительным входом, удобным в непогоду. Планировка отличается логичностью и комфортом для всей семьи.",
+    "url": "",
+    "floors": 1,
+    "planVariants": [
+      "/projects/gavana/plan-variant-01.jpg",
+      "/projects/gavana/plan-variant-02.jpg",
+      "/projects/gavana/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 3
+    }
+  },
+  {
+    "title": "Окленд",
+    "slug": "oklend",
+    "price": "от 14 087 500 руб.",
+    "area": "250 м²",
+    "size": "17 × 25",
+    "buildTime": "от 7 мес.",
+    "imageUrl": "/projects/oklend/oklend-01.jpg",
+    "gallery": [
+      "/projects/oklend/oklend-01.jpg",
+      "/projects/oklend/oklend-02.jpg",
+      "/projects/oklend/oklend-03.jpg",
+      "/projects/oklend/oklend-04.jpg",
+      "/projects/oklend/oklend-05.jpg",
+      "/projects/oklend/oklend-06.jpg",
+      "/projects/oklend/oklend-07.jpg",
+      "/projects/oklend/oklend-08.jpg"
+    ],
+    "plans": [],
+    "about": "Практичный и максимально эксплуатируемый по площади одноэтажный дом с минималистичным, но стильным внешним видом. Проект Окленд предлагает функциональную планировку с четырьмя спальнями, тремя санузлами и просторной кухней-гостиной. Фасад выполнен в современном стиле с использованием фасадной штукатурки в двух светлых оттенках и фиброцементных плит под дерево, которые плавно переходят в ограждения на эксплуатируемой кровле. Такое решение подчеркивает геометрию дома и придает ему легкость и элегантность.",
+    "url": "",
+    "buildingArea": "425 м²",
+    "floors": 1,
+    "planVariants": [
+      "/projects/oklend/plan-variant-01.jpg",
+      "/projects/oklend/plan-variant-02.jpg",
+      "/projects/oklend/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 4,
+      "wardrobes": 2,
+      "livingRooms": 1
+    }
+  },
+  {
+    "title": "Мурано",
+    "slug": "murano",
+    "price": "от 12 664 500 руб.",
+    "area": "237 м²",
+    "size": "19,1 × 28,5",
+    "buildTime": "от 7 мес.",
+    "imageUrl": "/projects/murano/murano-01.jpg",
+    "gallery": [
+      "/projects/murano/murano-01.jpg",
+      "/projects/murano/murano-02.jpg",
+      "/projects/murano/murano-03.jpg",
+      "/projects/murano/murano-04.jpg",
+      "/projects/murano/murano-05.jpg",
+      "/projects/murano/murano-06.jpg",
+      "/projects/murano/murano-07.jpg",
+      "/projects/murano/murano-08.jpg"
+    ],
+    "plans": [],
+    "about": "Элегантный двухэтажный дом в стиле современной классики. Проект Мурано сочетает в себе функциональность и стиль, предлагая просторные жилые зоны и приватные спальные помещения. На первом этаже расположена просторная кухня-гостиная с выходом на террасу, кабинет и технические помещения. Второй этаж отведен под приватную зону с тремя спальнями, включая мастер-спальню с гардеробной. Встроенный гараж на два автомобиля обеспечивает удобство парковки. Фасад выполнен в современном стиле с использованием качественных материалов и продуманной архитектуры.",
+    "url": "",
+    "planVariants": [
+      "/projects/murano/plan-variant-01.jpg",
+      "/projects/murano/plan-variant-02.jpg",
+      "/projects/murano/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 3,
+      "wardrobes": 3,
+      "garage": 1
+    }
+  },
+  {
+    "title": "Родос",
+    "slug": "rodos",
+    "price": "от 8 563 650 руб.",
+    "area": "167 м²",
+    "size": "14,8 × 17,1",
+    "buildTime": "от 5 мес.",
+    "imageUrl": "/projects/rodos/rodos-01.jpg",
+    "gallery": [
+      "/projects/rodos/rodos-01.jpg",
+      "/projects/rodos/rodos-02.jpg",
+      "/projects/rodos/rodos-03.jpg",
+      "/projects/rodos/rodos-04.jpg",
+      "/projects/rodos/rodos-05.jpg",
+      "/projects/rodos/rodos-06.jpg",
+      "/projects/rodos/rodos-07.jpg",
+      "/projects/rodos/rodos-08.jpg",
+      "/projects/rodos/rodos-09.jpg",
+      "/projects/rodos/rodos-10.jpg"
+    ],
+    "plans": [],
+    "about": "Современный одноэтажный дом в стиле хай-тек с тремя спальнями и уникальной архитектурной особенностью. Проект Родос отличается увеличенной высотой стен в зоне кухни-гостиной, за счет которой создается визуальная многоуровневость фасада. Комбинированная отделка с интегрированной светодиодной подсветкой отражает современные тенденции в архитектуре. В доме также есть встроенный гараж, две ванные комнаты и просторная терраса площадью 110 м². Планировка отличается функциональностью и комфортом для семьи.",
+    "url": "",
+    "buildingArea": "300 м²",
+    "terracesArea": "110 м²",
+    "floors": 1,
+    "planVariants": [
+      "/projects/rodos/plan-variant-01.jpg",
+      "/projects/rodos/plan-variant-02.jpg",
+      "/projects/rodos/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 3,
+      "wardrobes": 1,
+      "garage": 1,
+      "livingRooms": 1
+    }
+  },
+  {
+    "title": "Авиньон",
+    "slug": "avignon",
+    "price": "от 7 788 000 руб.",
+    "area": "168 м²",
+    "size": "15,1 × 18,9",
+    "buildTime": "от 6 мес.",
+    "imageUrl": "/projects/avignon/avignon-01.png",
+    "gallery": [
+      "/projects/avignon/avignon-01.png",
+      "/projects/avignon/avignon-02.png",
+      "/projects/avignon/avignon-03.png",
+      "/projects/avignon/avignon-04.png",
+      "/projects/avignon/avignon-05.png",
+      "/projects/avignon/avignon-06.jpg",
+      "/projects/avignon/avignon-07.jpg",
+      "/projects/avignon/avignon-08.jpg",
+      "/projects/avignon/avignon-09.jpg",
+      "/projects/avignon/avignon-10.jpg",
+      "/projects/avignon/avignon-11.jpg",
+      "/projects/avignon/avignon-12.jpg",
+      "/projects/avignon/avignon-13.jpg",
+      "/projects/avignon/avignon-14.jpg"
+    ],
+    "plans": [],
+    "about": "Современный одноэтажный дом с выразительной архитектурой и атмосферой уюта. Проект Авиньон отличается сбалансированным фасадом: тёмный облицовочный кирпич со светлой штукатуркой создаёт контрастную композицию. Вальмовая крыша с черепицей дополняет образ солидного дома. Планировка включает кухню-гостиную с выходом на крытую террасу, две спальни, два санузла, кабинет, гардеробную, котельную и встроенный гараж. Дом идеально подойдёт для семьи из 3–5 человек, обеспечивая комфорт и функциональность.",
+    "url": "",
+    "buildingArea": "245 м²",
+    "floors": 1,
+    "planVariants": [
+      "/projects/avignon/plan-variant-01.jpg",
+      "/projects/avignon/plan-variant-02.jpg",
+      "/projects/avignon/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 2,
+      "wardrobes": 1,
+      "garage": 1,
+      "livingRooms": 1,
+      "office": 1
+    }
+  },
+  {
+    "title": "Лион",
+    "slug": "lyon",
+    "price": "от 12 908 000 руб.",
+    "area": "288 м²",
+    "size": "13,75 × 22,12",
+    "buildTime": "от 6 мес.",
+    "imageUrl": "/projects/lyon/lyon-01.png",
+    "gallery": [
+      "/projects/lyon/lyon-01.png",
+      "/projects/lyon/lyon-02.png",
+      "/projects/lyon/lyon-03.png",
+      "/projects/lyon/lyon-04.png",
+      "/projects/lyon/lyon-05.jpg",
+      "/projects/lyon/lyon-06.jpg",
+      "/projects/lyon/lyon-07.jpg",
+      "/projects/lyon/lyon-08.jpg",
+      "/projects/lyon/lyon-09.jpg",
+      "/projects/lyon/lyon-10.jpg",
+      "/projects/lyon/lyon-11.jpg",
+      "/projects/lyon/lyon-12.jpg",
+      "/projects/lyon/lyon-13.jpg",
+      "/projects/lyon/lyon-14.jpg",
+      "/projects/lyon/lyon-15.jpg"
+    ],
+    "plans": [],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 5,
+      "garage": 1,
+      "wardrobes": 1,
+      "livingRooms": 1,
+      "office": 1
+    },
+    "about": "Величественный двухэтажный дом в стиле современной архитектуры. Проект Лион предлагает роскошное пространство для большой семьи с пятью спальнями и просторными жилыми зонами. На первом этаже расположена просторная кухня-гостиная с выходом на террасу, кабинет для работы и технические помещения. Второй этаж полностью отведен под приватную зону с пятью спальнями, включая мастер-спальню с гардеробной. Встроенный гараж обеспечивает удобство парковки. Фасад выполнен в современном стиле с использованием качественных материалов, больших окон и продуманной архитектуры.",
+    "url": "",
+    "buildingArea": "265 м²",
+    "terracesArea": "49 м²",
+    "floors": 2,
+    "planVariants": [
+      "/projects/lyon/plan-variant-01.jpg",
+      "/projects/lyon/plan-variant-02.jpg",
+      "/projects/lyon/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "title": "Верона",
+    "slug": "verona",
+    "price": "от 13 550 000 руб.",
+    "area": "300 м²",
+    "size": "16,25 × 23,85",
+    "buildTime": "от 6 мес.",
+    "imageUrl": "/projects/verona/verona-01.jpg",
+    "gallery": [
+      "/projects/verona/verona-01.jpg",
+      "/projects/verona/verona-02.png",
+      "/projects/verona/verona-03.jpg",
+      "/projects/verona/verona-04.jpg",
+      "/projects/verona/verona-05.jpg",
+      "/projects/verona/verona-06.jpg",
+      "/projects/verona/verona-07.jpg",
+      "/projects/verona/verona-08.jpg",
+      "/projects/verona/verona-09.jpg"
+    ],
+    "plans": [],
+    "about": "Выразительный двухэтажный дом в стиле Райта с общей площадью более 300 м². Проект Верона предлагает роскошное пространство с гаражом на два автомобиля, кабинетом, просторной кухней-гостиной, кладовыми и техническими помещениями. На первом этаже расположены кухня 20 м² и гостиная 34 м² с выходом на крытую террасу 52 м², кабинет, санузел, котельная, прачечная, гардероб и гараж. На втором этаже находится приватная зона с четырьмя спальнями, гардеробной и двумя санузлами. Светлые фасады с тёплыми вставками под дерево и широкими окнами создают гармонию формы и содержания для статусного и функционального дома.",
+    "url": "",
+    "buildingArea": "264 м²",
+    "terracesArea": "107 м²",
+    "floors": 2,
+    "planVariants": [
+      "/projects/verona/plan-variant-01.jpg",
+      "/projects/verona/plan-variant-02.jpg",
+      "/projects/verona/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 4,
+      "wardrobes": 1,
+      "garage": 1,
+      "livingRooms": 1,
+      "office": 1
+    }
+  },
+  {
+    "title": "Ливадия",
+    "slug": "livadia",
+    "price": "от 8 616 450 руб.",
+    "area": "194,7 м²",
+    "size": "12,6 × 12,8",
+    "buildTime": "от 6 мес.",
+    "imageUrl": "/projects/livadia/livadia-01.jpg",
+    "gallery": [
+      "/projects/livadia/livadia-01.jpg",
+      "/projects/livadia/livadia-02.jpg",
+      "/projects/livadia/livadia-03.jpg",
+      "/projects/livadia/livadia-04.jpg",
+      "/projects/livadia/livadia-05.jpg",
+      "/projects/livadia/livadia-06.jpg",
+      "/projects/livadia/livadia-07.jpg"
+    ],
+    "plans": [],
+    "about": "Величественный двухэтажный дом в стиле Райта с уникальной архитектурной особенностью — вторым светом в объединённой зоне гостиной, кухни и столовой. Проект Ливадия создает ощущение простора и роскоши. На первом этаже расположены кухня, столовая, гостиная с выходом на террасу и дополнительная спальня. На втором этаже находится мастер-спальня с гардеробной и балконом, две дополнительные спальни и общий санузел. Встроенный гараж обеспечивает удобство парковки. Фасад выполнен в стиле Райта с использованием качественных материалов и изысканной архитектуры.",
+    "url": "",
+    "buildingArea": "310 м²",
+    "terracesArea": "35 м²",
+    "floors": 2,
+    "planVariants": [
+      "/projects/livadia/plan-variant-01.jpg",
+      "/projects/livadia/plan-variant-02.jpg",
+      "/projects/livadia/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 4,
+      "wardrobes": 1,
+      "garage": 1,
+      "livingRooms": 1
+    }
+  },
+  {
+    "title": "Лаваль",
+    "slug": "laval",
+    "price": "от 12 538 850 руб.",
+    "area": "281,1 м²",
+    "size": "26,3 × 16,75",
+    "buildTime": "",
+    "imageUrl": "/projects/laval/laval-01.jpg",
+    "gallery": [
+      "/projects/laval/laval-01.jpg",
+      "/projects/laval/laval-02.jpg",
+      "/projects/laval/laval-03.jpg",
+      "/projects/laval/laval-04.jpg",
+      "/projects/laval/laval-05.jpg",
+      "/projects/laval/laval-06.jpg",
+      "/projects/laval/laval-07.jpg",
+      "/projects/laval/laval-08.jpg",
+      "/projects/laval/laval-09.jpg",
+      "/projects/laval/laval-10.jpg",
+      "/projects/laval/laval-11.jpg",
+      "/projects/laval/laval-12.jpg",
+      "/projects/laval/laval-13.jpg",
+      "/projects/laval/laval-14.jpg"
+    ],
+    "plans": [],
+    "about": "Просторный двухэтажный дом для большой семьи, создающий ощущение свободы и комфорта. Проект Лаваль предлагает четыре спальни (одна специально спроектирована для двух детей), кабинет, три санузла и большую гостиную, совмещенную с кухней-столовой. Планировка отличается продуманностью: все помещения расположены логично, обеспечивая максимальный комфорт для большой семьи. Фасад выполнен в современном стиле с использованием качественных материалов, больших окон и продуманной архитектуры, создавая много воздуха, света и ощущение свободы.",
+    "url": "",
+    "buildingArea": "330 м²",
+    "terracesArea": "90 м²",
+    "floors": 2,
+    "width": "26,3 м",
+    "length": "16,75 м",
+    "planVariants": [
+      "/projects/laval/plan-variant-01.jpg",
+      "/projects/laval/plan-variant-02.jpg",
+      "/projects/laval/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 4,
+      "livingRooms": 1
+    }
+  },
+  {
+    "title": "Терамо",
+    "slug": "teramo",
+    "price": "от 7 867 500 руб.",
+    "area": "155 м²",
+    "size": "21,5 × 13,4",
+    "buildTime": "от 7 мес.",
+    "imageUrl": "/projects/teramo/teramo-01.jpg",
+    "gallery": [
+      "/projects/teramo/teramo-01.jpg",
+      "/projects/teramo/teramo-02.jpg",
+      "/projects/teramo/teramo-03.jpg",
+      "/projects/teramo/teramo-04.jpg",
+      "/projects/teramo/teramo-05.jpg",
+      "/projects/teramo/teramo-06.jpg",
+      "/projects/teramo/teramo-07.jpg",
+      "/projects/teramo/teramo-08.jpg",
+      "/projects/teramo/teramo-09.jpg",
+      "/projects/teramo/teramo-10.jpg"
+    ],
+    "plans": [],
+    "stats": {
+      "bathrooms": 4,
+      "bedrooms": 3,
+      "wardrobes": 1,
+      "livingRooms": 1
+    },
+    "about": "Современный одноэтажный дом в стиле хай-тек для большой семьи. Проект Терамо предлагает функциональное пространство с мастер-спальней, двумя дополнительными спальнями, кабинетом и четырьмя санузлами. Общая зона включает просторную кухню-столовую с выходом на крыльцо и гостиную. Все зоны объединяет большая терраса площадью 63,24 м², идеально подходящая для отдыха и развлечений. Планировка отличается рациональностью и комфортом для проживания большой семьи.",
+    "url": "",
+    "buildingArea": "255 м²",
+    "terracesArea": "63,24 м²",
+    "floors": 1,
+    "planVariants": [
+      "/projects/teramo/plan-variant-01.jpg",
+      "/projects/teramo/plan-variant-02.jpg",
+      "/projects/teramo/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "title": "Джакарта",
+    "slug": "jakarta",
+    "price": "от 10 048 645 руб.",
+    "area": "221,47 м²",
+    "size": "14 × 18",
+    "buildTime": "",
+    "imageUrl": "/projects/jakarta/jakarta-01.jpg",
+    "gallery": [
+      "/projects/jakarta/jakarta-01.jpg",
+      "/projects/jakarta/jakarta-02.jpg",
+      "/projects/jakarta/jakarta-03.jpg",
+      "/projects/jakarta/jakarta-04.jpg",
+      "/projects/jakarta/jakarta-05.jpg",
+      "/projects/jakarta/jakarta-06.jpg"
+    ],
+    "plans": [],
+    "about": "Элегантный двухэтажный дом в стиле Райта, идеально подходящий для семьи с детьми. Проект Джакарта предлагает продуманную планировку с разделением на приватную и общую зоны. На втором этаже расположены три спальни и два санузла, обеспечивая уединение для всех членов семьи. Первый этаж включает одну спальню для старших родственников или гостей, просторную кухню-гостиную, кладовую, санузел и бойлерную. Встроенный гараж обеспечивает удобство парковки. Фасад выполнен в стиле Райта с использованием качественных материалов и продуманной архитектуры.",
+    "url": "",
+    "buildingArea": "215,32 м²",
+    "terracesArea": "43,40 м²",
+    "floors": 2,
+    "width": "14 м",
+    "length": "18 м",
+    "planVariants": [
+      "/projects/jakarta/plan-variant-01.jpg",
+      "/projects/jakarta/plan-variant-02.jpg",
+      "/projects/jakarta/plan-variant-03.jpg"
+    ],
+    "stats": {
+      "bathrooms": 3,
+      "bedrooms": 4,
+      "wardrobes": 2,
+      "garage": 1,
+      "livingRooms": 1
+    }
+  },
+  {
+    "title": "Барселона",
+    "slug": "barcelona",
+    "price": "от 10 000 035 руб.",
+    "area": "250 м²",
+    "size": "17,4 × 12,8",
+    "buildTime": "от 7 мес.",
+    "imageUrl": "/projects/barcelona/barcelona-01.jpg",
+    "gallery": [
+      "/projects/barcelona/barcelona-01.jpg",
+      "/projects/barcelona/barcelona-02.jpg",
+      "/projects/barcelona/barcelona-03.jpg",
+      "/projects/barcelona/barcelona-04.jpg",
+      "/projects/barcelona/barcelona-05.jpg",
+      "/projects/barcelona/barcelona-06.jpg",
+      "/projects/barcelona/barcelona-07.jpg",
+      "/projects/barcelona/barcelona-08.jpg",
+      "/projects/barcelona/barcelona-09.jpg",
+      "/projects/barcelona/barcelona-10.jpg",
+      "/projects/barcelona/barcelona-11.jpg"
+    ],
+    "plans": [],
+    "stats": {
+      "bedrooms": 3,
+      "wardrobes": 2,
+      "bathrooms": 2,
+      "livingRooms": 1
+    },
+    "about": "Элегантный двухэтажный дом в стиле классической архитектуры. Проект Барселона предлагает роскошное пространство для семьи с тремя спальнями и двумя гардеробными. На первом этаже расположена просторная кухня-гостиная с выходом на террасу, технические помещения и санузел. Второй этаж отведен под приватную зону с тремя спальнями. Фасад выполнен в классическом стиле с использованием качественных материалов, элегантных пропорций и изысканной архитектуры. Терраса площадью 50 м² идеально подходит для отдыха на свежем воздухе.",
+    "url": "",
+    "buildingArea": "190 м²",
+    "terracesArea": "50 м²",
+    "floors": 2,
+    "planVariants": [
+      "/projects/barcelona/plan-variant-01.jpg",
+      "/projects/barcelona/plan-variant-02.jpg",
+      "/projects/barcelona/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Хазелтон",
+    "slug": "hazelton",
+    "price": "от 8 500 000 ₽",
+    "area": "302,02 м²",
+    "buildingArea": "430 м²",
+    "terracesArea": "177 м²",
+    "floors": 2,
+    "width": "19 м",
+    "length": "34,6 м",
+    "buildTime": "от 8 мес.",
+    "about": "Роскошный двухэтажный дом в стиле современной классики. Проект Хазелтон предлагает элитное пространство для требовательной семьи с тремя просторными спальнями и роскошными жилыми зонами. На первом этаже расположена просторная кухня-гостиная с выходом на большую террасу, кабинет и технические помещения. Второй этаж отведен под приватную зону с тремя спальнями, включая мастер-спальню с гардеробной. Встроенный гараж обеспечивает удобство парковки. Фасад выполнен в элегантном стиле с использованием премиальных материалов и изысканной архитектуры.",
+    "imageUrl": "/projects/hazelton/hazelton-01.jpg",
+    "gallery": [
+      "/projects/hazelton/hazelton-01.jpg",
+      "/projects/hazelton/hazelton-02.jpg",
+      "/projects/hazelton/hazelton-03.jpg",
+      "/projects/hazelton/hazelton-04.jpg",
+      "/projects/hazelton/hazelton-05.jpg",
+      "/projects/hazelton/hazelton-06.jpg",
+      "/projects/hazelton/hazelton-07.jpg",
+      "/projects/hazelton/hazelton-08.jpg"
+    ],
+    "stats": {
+      "bathrooms": 4,
+      "bedrooms": 3,
+      "wardrobes": 1,
+      "garage": 1,
+      "livingRooms": 1
+    },
+    "planVariants": [
+      "/projects/hazelton/plan-variant-01.jpg",
+      "/projects/hazelton/plan-variant-02.jpg",
+      "/projects/hazelton/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Пекин",
+    "slug": "beijing",
+    "price": "от 6 200 000 ₽",
+    "area": "120 м²",
+    "buildingArea": "185 м²",
+    "terracesArea": "22 м²",
+    "floors": 1,
+    "buildTime": "от 5 мес.",
+    "about": "Уютный одноэтажный дом в стиле минимализм. Проект Пекин идеально подходит для небольшой семьи, предлагая компактную, но функциональную планировку. В доме три спальни, просторная кухня-гостиная с выходом на террасу и два санузла. Планировка продумана до мелочей: все помещения расположены логично, обеспечивая максимальный комфорт при минимальных затратах. Фасад выполнен в современном стиле с использованием качественных материалов и лаконичного дизайна.",
+    "imageUrl": "/projects/beijing/beijing-01.jpg",
+    "gallery": [
+      "/projects/beijing/beijing-01.jpg",
+      "/projects/beijing/beijing-02.jpg",
+      "/projects/beijing/beijing-03.jpg",
+      "/projects/beijing/beijing-04.jpg",
+      "/projects/beijing/beijing-05.jpg",
+      "/projects/beijing/beijing-06.jpg",
+      "/projects/beijing/beijing-07.jpg",
+      "/projects/beijing/beijing-08.jpg",
+      "/projects/beijing/beijing-09.jpg"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 3,
+      "livingRooms": 1
+    },
+    "planVariants": [
+      "/projects/beijing/plan-variant-01.jpg",
+      "/projects/beijing/plan-variant-02.jpg",
+      "/projects/beijing/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Бату",
+    "slug": "batu",
+    "price": "от 5 800 000 ₽",
+    "area": "199 м²",
+    "buildingArea": "271 м²",
+    "terracesArea": "27 м²",
+    "floors": 1,
+    "buildTime": "от 6 мес.",
+    "about": "Современный одноэтажный дом в стиле хай-тек. Проект Бату предлагает стильное и функциональное пространство для семьи с тремя спальнями. В доме просторная кухня-гостиная с выходом на террасу, две ванные комнаты и встроенный гараж. Планировка отличается рациональностью: все помещения расположены удобно, обеспечивая комфортное проживание. Фасад выполнен в современном стиле с использованием качественных материалов, больших окон и продуманной архитектуры.",
+    "imageUrl": "/projects/batu/batu-01.png",
+    "gallery": [
+      "/projects/batu/batu-01.png",
+      "/projects/batu/batu-02.png",
+      "/projects/batu/batu-03.png",
+      "/projects/batu/batu-04.png"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 3,
+      "garage": 1,
+      "livingRooms": 1
+    },
+    "planVariants": [
+      "/projects/batu/plan-variant-01.jpg",
+      "/projects/batu/plan-variant-02.jpg",
+      "/projects/batu/plan-variant-03.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Ното",
+    "slug": "noto",
+    "price": "от 9 897 450 ₽",
+    "area": "189,7 м²",
+    "buildingArea": "270 м²",
+    "terracesArea": "42 м²",
+    "floors": 1,
+    "width": "15,3 м",
+    "length": "20,2 м",
+    "buildTime": "от 4 мес.",
+    "about": "Элегантный одноэтажный дом в стиле современной классики. Проект Ното предлагает роскошное пространство для семьи с тремя спальнями и тремя гардеробными. В доме просторная кухня-гостиная с выходом на террасу, встроенный гараж и технические помещения. Планировка отличается продуманностью: все помещения расположены логично, обеспечивая максимальный комфорт. Фасад выполнен в элегантном стиле с использованием премиальных материалов и изысканной архитектуры.",
+    "imageUrl": "/projects/noto/noto-01.jpg",
+    "gallery": [
+      "/projects/noto/noto-01.jpg",
+      "/projects/noto/noto-02.png"
+    ],
+    "stats": {
+      "bathrooms": 2,
+      "bedrooms": 3,
+      "wardrobes": 3,
+      "garage": 1,
+      "livingRooms": 1
+    },
+    "planVariants": [
+      "/projects/noto/plan-variant-01.jpg",
+      "/projects/noto/plan-variant-02.jpg",
+      "/projects/noto/plan-variant-03.jpg"
+    ],
+    "constructionTime": "от 4 мес.",
+    "designCost": "от 1000 р/м²",
+    "mortgagePayment": "от 47 472 руб/мес"
+  }
+]
