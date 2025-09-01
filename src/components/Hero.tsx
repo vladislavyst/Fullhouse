@@ -52,7 +52,7 @@ const Hero = () => {
 
       {/* Content */}
       <div ref={heroRef} className="relative z-10 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-12 items-center">
           {/* Left Column - Main Content */}
           <div className={`text-white bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-white/20 transition-all duration-1000 ease-out ${
             isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -82,7 +82,7 @@ const Hero = () => {
               </Link>
               
               <Link to="/projects">
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                <Button size="lg" className="bg-white text-slate-900 hover:bg-white/90 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0">
                   Смотреть проекты
                 </Button>
               </Link>
@@ -104,29 +104,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Video */}
-          <div className={`transition-all duration-1000 ease-out delay-300 ${
-            isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-white text-xl font-semibold mb-4 text-center">
-                🏠 Видео проекта Forest Residence
-              </h3>
-              <div className="relative rounded-lg overflow-hidden shadow-2xl">
-                <iframe
-                  src="https://drive.google.com/file/d/1P3QPwGKBS7xCe-3kvINr030Wyyk44AdA/preview"
-                  width="100%"
-                  height="300"
-                  allow="autoplay"
-                  className="rounded-lg"
-                  title="Forest Residence - Строительная компания Fullhouse"
-                ></iframe>
-              </div>
-              <p className="text-white/80 text-sm text-center mt-3">
-                Эксклюзивный проект в Новороссийске
-              </p>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
