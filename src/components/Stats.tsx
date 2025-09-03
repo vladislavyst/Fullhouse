@@ -86,7 +86,7 @@ const Stats = () => {
     },
     {
       icon: Users,
-      targetNumber: 50,
+      targetNumber: 25,
       suffix: '+',
       label: 'довольных семей',
       description: 'Уже живут в построенных домах',

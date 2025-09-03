@@ -97,7 +97,7 @@ const About = () => {
               
               <Card className="text-center p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <CardContent className="p-0">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-2">50+</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-2">25+</div>
                   <div className="text-slate-600 dark:text-gray-300">довольных семей</div>
                 </CardContent>
               </Card>

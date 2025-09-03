@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, Square } from 'lucide-react';
+import { MapPin, Calendar, Square, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -11,6 +12,20 @@ const Properties = () => {
     delay: 200,
     animation: 'fade-in'
   });
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   
   const projects = [
     {
@@ -61,11 +76,12 @@ const Properties = () => {
       description: 'Двухэтажный дом Гринвуд с элегантной архитектурой и продуманной планировкой.',
       features: ['элегантная архитектура', 'Продуманная планировка', 'Оптимальное пространство']
     },
+
     {
       id: 5,
       title: 'Никола',
       category: 'private',
-      image: '/Никола/20.jpg',
+      image: '/Никола/21.jpg',
       location: 'Краснодар',
       completion: '2024',
       area: '154 м²',
@@ -101,7 +117,7 @@ const Properties = () => {
       id: 8,
       title: 'Кроп',
       category: 'private',
-      image: '/Кроп/20.jpeg',
+      image: '/Кроп/18.jpeg',
       location: 'Краснодар',
       completion: '2024',
       area: '260 м²',
@@ -113,7 +129,7 @@ const Properties = () => {
       id: 9,
       title: 'Янтарный',
       category: 'private',
-      image: '/Янтарный/78.jpg',
+      image: '/Янтарный/20220615_122614.jpg',
       location: 'Краснодар',
       completion: '2024',
       area: '176 м²',
@@ -136,6 +152,22 @@ const Properties = () => {
     console.log(`Поделиться проектом ${projectId}`);
   };
 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      // Desktop: show 3 items, so max index is projects.length - 3
+      // Mobile: show 1 item, so max index is projects.length - 1
+      const maxIndex = isDesktop ? Math.max(0, projects.length - 3) : Math.max(0, projects.length - 1);
+      return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const maxIndex = isDesktop ? Math.max(0, projects.length - 3) : Math.max(0, projects.length - 1);
+      return prevIndex <= 0 ? maxIndex : prevIndex - 1;
+    });
+  };
+
   return (
     <section ref={sectionRef} id="projects" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 dark:from-gray-900 dark:via-slate-900 dark:to-black">
       <div className="container mx-auto px-4">
@@ -152,96 +184,155 @@ const Properties = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projects.map((project) => (
-            <Card 
-              key={project.id} 
-              className="group hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl"
+        {/* Projects Carousel */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 hidden lg:block">
+            <Button
+              onClick={prevSlide}
+              variant="ghost"
+              size="icon"
+              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-12 h-12"
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={`${project.title} - ${project.area}, ${project.location}, ${project.completion}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge className={project.status === 'Новый проект' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'}>
-                    {project.status}
-                  </Badge>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 w-10 h-10 p-0"
-                    onClick={() => handleFavorite(project.id)}
+              <ChevronLeft className="w-6 h-6 text-slate-600" />
+            </Button>
+          </div>
+          <div className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 hidden lg:block">
+            <Button
+              onClick={nextSlide}
+              variant="ghost"
+              size="icon"
+              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-12 h-12"
+            >
+              <ChevronRight className="w-6 h-6 text-slate-600" />
+            </Button>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (isDesktop ? 33.333333 : 100)}%)`
+              }}
+            >
+              {projects.map((project) => (
+                <div key={project.id} className="w-full lg:w-1/3 flex-shrink-0 px-3">
+                  <Card 
+                    className="group hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl h-full"
                   >
-                    ♥
-                  </Button>
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="text-white font-bold text-xl bg-black/50 backdrop-blur-sm px-3 py-1 rounded">
-                    {project.area}
-                  </div>
-                </div>
-              </div>
-
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                  {project.title}
-                </h3>
-                
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center space-x-2 text-sm text-slate-600">
-                    <MapPin className="w-4 h-4" />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-slate-600">
-                    <Calendar className="w-4 h-4" />
-                    <span>{project.completion}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-slate-600">
-                    <Square className="w-4 h-4" />
-                    <span>{project.area}</span>
-                  </div>
-                </div>
-
-                <p className="text-slate-600 dark:text-gray-300 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Features */}
-                <div className="space-y-1 mb-6">
-                  {project.features.slice(0, 3).map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-xs">
-                      <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
-                      <span className="text-slate-600 dark:text-gray-300">{feature}</span>
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={`${project.title} - ${project.area}, ${project.location}, ${project.completion}`}
+                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <Badge className={project.status === 'Новый проект' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'}>
+                          {project.status}
+                        </Badge>
+                      </div>
+                      <div className="absolute top-4 right-4">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="bg-white text-slate-600 hover:bg-gray-100 w-10 h-10 p-0 shadow-md"
+                          onClick={() => handleFavorite(project.id)}
+                        >
+                          ♥
+                        </Button>
+                      </div>
+                      <div className="absolute bottom-4 left-4">
+                        <div className="text-slate-800 font-bold text-xl bg-white px-3 py-1 rounded shadow-md">
+                          {project.area}
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={() => handleViewProject(project.id)}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  >
-                    Подробнее
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => handleShare(project.id)}
-                    className="px-3"
-                  >
-                    Поделиться
-                  </Button>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                        {project.title}
+                      </h3>
+                      
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                          <MapPin className="w-4 h-4" />
+                          <span>{project.location}</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                          <Calendar className="w-4 h-4" />
+                          <span>{project.completion}</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                          <Square className="w-4 h-4" />
+                          <span>{project.area}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-600 dark:text-gray-300 mb-4 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Features */}
+                      <div className="space-y-1 mb-6">
+                        {project.features.slice(0, 3).map((feature, index) => (
+                          <div key={index} className="flex items-center space-x-2 text-xs">
+                            <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+                            <span className="text-slate-600 dark:text-gray-300">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex gap-2">
+                        <Button 
+                          onClick={() => handleViewProject(project.id)}
+                          className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                          Подробнее
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => handleShare(project.id)}
+                          className="px-3"
+                        >
+                          Поделиться
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Navigation Dots */}
+          <div className="flex justify-center mt-6 space-x-2 lg:hidden">
+            {Array.from({ length: projects.length }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-blue-600' : 'bg-slate-300'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Desktop Navigation Dots */}
+          <div className="hidden lg:flex justify-center mt-6 space-x-2">
+            {Array.from({ length: Math.max(1, projects.length - 2) }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-blue-600' : 'bg-slate-300'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* CTA Section */}

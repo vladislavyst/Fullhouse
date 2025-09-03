@@ -9,6 +9,7 @@ import ProjectsShowcase from '../components/ProjectsShowcase';
 import PWAInstaller from '../components/PWAInstaller';
 import PageTransition from '../components/PageTransition';
 import PerformanceOptimizer from '../components/PerformanceOptimizer';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const Index = () => {
@@ -36,6 +37,7 @@ const Index = () => {
       </main>
       <Footer />
       <PWAInstaller />
+      <WhatsAppFloat />
     </PageTransition>
   );
 };

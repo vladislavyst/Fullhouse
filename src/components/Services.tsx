@@ -211,48 +211,57 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm h-full">
-              <CardContent className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-                <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4 lg:mb-6">
-                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 p-2 sm:p-3 rounded-lg w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg flex-shrink-0">
-                    <service.icon />
+          {services.map((service, index) => {
+            // Different background colors for each service icon
+            const iconBgClasses = [
+              'bg-gradient-to-br from-emerald-500 to-teal-500 dark:from-emerald-400 dark:to-teal-400', // Green for land selection
+              'bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400', // Orange for mortgage
+              'bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400' // Purple for consultation
+            ];
+            
+            return (
+              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm h-full">
+                <CardContent className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
+                  <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4 lg:mb-6">
+                    <div className={`${iconBgClasses[index]} p-2 sm:p-3 rounded-lg w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg flex-shrink-0`}>
+                      <service.icon />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300">
-                      {service.description}
-                    </p>
+
+                  {/* Features List */}
+                  <div className="mb-4 sm:mb-6 flex-grow">
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-2 sm:mb-3">
+                      Наши услуги:
+                    </h4>
+                    <ul className="space-y-1.5 sm:space-y-2">
+                      {service.features.slice(0, 3).map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
+                          <div className="w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                          <span className="text-slate-600 dark:text-gray-300 leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
 
-                {/* Features List */}
-                <div className="mb-4 sm:mb-6 flex-grow">
-                  <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-2 sm:mb-3">
-                    Наши услуги:
-                  </h4>
-                  <ul className="space-y-1.5 sm:space-y-2">
-                    {service.features.slice(0, 3).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
-                        <div className="w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                        <span className="text-slate-600 dark:text-gray-300 leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-auto">
-                  <Link to="/contact">
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base py-2 sm:py-3" size="lg">
-                      Получить консультацию
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <div className="mt-auto">
+                    <a href="tel:+79180400402">
+                      <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base py-2 sm:py-3" size="lg">
+                        Получить консультацию
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* CTA Section */}
@@ -263,11 +272,11 @@ const Services = () => {
           <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Оставьте заявку и мы свяжемся с вами в течение 15 минут
           </p>
-          <Link to="/contact">
+          <a href="tel:+79180400402">
             <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
               Оставить заявку
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

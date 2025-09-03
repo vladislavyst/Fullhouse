@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Maximize, Ruler, Timer, ArrowLeft, Bath, BedDouble, Sofa, Shirt } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 type Project = {
   title: string;

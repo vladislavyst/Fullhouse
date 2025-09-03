@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 import YandexMap from '../components/YandexMap';
 
 const Contact = () => {
@@ -272,6 +273,7 @@ const Contact = () => {
       </main>
 
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 };

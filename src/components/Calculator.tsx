@@ -11,45 +11,25 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const Calculator = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1, delay: 150 });
   
-  const [projectType, setProjectType] = useState('');
   const [area, setArea] = useState([100]);
   const [floors, setFloors] = useState([1]);
-  const [material, setMaterial] = useState('');
   const [finishing, setFinishing] = useState('');
   const [showResult, setShowResult] = useState(false);
 
-  const projectTypes = [
-    { value: 'house', label: 'Частный дом', basePrice: 35000 },
-    { value: 'cottage', label: 'Коттедж', basePrice: 45000 },
-    { value: 'commercial', label: 'Коммерческое здание', basePrice: 40000 },
-    { value: 'renovation', label: 'Реконструкция', basePrice: 25000 }
-  ];
-
-  const materials = [
-    { value: 'brick', label: 'Кирпич', multiplier: 1.2 },
-    { value: 'block', label: 'Газобетон', multiplier: 1.0 },
-    { value: 'frame', label: 'Каркасное строительство', multiplier: 0.8 },
-    { value: 'monolith', label: 'Монолит', multiplier: 1.3 }
-  ];
-
   const finishingOptions = [
-    { value: 'economy', label: 'Эконом', multiplier: 1.0 },
-    { value: 'comfort', label: 'Комфорт', multiplier: 1.3 },
-    { value: 'premium', label: 'Премиум', multiplier: 1.6 }
+    { value: 'rough', label: 'Черновая', price: 41000 },
+    { value: 'pre-finish', label: 'Предчистовая', price: 47000 },
+    { value: 'finish', label: 'Чистовая', price: 56000 }
   ];
 
   const calculatePrice = () => {
-    const selectedProject = projectTypes.find(p => p.value === projectType);
-    const selectedMaterial = materials.find(m => m.value === material);
     const selectedFinishing = finishingOptions.find(f => f.value === finishing);
 
-    if (!selectedProject || !selectedMaterial || !selectedFinishing) return 0;
+    if (!selectedFinishing) return 0;
 
-    const basePrice = selectedProject.basePrice * area[0] * floors[0];
-    const materialAdjustment = basePrice * selectedMaterial.multiplier;
-    const finishingAdjustment = materialAdjustment * selectedFinishing.multiplier;
+    const totalPrice = selectedFinishing.price * area[0];
 
-    return Math.round(finishingAdjustment);
+    return Math.round(totalPrice);
   };
 
   const handleCalculate = () => {
@@ -57,10 +37,8 @@ const Calculator = () => {
   };
 
   const resetCalculator = () => {
-    setProjectType('');
     setArea([100]);
     setFloors([1]);
-    setMaterial('');
     setFinishing('');
     setShowResult(false);
   };
@@ -94,25 +72,6 @@ const Calculator = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {/* Left Column - Form */}
                 <div className="space-y-6">
-                  {/* Project Type */}
-                  <div className="space-y-2">
-                    <Label htmlFor="project-type" className="text-slate-700 dark:text-gray-300 font-semibold">
-                      Тип проекта *
-                    </Label>
-                    <Select value={projectType} onValueChange={setProjectType}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите тип проекта" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {projectTypes.map((type) => (
-                          <SelectItem key={type.value} value={type.value}>
-                            {type.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   {/* Area */}
                   <div className="space-y-2">
                     <Label className="text-slate-700 dark:text-gray-300 font-semibold">
@@ -151,25 +110,6 @@ const Calculator = () => {
                     </div>
                   </div>
 
-                  {/* Material */}
-                  <div className="space-y-2">
-                    <Label htmlFor="material" className="text-slate-700 dark:text-gray-300 font-semibold">
-                      Материал стен *
-                    </Label>
-                    <Select value={material} onValueChange={setMaterial}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите материал" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {materials.map((mat) => (
-                          <SelectItem key={mat.value} value={mat.value}>
-                            {mat.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   {/* Finishing */}
                   <div className="space-y-2">
                     <Label htmlFor="finishing" className="text-slate-700 dark:text-gray-300 font-semibold">
@@ -193,7 +133,7 @@ const Calculator = () => {
                   <div className="flex gap-4 pt-4">
                     <Button 
                       onClick={handleCalculate}
-                      disabled={!projectType || !material || !finishing}
+                      disabled={!finishing}
                       className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       Рассчитать стоимость
@@ -265,10 +205,12 @@ const Calculator = () => {
 
                   {/* CTA */}
                   <div className="text-center pt-4">
-                    <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Получить детальный расчет
-                    </Button>
+                    <a href="tel:+79180400402">
+                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Получить детальный расчет
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import { Maximize, Ruler, Timer } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useSEO, seoConfigs } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 type ProjectItem = {
   title: string;

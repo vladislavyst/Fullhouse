@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Bed, Square, Heart, Search, Filter } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 
 const Catalog = () => {
   const [searchQuery, setSearchQuery] = useState('');
