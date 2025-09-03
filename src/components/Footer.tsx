@@ -32,7 +32,8 @@ const Footer = () => {
                   <img 
                     src="/LOGO fullhouse.png" 
                     alt="Fullhouse Logo" 
-                    className="h-32 w-auto filter brightness-110 contrast-125 saturate-110 drop-shadow-lg"
+                    className="h-32 w-auto drop-shadow-lg"
+                    style={{filter: 'brightness(0) saturate(100%) invert(88%) sepia(37%) saturate(784%) hue-rotate(338deg) brightness(105%) contrast(104%)'}}
                   />
                 </Link>
                 <p className="text-gray-300 leading-relaxed">
