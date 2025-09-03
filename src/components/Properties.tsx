@@ -33,109 +33,90 @@ const Properties = () => {
       title: 'Nova',
       category: 'private',
       image: '/Nova/39.jpg',
-      location: 'Новороссийск',
+      location: 'г. Новороссийск',
       completion: '2024',
       area: '159 м²',
-      status: 'Завершен',
-      description: 'Современный дом Nova с инновационным дизайном и современными решениями.',
-      features: ['Инновационный дизайн', 'Энергоэффективность', 'Премиум отделка']
+      status: 'Завершен'
     },
     {
       id: 2,
       title: 'Ореховая Роща',
       category: 'private',
       image: '/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_1.jpg',
-      location: 'Краснодар',
+      location: 'п. Южная Озереевка',
       completion: '2024',
       area: '112 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом с элегантной планировкой и просторными террасами.',
-      features: ['Двухэтажная планировка', '4 спальни', 'Просторные террасы']
+      status: 'Завершен'
     },
     {
       id: 3,
       title: 'Рига',
       category: 'private',
       image: '/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_29.jpg',
-      location: 'Краснодар',
+      location: 'г. Краснодар',
       completion: '2024',
       area: '167 м²',
-      status: 'Завершен',
-      description: 'Элегантный дом Рига с современной архитектурой и функциональными решениями.',
-      features: ['Современная архитектура', 'Функциональная планировка', 'Энергоэффективность']
+      status: 'Завершен'
     },
     {
       id: 4,
       title: 'Гринвуд',
       category: 'private',
       image: '/Гринвуд/Stroitelstvo_doma_Stupino_KP_Grinvud_foto_18.jpg',
-      location: 'Ступино',
+      location: 'ст. Раевская',
       completion: '2024',
       area: '137 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Гринвуд с элегантной архитектурой и продуманной планировкой.',
-      features: ['элегантная архитектура', 'Продуманная планировка', 'Оптимальное пространство']
+      status: 'Завершен'
     },
-
     {
       id: 5,
       title: 'Никола',
       category: 'private',
       image: '/Никола/21.jpg',
-      location: 'Краснодар',
+      location: 'г. Новороссийск',
       completion: '2024',
       area: '154 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Никола с современной архитектурой и элегантным дизайном.',
-      features: ['Современная архитектура', '3 спальни', 'Элегантный дизайн']
+      status: 'Завершен'
     },
     {
       id: 6,
       title: 'Клубный',
       category: 'private',
       image: '/Клубный/IMG_0913.jpg',
-      location: 'Краснодар',
+      location: 'п. Южная Озереевка',
       completion: '2024',
       area: '160 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Клубный с современной архитектурой и элегантным дизайном.',
-      features: ['Современная архитектура', '3 спальни', 'Просторная планировка']
+      status: 'Завершен'
     },
     {
       id: 7,
       title: 'Знаменский',
       category: 'private',
       image: '/Знаменский/22.jpeg',
-      location: 'Краснодар',
+      location: 'ст. Раевская',
       completion: '2024',
       area: '154 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Знаменский с современной архитектурой и увеличенной площадью.',
-      features: ['Современная архитектура', '4 спальни', 'Увеличенная площадь']
+      status: 'Завершен'
     },
     {
       id: 8,
       title: 'Кроп',
       category: 'private',
       image: '/Кроп/18.jpeg',
-      location: 'Краснодар',
+      location: 'г. Краснодар',
       completion: '2024',
       area: '260 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Кроп с современной архитектурой и оптимальным размером.',
-      features: ['Компактный дизайн', '3 спальни', 'Экономичность']
+      status: 'Завершен'
     },
     {
       id: 9,
       title: 'Янтарный',
       category: 'private',
       image: '/Янтарный/20220615_122614.jpg',
-      location: 'Краснодар',
+      location: 'г. Новороссийск',
       completion: '2024',
       area: '176 м²',
-      status: 'Завершен',
-      description: 'Двухэтажный дом Янтарный с современной архитектурой и гармоничным дизайном.',
-      features: ['Современная архитектура', '3 спальни', 'Теплые тона']
+      status: 'Завершен'
     }
   ];
 
@@ -180,7 +161,7 @@ const Properties = () => {
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Наши лучшие работы, которые демонстрируют качество и профессионализм 
-            строительной компании Fullhouse. Каждый проект уникален и создан с любовью.
+            строительной компании Фулл-Хаус. Каждый проект уникален и создан с любовью.
           </p>
         </div>
 
@@ -251,37 +232,23 @@ const Properties = () => {
                     </div>
 
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                         {project.title}
                       </h3>
                       
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                      <div className="space-y-3 mb-6">
+                        <div className="flex items-center space-x-2 text-slate-600">
                           <MapPin className="w-4 h-4" />
-                          <span>{project.location}</span>
+                          <span className="font-medium">{project.location}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                        <div className="flex items-center space-x-2 text-slate-600">
                           <Calendar className="w-4 h-4" />
-                          <span>{project.completion}</span>
+                          <span className="font-medium">{project.completion}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                        <div className="flex items-center space-x-2 text-slate-600">
                           <Square className="w-4 h-4" />
-                          <span>{project.area}</span>
+                          <span className="font-medium">{project.area}</span>
                         </div>
-                      </div>
-
-                      <p className="text-slate-600 dark:text-gray-300 mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
-
-                      {/* Features */}
-                      <div className="space-y-1 mb-6">
-                        {project.features.slice(0, 3).map((feature, index) => (
-                          <div key={index} className="flex items-center space-x-2 text-xs">
-                            <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
-                            <span className="text-slate-600 dark:text-gray-300">{feature}</span>
-                          </div>
-                        ))}
                       </div>
 
                       {/* Action Buttons */}
