@@ -115,15 +115,19 @@ const Services = () => {
   const services = [
     {
       icon: BuyingIcon,
-      title: 'Покупка недвижимости',
-      description: 'Полное сопровождение покупки от подбора до получения ключей',
+      title: 'Подбор земельных участков',
+      description: 'Полное сопровождение покупки земли от подбора до получения ключей',
       features: [
-        'Подбор объектов по вашим критериям',
+        'Подбор участков по вашим критериям',
+        'База данных земельных участков Новороссийска',
         'Организация просмотров в удобное время',
         'Проверка юридической чистоты документов',
         'Помощь в торгах и переговорах с продавцом',
         'Сопровождение сделки в МФЦ или у нотариуса',
-        'Помощь в оформлении коммунальных услуг'
+        'Оценка инвестиционного потенциала участка',
+        'Консультации по строительному потенциалу',
+        'Помощь с подключением коммуникаций',
+        'Оформление разрешений на строительство'
       ],
       process: [
         'Консультация и определение потребностей',
@@ -131,26 +135,6 @@ const Services = () => {
         'Организация просмотров',
         'Проверка документов',
         'Оформление сделки'
-      ]
-    },
-    {
-      icon: SellingIcon,
-      title: 'Продажа недвижимости',
-      description: 'Продадим вашу недвижимость быстро и по максимальной цене',
-      features: [
-        'Профессиональная оценка рыночной стоимости',
-        'Подготовка документов для продажи',
-        'Фотосъемка и создание рекламных материалов',
-        'Размещение на всех популярных площадках',
-        'Организация показов потенциальным покупателям',
-        'Ведение переговоров и заключение сделки'
-      ],
-      process: [
-        'Оценка недвижимости',
-        'Подготовка к продаже',
-        'Реклама и продвижение',
-        'Показы покупателям',
-        'Заключение сделки'
       ]
     },
     {
@@ -163,7 +147,11 @@ const Services = () => {
         'Первоначальный взнос от 10%',
         'Помощь в сборе документов',
         'Подача заявок во все банки одновременно',
-        'Сопровождение до получения средств'
+        'Сопровождение до получения средств',
+        'Консультации по специальным программам',
+        'Оформление страховки недвижимости',
+        'Помощь в оценке недвижимости',
+        'Проверка кредитной истории'
       ],
       process: [
         'Консультация по программам',
@@ -189,7 +177,11 @@ const Services = () => {
         'Юридическое сопровождение сделок',
         'Консультации по налогообложению',
         'Помощь в решении спорных вопросов',
-        'Рекомендации по оптимизации инвестиций'
+        'Рекомендации по оптимизации инвестиций',
+        'Консультации по строительным нормам',
+        'Планирование строительных проектов',
+        'Сопровождение получения разрешений',
+        'Оптимизация проектных решений'
       ],
       process: [
         'Анализ вашей ситуации',
@@ -202,43 +194,58 @@ const Services = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section ref={sectionRef} id="services" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 dark:from-gray-900 dark:via-slate-900 dark:to-black">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ease-out ${
+        <div className={`text-center mb-12 sm:mb-14 lg:mb-16 transition-all duration-800 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4 sm:mb-6 px-4">
             Наши услуги
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Полный спектр услуг в сфере недвижимости. От покупки и продажи 
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            Полный спектр услуг в сфере недвижимости. От подбора земельных участков 
             до ипотечного кредитования и консультаций.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white h-full">
-              <CardContent className="p-8 h-full flex flex-col">
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="bg-blue-100 p-3 rounded-lg w-16 h-16 flex items-center justify-center">
+            <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm h-full">
+              <CardContent className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
+                <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4 lg:mb-6">
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 p-2 sm:p-3 rounded-lg w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg flex-shrink-0">
                     <service.icon />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-1">
+                  <div className="flex-1">
+                    <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600">
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300">
                       {service.description}
                     </p>
                   </div>
                 </div>
 
+                {/* Features List */}
+                <div className="mb-4 sm:mb-6 flex-grow">
+                  <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-2 sm:mb-3">
+                    Наши услуги:
+                  </h4>
+                  <ul className="space-y-1.5 sm:space-y-2">
+                    {service.features.slice(0, 3).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
+                        <div className="w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                        <span className="text-slate-600 dark:text-gray-300 leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="mt-auto">
                   <Link to="/contact">
-                    <Button className="w-full" size="lg" variant="accent">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base py-2 sm:py-3" size="lg">
                       Получить консультацию
                     </Button>
                   </Link>
@@ -249,15 +256,15 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold text-slate-800 mb-6">
-            Нужна помощь с недвижимостью?
+        <div className="text-center mt-12 sm:mt-14 lg:mt-16 px-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white mb-4 sm:mb-6">
+            Нужна помощь со строительством?
           </h3>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Оставьте заявку и мы свяжемся с вами в течение 15 минут
           </p>
           <Link to="/contact">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
               Оставить заявку
             </button>
           </Link>

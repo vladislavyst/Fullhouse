@@ -73,23 +73,23 @@ const ProjectsShowcase = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className={`text-center mb-12 transition-all duration-800 ease-out ${
+        <div className={`text-center mb-10 sm:mb-12 transition-all duration-800 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-4">Каталог домов</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-3 sm:mb-4 px-4">Каталог домов</h2>
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Шесть актуальных проектов с ключевыми параметрами: стоимость, площадь, размеры и срок строительства.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {loading && (
             Array.from({ length: 6 }).map((_, index) => (
-              <Card key={index} className="border border-gray-200 bg-white overflow-hidden shadow-lg">
+              <Card key={index} className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="w-full h-48 bg-gray-200 animate-pulse" />
                 <CardContent className="p-4">
                   <div className="h-5 w-2/3 bg-gray-200 animate-pulse rounded mb-2" />
@@ -109,11 +109,11 @@ const ProjectsShowcase = () => {
 
           {!loading && (error || topSix.length === 0) && (
             Array.from({ length: 6 }).map((_, index) => (
-              <Card key={index} className="border border-gray-200 bg-white overflow-hidden shadow-lg">
+              <Card key={index} className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300" />
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-bold text-slate-800 mb-2">Данные недоступны</h3>
-                  <p className="text-xs text-slate-600">Загрузите проекты позже или перейдите на источник.</p>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">Данные недоступны</h3>
+                  <p className="text-xs text-slate-600 dark:text-gray-300">Загрузите проекты позже или перейдите на источник.</p>
                 </CardContent>
               </Card>
             ))
@@ -122,7 +122,7 @@ const ProjectsShowcase = () => {
           {!loading && !error && topSix.map((p, idx) => (
             <Card
               key={idx}
-              className="fh-card group"
+              className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
               style={{
                 animationDelay: `${idx * 100}ms`,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -137,15 +137,15 @@ const ProjectsShowcase = () => {
                 )}
               </div>
               <CardContent className="fh-card__body">
-                <h3 className="fh-card__title group-hover:text-blue-700">{p.title}</h3>
-                <div className="fh-card__meta mt-2">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{p.title}</h3>
+                <div className="space-y-2 mt-2 text-sm text-slate-600 dark:text-gray-300">
                   <div className="flex items-center gap-1"><Ruler className="w-4 h-4" />{p.area || '—'}</div>
                   <div className="flex items-center gap-1"><Maximize className="w-4 h-4" />{p.size || '—'}</div>
                   <div className="flex items-center gap-1"><Timer className="w-4 h-4" />{p.buildTime || '—'}</div>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <div className="text-blue-600 font-semibold">{p.price || 'По запросу'}</div>
-                  <Button size="sm" variant="default" className="fh-btn-primary group-hover:shadow-xl" onClick={() => handleViewProject(p.slug)}>
+                  <div className="text-blue-600 dark:text-blue-400 font-bold text-lg">{p.price || 'По запросу'}</div>
+                  <Button size="sm" variant="default" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" onClick={() => handleViewProject(p.slug)}>
                     <ExternalLink className="w-4 h-4 mr-1" /> Открыть
                   </Button>
                 </div>
@@ -158,7 +158,7 @@ const ProjectsShowcase = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg">
+          <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <Link to="/projects">Все проекты</Link>
           </Button>
         </div>

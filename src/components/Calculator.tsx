@@ -66,16 +66,16 @@ const Calculator = () => {
   };
 
   return (
-    <section ref={sectionRef} id="calculator" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100">
+    <section ref={sectionRef} id="calculator" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 dark:from-gray-900 dark:via-slate-900 dark:to-black">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ease-out ${
+        <div className={`text-center mb-12 sm:mb-14 lg:mb-16 transition-all duration-800 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4 sm:mb-6 px-4">
             Рассчитайте стоимость строительства
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Получите предварительную стоимость вашего проекта за несколько минут. 
             Укажите основные параметры и получите расчет.
           </p>
@@ -83,20 +83,20 @@ const Calculator = () => {
 
         {/* Calculator Form */}
         <div className="max-w-4xl mx-auto">
-          <Card className="border-0 shadow-xl bg-white/90 backdrop-blur">
+          <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
             <CardHeader className="text-center pb-8">
-              <CardTitle className="text-2xl font-bold text-slate-800 flex items-center justify-center">
+              <CardTitle className="text-2xl font-bold text-slate-800 dark:text-white flex items-center justify-center">
                 <CalculatorIcon className="w-8 h-8 text-blue-600 mr-3" />
                 Калькулятор стоимости
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {/* Left Column - Form */}
                 <div className="space-y-6">
                   {/* Project Type */}
                   <div className="space-y-2">
-                    <Label htmlFor="project-type" className="text-slate-700 font-semibold">
+                    <Label htmlFor="project-type" className="text-slate-700 dark:text-gray-300 font-semibold">
                       Тип проекта *
                     </Label>
                     <Select value={projectType} onValueChange={setProjectType}>
@@ -115,7 +115,7 @@ const Calculator = () => {
 
                   {/* Area */}
                   <div className="space-y-2">
-                    <Label className="text-slate-700 font-semibold">
+                    <Label className="text-slate-700 dark:text-gray-300 font-semibold">
                       Площадь: {area[0]} м²
                     </Label>
                     <Slider
@@ -126,7 +126,7 @@ const Calculator = () => {
                       step={10}
                       className="w-full"
                     />
-                    <div className="flex justify-between text-sm text-slate-500">
+                    <div className="flex justify-between text-sm text-slate-500 dark:text-gray-400">
                       <span>50 м²</span>
                       <span>500 м²</span>
                     </div>
@@ -134,7 +134,7 @@ const Calculator = () => {
 
                   {/* Floors */}
                   <div className="space-y-2">
-                    <Label className="text-slate-700 font-semibold">
+                    <Label className="text-slate-700 dark:text-gray-300 font-semibold">
                       Количество этажей: {floors[0]}
                     </Label>
                     <Slider
@@ -145,7 +145,7 @@ const Calculator = () => {
                       step={1}
                       className="w-full"
                     />
-                    <div className="flex justify-between text-sm text-slate-500">
+                    <div className="flex justify-between text-sm text-slate-500 dark:text-gray-400">
                       <span>1</span>
                       <span>3</span>
                     </div>
@@ -153,7 +153,7 @@ const Calculator = () => {
 
                   {/* Material */}
                   <div className="space-y-2">
-                    <Label htmlFor="material" className="text-slate-700 font-semibold">
+                    <Label htmlFor="material" className="text-slate-700 dark:text-gray-300 font-semibold">
                       Материал стен *
                     </Label>
                     <Select value={material} onValueChange={setMaterial}>
@@ -172,7 +172,7 @@ const Calculator = () => {
 
                   {/* Finishing */}
                   <div className="space-y-2">
-                    <Label htmlFor="finishing" className="text-slate-700 font-semibold">
+                    <Label htmlFor="finishing" className="text-slate-700 dark:text-gray-300 font-semibold">
                       Отделка *
                     </Label>
                     <Select value={finishing} onValueChange={setFinishing}>
@@ -194,7 +194,7 @@ const Calculator = () => {
                     <Button 
                       onClick={handleCalculate}
                       disabled={!projectType || !material || !finishing}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3"
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       Рассчитать стоимость
                     </Button>
@@ -212,16 +212,16 @@ const Calculator = () => {
                 <div className="space-y-6">
                   {/* Results */}
                   {showResult && (
-                    <Card className="border-0 bg-gradient-to-br from-green-50 to-emerald-50 p-6">
+                    <Card className="border-0 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 shadow-lg">
                       <div className="text-center">
-                        <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                        <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                        <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto mb-4" />
+                        <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">
                           Расчет готов!
                         </h3>
-                        <div className="text-4xl font-bold text-green-600 mb-2">
+                        <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
                           {calculatePrice().toLocaleString('ru-RU')} ₽
                         </div>
-                        <p className="text-slate-600">
+                        <p className="text-slate-600 dark:text-gray-300">
                           Предварительная стоимость строительства
                         </p>
                       </div>
@@ -230,32 +230,32 @@ const Calculator = () => {
 
                   {/* Info Cards */}
                   <div className="space-y-4">
-                    <Card className="border-0 bg-blue-50 p-4">
+                    <Card className="border-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 shadow-lg">
                       <div className="flex items-start space-x-3">
-                        <div className="bg-blue-100 p-2 rounded-lg">
-                          <CalculatorIcon className="w-5 h-5 text-blue-600" />
+                        <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-lg shadow-lg">
+                          <CalculatorIcon className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-slate-800 mb-1">
+                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1">
                             Точность расчета
                           </h4>
-                          <p className="text-sm text-slate-600">
+                          <p className="text-sm text-slate-600 dark:text-gray-300">
                             Расчет основан на актуальных ценах материалов и работ в регионе
                           </p>
                         </div>
                       </div>
                     </Card>
 
-                    <Card className="border-0 bg-amber-50 p-4">
+                    <Card className="border-0 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-4 shadow-lg">
                       <div className="flex items-start space-x-3">
-                        <div className="bg-amber-100 p-2 rounded-lg">
-                          <Phone className="w-5 h-5 text-amber-600" />
+                        <div className="bg-gradient-to-br from-amber-500 to-orange-500 p-2 rounded-lg shadow-lg">
+                          <Phone className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-slate-800 mb-1">
+                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1">
                             Нужна консультация?
                           </h4>
-                          <p className="text-sm text-slate-600">
+                          <p className="text-sm text-slate-600 dark:text-gray-300">
                             Свяжитесь с нами для детального расчета и консультации
                           </p>
                         </div>
@@ -265,7 +265,7 @@ const Calculator = () => {
 
                   {/* CTA */}
                   <div className="text-center pt-4">
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3">
+                    <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                       <Phone className="w-4 h-4 mr-2" />
                       Получить детальный расчет
                     </Button>
@@ -278,7 +278,7 @@ const Calculator = () => {
 
         {/* Additional Info */}
         <div className="mt-16 text-center">
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-gray-300 max-w-2xl mx-auto">
             * Расчет является предварительным. Для получения точной стоимости 
             свяжитесь с нашими специалистами для детального анализа проекта.
           </p>

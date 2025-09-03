@@ -36,8 +36,8 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="text-gray-300 leading-relaxed">
-                  Ведущая строительная компания Новороссийска. Более 12 лет создаем качественную недвижимость 
-                  для жизни и бизнеса.
+                  Ведущая строительная компания Новороссийска. Уже 3 года строим качественные дома 
+                  для жизни и комфорта.
                 </p>
                 <div className="flex space-x-4">
                   {/* Яндекс Дзен */}
@@ -130,8 +130,8 @@ const Footer = () => {
                   
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-blue-400" />
-                    <a href="tel:+78617123456" className="text-gray-300 hover:text-blue-400 transition-colors text-sm">
-                      +7 (8617) 123-456
+                    <a href="tel:+79180400402" className="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                      +7 (918)-040-04-02
                     </a>
                   </div>
                   

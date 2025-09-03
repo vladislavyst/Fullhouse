@@ -67,13 +67,13 @@ const Contact = () => {
                           <div>
                             <h3 className="font-semibold text-primary mb-2">Телефоны</h3>
                             <p className="text-muted-foreground mb-1">
-                              <a href="tel:+78617123456" className="hover:text-accent transition-colors">
-                                +7 (8617) 12-34-56
+                              <a href="tel:+79180400402" className="hover:text-accent transition-colors">
+                                +7 (918)-040-04-02
                               </a>
                             </p>
                             <p className="text-muted-foreground mb-1">
-                              <a href="tel:+79881234567" className="hover:text-accent transition-colors">
-                                +7 (988) 123-45-67
+                              <a href="tel:+79628523330" className="hover:text-accent transition-colors">
+                                +7 962 852-33-30
                               </a>
                             </p>
                             <p className="text-sm text-muted-foreground">
@@ -249,8 +249,8 @@ const Contact = () => {
                     Какие гарантии вы предоставляете?
                   </h3>
                   <p className="text-muted-foreground">
-                    Мы предоставляем гарантию 5 лет на все виды работ и 10 лет 
-                    на несущие конструкции. Все гарантии прописаны в договоре.
+                    Мы предоставляем гарантию 3 года на все виды работ. 
+                    Все гарантии прописаны в договоре.
                   </p>
                 </CardContent>
               </Card>
@@ -261,7 +261,7 @@ const Contact = () => {
                     Можно ли посмотреть готовые проекты?
                   </h3>
                   <p className="text-muted-foreground">
-                    Конечно! У нас есть выставочные дома и готовые объекты для просмотра. 
+                    Конечно! У нас есть готовые объекты для просмотра. 
                     Запишитесь на экскурсию по телефону или через форму выше.
                   </p>
                 </CardContent>

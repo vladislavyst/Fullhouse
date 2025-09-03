@@ -17,8 +17,8 @@ const Hero = () => {
     },
     {
       icon: Users,
-      title: '500+ довольных клиентов',
-      description: 'Высокие оценки и положительные отзывы'
+      title: 'Десятки довольных семей',
+      description: 'Уже живут в своих построенных домах'
     },
     {
       icon: Clock,
@@ -28,7 +28,7 @@ const Hero = () => {
     {
       icon: Shield,
       title: 'Гарантия качества',
-      description: 'Полная ответственность за результат'
+      description: '3 года гарантии'
     }
   ];
 
@@ -70,7 +70,7 @@ const Hero = () => {
             
             <p className="text-xl text-white/95 mb-8 leading-relaxed drop-shadow-md">
               Полный цикл строительства от проекта до сдачи ключей. 
-              15+ лет опыта, 2500+ реализованных проектов, 98% довольных клиентов.
+              Уже на протяжении 3 лет строим дома в Новороссийске.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">

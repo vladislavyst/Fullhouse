@@ -1,5 +1,170 @@
 [
   {
+    "title": "Орландо",
+    "slug": "orlando",
+    "price": "от 9 900 000 руб.",
+    "area": "200 м²",
+    "buildingArea": "266 м²",
+    "terracesArea": "133 м²",
+    "floors": 1,
+    "width": "13м",
+    "length": "11,8м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 2,
+      "garage": 1,
+      "wardrobes": 2
+    },
+    "size": "11,8 × 13",
+    "buildTime": "от 7 мес.",
+    "mortgagePrice": "от 47 484 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/ac4/4pjiznm38te9nu8xc902md47dc2ln54k/1920_1080_102ac2dafdae9ba029c6325be6592945b/KapitalDom_011_c01_220214_02.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/ac4/4pjiznm38te9nu8xc902md47dc2ln54k/1920_1080_102ac2dafdae9ba029c6325be6592945b/KapitalDom_011_c01_220214_02.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/247/5b5iwfo8m5f5vxuj4cq1osmnm0tugzj5/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-_1_min.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/40b/0m5kuzn0ja71qkipigxzrr5n1bfx0neu/1920_1080_102ac2dafdae9ba029c6325be6592945b/3-_1_min.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/136/5qpcfoufzu8e8i5oiufzgmhwiaqj3g4x/1920_1080_102ac2dafdae9ba029c6325be6592945b/4_min.jpg"
+    ],
+    "plans": [
+      "https://s.iimg.su/s/03/g2rnoUGxdENprijTqVYPXt2qKW1aFcIlqt9gdqhy.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/03/g2rnoUGxdENprijTqVYPXt2qKW1aFcIlqt9gdqhy.jpg",
+      "https://s.iimg.su/s/03/gAYxTU6xhFc9Isdo48hqfiKjofkhzOraJ9SktiTy.jpg",
+      "https://s.iimg.su/s/03/gEW98xZxXC4Hk47fVtk5DIEvLjcOIARbJEKbYeLG.jpg"
+    ],
+    "about": "Современный одноэтажный дом Орландо с просторной планировкой площадью 200 м². Проект включает две спальни, гостиную, два санузла и встроенный гараж. Террасы и балконы площадью 133 м² создают дополнительное пространство для отдыха. Размеры 11,8 × 13 метров обеспечивают оптимальное использование участка, а продуманная планировка гарантирует комфорт для всей семьи.",
+    "url": ""
+  },
+  {
+    "title": "Райли",
+    "slug": "riley",
+    "price": "от 7 889 730 руб.",
+    "area": "155,38 м²",
+    "buildingArea": "277,8 м²",
+    "terracesArea": "88,36 м²",
+    "floors": 1,
+    "width": "18м",
+    "length": "17,9м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 2,
+      "wardrobes": 1
+    },
+    "size": "18 × 17,9",
+    "buildTime": "от 7 мес.",
+    "mortgagePrice": "от 37 842 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/c9b/komr2ezlf718a83o61yxkk1ub8x0ebg2/1920_1080_102ac2dafdae9ba029c6325be6592945b/Raily_01-_1_.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/c9b/komr2ezlf718a83o61yxkk1ub8x0ebg2/1920_1080_102ac2dafdae9ba029c6325be6592945b/Raily_01-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/35c/bsx5wp32byc60iob7i2swvvz6a40ikvp/1920_1080_102ac2dafdae9ba029c6325be6592945b/Raily_02-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/758/xkfsjhstw90ksjvie8ky9y71qqm9dyd2/1920_1080_102ac2dafdae9ba029c6325be6592945b/00_Dakota_khaytek_Photo-_-3.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/fcb/fcoehgslqh049ba30c7jt2elvdng1zg4/1920_1080_102ac2dafdae9ba029c6325be6592945b/00_Dakota_khaytek_Photo-_-4.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/e13/mscta79vfcaza26hg08c9zpsuvvgugfg/1920_1080_102ac2dafdae9ba029c6325be6592945b/00_Dakota_khaytek_Photo-_-1.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/ebd/woioorl5celjaiov1wjrbkl3vozwcn7q/1920_1080_102ac2dafdae9ba029c6325be6592945b/00_Dakota_khaytek_Photo-_-2.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/796/di03gbrzmlqr1zi4d8egdprzq7tfqphl/1920_1080_102ac2dafdae9ba029c6325be6592945b/00_Dakota_khaytek_Photo-_-5.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/ec6/q30lnm7dcgb117gbmy8z0fdcmcrdbpm7/1920_1080_102ac2dafdae9ba029c6325be6592945b/1.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/493/8c7ydinpkzem7m8uph3jv2drntsdpdqi/1920_1080_102ac2dafdae9ba029c6325be6592945b/2.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/44f/ceozepsnednugdme1q7el16dnmyqrrpl/1920_1080_102ac2dafdae9ba029c6325be6592945b/3.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/f79/2qw35a1uqb0jc13k5veop5d0bw5gtoez/1920_1080_102ac2dafdae9ba029c6325be6592945b/Spalnaya_1.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/dee/ctkvk2jnjpnzge4pecwar6dceqncv0tl/1920_1080_102ac2dafdae9ba029c6325be6592945b/Spalnaya_4.jpg"
+    ],
+    "plans": [
+      "https://s.iimg.su/s/03/gptVh1txbLsAVL5JN3dOVHyqtRVB1aGJKgcBcqAL.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/03/gptVh1txbLsAVL5JN3dOVHyqtRVB1aGJKgcBcqAL.jpg",
+      "https://s.iimg.su/s/03/getUmkcx6dTi2P5EpDdzZXHeBS47zNO0pzgsG7Ad.jpg",
+      "https://s.iimg.su/s/03/g5HrC3cxsVtDit9rg7l29SNYRjIq2sunQfzbDNV5.jpg"
+    ],
+    "about": "Современный одноэтажный дом Райли с просторной планировкой площадью 155,38 м². Проект включает две спальни, гостиную, два санузла и гардеробную. Террасы и балконы площадью 88,36 м² создают дополнительное пространство для отдыха. Размеры 18 × 17,9 метров обеспечивают оптимальное использование участка, а продуманная планировка гарантирует комфорт для всей семьи.",
+    "url": ""
+  },
+  {
+    "title": "Монтеро",
+    "slug": "montero",
+    "price": "от 7 916 265 руб.",
+    "area": "166,09 м²",
+    "buildingArea": "183 м²",
+    "terracesArea": "129,55 м²",
+    "floors": 2,
+    "width": "10,85м",
+    "length": "17,8м",
+    "stats": {
+      "bathrooms": 3,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1
+    },
+    "size": "10,85 × 17,8",
+    "buildTime": "от 7 мес.",
+    "mortgagePrice": "от 37 970 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/ef5/32gk5ybj9wbp2abs14458mx2witpvvsf/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-_1_.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/ef5/32gk5ybj9wbp2abs14458mx2witpvvsf/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/7b9/mr9uyvy80bfdk6ocnxiak0x9uvm4m252/1920_1080_102ac2dafdae9ba029c6325be6592945b/2-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/add/9lqpdaeyejve4riyvx5egr2xp3559jpm/1920_1080_102ac2dafdae9ba029c6325be6592945b/3-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/a2a/yqou2ryoun0amzdk5zj41l0x2k38yoar/1920_1080_102ac2dafdae9ba029c6325be6592945b/1_View01.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/5e3/qr564sz3wetcj9mcu9xjpk10s66ogrtd/1920_1080_102ac2dafdae9ba029c6325be6592945b/1_View05.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/70f/7mtabhamyl2dagwfnb1brvq99y6dl32c/1920_1080_102ac2dafdae9ba029c6325be6592945b/2-Rakurs.jpg"
+    ],
+    "plans": [
+      "https://s.iimg.su/s/03/gwLu7dkxvT7WKPfVQKcvSPoIXCULAF0KNNCRCjs7.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/03/gwLu7dkxvT7WKPfVQKcvSPoIXCULAF0KNNCRCjs7.jpg",
+      "https://s.iimg.su/s/03/gMe8IUExMld0PFyZDjBAKl7Zcr0bUaH6wkC8IrO6.jpg",
+      "https://s.iimg.su/s/03/gFJN9ezxt1GLOTQEaApkLNbkEa41D0DasXQeKpNq.jpg"
+    ],
+    "about": "Современный двухэтажный дом Монтеро с просторной планировкой площадью 166,09 м². Проект включает три спальни, гостиную, три санузла и гардеробную. Обширные террасы и балконы площадью 129,55 м² создают дополнительное пространство для отдыха. Компактные размеры 10,85 × 17,8 метров обеспечивают эффективное использование участка, а продуманная двухэтажная планировка гарантирует максимальный комфорт для всей семьи.",
+    "url": ""
+  },
+  {
+    "title": "Кена",
+    "slug": "ken-house",
+    "price": "от 5 953 825 руб.",
+    "area": "120 м²",
+    "buildingArea": "160 м²",
+    "terracesArea": "45,36 м²",
+    "floors": 1,
+    "width": "14м",
+    "length": "13,7м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3
+    },
+    "size": "13,7 × 14",
+    "buildTime": "от 4 мес.",
+    "mortgagePrice": "от 28 557 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/e21/fmilo8rdprezo6xdl20alr4gu0u31jzs/1920_1080_102ac2dafdae9ba029c6325be6592945b/Medina_01.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/e21/fmilo8rdprezo6xdl20alr4gu0u31jzs/1920_1080_102ac2dafdae9ba029c6325be6592945b/Medina_01.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/f57/mbyd6gcotui66km9ajyd73waud09tp2b/1920_1080_102ac2dafdae9ba029c6325be6592945b/Medina_02.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/949/1eik2uqsrws10oi40fp7iypc6nf10pk4/1920_1080_102ac2dafdae9ba029c6325be6592945b/Medina_03.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/2c8/c29e0f3y3kum5f88mie9fvv4clshffqh/1920_1080_102ac2dafdae9ba029c6325be6592945b/Medina_04.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/fdf/407v9a4te34eaeiq7ix9iti1z0ymsi8z/1920_1080_102ac2dafdae9ba029c6325be6592945b/6-_6_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/773/m67nlfr3j7evruvppvnau3zv6vmne5c6/1920_1080_102ac2dafdae9ba029c6325be6592945b/8-_1_-_4_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/2e9/kh30mnzba5fdttozv7ey4p440vtrwsqf/1920_1080_102ac2dafdae9ba029c6325be6592945b/9-_1_-_4_.jpg"
+    ],
+    "plans": [
+      "https://s.iimg.su/s/02/g9JQDeBxlEq8UQMvgVYmsg7WbSqSnXXFRJC6SAQU.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/02/g9JQDeBxlEq8UQMvgVYmsg7WbSqSnXXFRJC6SAQU.jpg",
+      "https://s.iimg.su/s/02/guZdVQKxjcBpgZ5yz7AAbSqjuLE0NKrBoAXWVEsK.jpg",
+      "https://s.iimg.su/s/02/gAAqBzBxTsjKF93BTZl7KtPPkwAsbNvOnuahiC8p.jpg"
+    ],
+    "about": "Современный одноэтажный дом Кен с продуманной планировкой и оптимальным соотношением цены и качества. Проект включает три уютные спальни, просторную гостиную и два санузла. Компактные размеры 13,7 × 14 метров позволяют разместить дом на небольшом участке, а продуманная планировка обеспечивает максимальный комфорт для семьи. Проект сочетает функциональность, экономичность и современный дизайн.",
+    "url": ""
+  },
+  {
     "title": "Алстен",
     "slug": "alsten",
     "price": "от 14 087 500 руб.",
@@ -668,5 +833,198 @@
     "constructionTime": "от 4 мес.",
     "designCost": "от 1000 р/м²",
     "mortgagePayment": "от 47 472 руб/мес"
+  },
+  {
+    "title": "Никола",
+    "slug": "nikola",
+    "price": "от 8 162 000 руб.",
+    "area": "154 м²",
+    "buildingArea": "213 м²",
+    "terracesArea": "45 м²",
+    "floors": 2,
+    "width": "13м",
+    "length": "12м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1
+    },
+    "size": "13 × 12",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 39 185 руб/мес",
+    "designPrice": "от 1100 р/м²",
+    "imageUrl": "/Никола/20.jpg",
+    "gallery": [
+      "/Никола/Render.jpg",
+      "/Никола/20.jpg",
+      "/Никола/16.jpg",
+      "/Никола/19.jpg",
+      "/Никола/21.jpg"
+    ],
+    "plans": [
+      "/Никола/Планировки/Планировка 1.jpg"
+    ],
+    "planVariants": [
+      "/Никола/Планировки/Планировка 1.jpg",
+      "/Никола/Планировки/Планировка 2.jpg",
+      "/Никола/Планировки/Планировка 3.jpg"
+    ],
+    "about": "Двухэтажный дом 'Никола' с современной архитектурой и элегантным дизайном на 150 квадратных метрах. Проект включает три уютные спальни, просторную гостиную, два санузла и гардеробную. Компактные размеры 13 × 12 метров обеспечивают рациональное использование участка, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и современные архитектурные решения.",
+    "url": ""
+  },
+  {
+    "title": "Клубный",
+    "slug": "klubny",
+    "price": "от 8 480 000 руб.",
+    "area": "160 м²",
+    "buildingArea": "208 м²",
+    "terracesArea": "48 м²",
+    "floors": 2,
+    "width": "14м",
+    "length": "12м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1
+    },
+    "size": "14 × 12",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 40 726 руб/мес",
+    "designPrice": "от 1100 р/м²",
+    "imageUrl": "/Клубный/IMG_0913.jpg",
+    "gallery": [
+      "/Клубный/Render.jpg",
+      "/Клубный/IMG_0913.jpg",
+      "/Клубный/11_1161678749.jpg",
+      "/Клубный/13_741086076.jpg",
+      "/Клубный/8_1878603002.jpg"
+    ],
+    "plans": [
+      "/Клубный/Планировки/Планировка 1.jpg"
+    ],
+    "planVariants": [
+      "/Клубный/Планировки/Планировка 1.jpg",
+      "/Клубный/Планировки/Планировка 2.jpg",
+      "/Клубный/Планировки/Планировка 3.jpg"
+    ],
+    "about": "Двухэтажный дом 'Клубный' с современной архитектурой и элегантным дизайном на 160 квадратных метрах. Проект включает три уютные спальни, просторную гостиную, два санузла и гардеробную. Размеры 14 × 12 метров обеспечивают рациональное использование участка, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и современные архитектурные решения.",
+    "url": ""
+  },
+  {
+    "title": "Знаменский",
+    "slug": "znamensky",
+    "price": "от 8 162 000 руб.",
+    "area": "154 м²",
+    "buildingArea": "212 м²",
+    "terracesArea": "51 м²",
+    "floors": 2,
+    "width": "15м",
+    "length": "12м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 4,
+      "wardrobes": 1
+    },
+    "size": "15 × 12",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 39 185 руб/мес",
+    "designPrice": "от 1100 р/м²",
+    "imageUrl": "/Знаменский/22.jpeg",
+    "gallery": [
+      "/Знаменский/Render.jpg",
+      "/Знаменский/22.jpeg",
+      "/Знаменский/23.jpeg",
+      "/Знаменский/25.jpeg",
+      "/Знаменский/26.jpeg"
+    ],
+    "plans": [
+      "/Знаменский/Планировки/Планировка 1.jpg"
+    ],
+    "planVariants": [
+      "/Знаменский/Планировки/Планировка 1.jpg",
+      "/Знаменский/Планировки/Планировка 2.jpg",
+      "/Знаменский/Планировки/Планировка 3.jpg"
+    ],
+    "about": "Двухэтажный дом 'Знаменский' с современной архитектурой и элегантным дизайном на 170 квадратных метрах. Проект включает четыре уютные спальни, просторную гостиную, два санузла и гардеробную. Размеры 15 × 12 метров обеспечивают комфортное размещение на участке, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и современные архитектурные решения с увеличенной полезной площадью.",
+    "url": ""
+  },
+  {
+    "title": "Кроп",
+    "slug": "krop",
+    "price": "от 13 780 000 руб.",
+    "area": "260 м²",
+    "buildingArea": "350 м²",
+    "terracesArea": "42 м²",
+    "floors": 2,
+    "width": "12м",
+    "length": "11м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1
+    },
+    "size": "12 × 11",
+    "buildTime": "от 5 мес.",
+    "mortgagePrice": "от 66 175 руб/мес",
+    "designPrice": "от 1100 р/м²",
+    "imageUrl": "/Кроп/20.jpeg",
+    "gallery": [
+      "/Кроп/Render.jpg",
+      "/Кроп/20.jpeg",
+      "/Кроп/15.jpeg",
+      "/Кроп/18.jpeg",
+      "/Кроп/19.jpeg"
+    ],
+    "plans": [
+      "/Кроп/Планировки/Планировка 1.jpg"
+    ],
+    "planVariants": [
+      "/Кроп/Планировки/Планировка 1.jpg",
+      "/Кроп/Планировки/Планировка 2.jpg",
+      "/Кроп/Планировки/Планировка 3.jpg"
+    ],
+    "about": "Двухэтажный дом 'Кроп' с современной архитектурой и элегантным дизайном на 140 квадратных метрах. Проект включает три уютные спальни, просторную гостиную, два санузла и гардеробную. Компактные размеры 12 × 11 метров обеспечивают рациональное использование участка, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и экономичность в сочетании с комфортом.",
+    "url": ""
+  },
+  {
+    "title": "Янтарный",
+    "slug": "yantarny",
+    "price": "от 9 328 000 руб.",
+    "area": "176 м²",
+    "buildingArea": "234 м²",
+    "terracesArea": "45 м²",
+    "floors": 2,
+    "width": "13м",
+    "length": "12м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1
+    },
+    "size": "13 × 12",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 44 810 руб/мес",
+    "designPrice": "от 1100 р/м²",
+    "imageUrl": "/Янтарный/78.jpg",
+    "gallery": [
+      "/Янтарный/render.png",
+      "/Янтарный/78.jpg",
+      "/Янтарный/20220615_122510.jpg",
+      "/Янтарный/20220615_122553.jpg",
+      "/Янтарный/20220615_122614.jpg"
+    ],
+    "plans": [
+      "/Янтарный/Планировка/Планировка 1.jpg"
+    ],
+    "planVariants": [
+      "/Янтарный/Планировка/Планировка 1.jpg"
+    ],
+    "about": "Двухэтажный дом 'Янтарный' с современной архитектурой и элегантным дизайном на 150 квадратных метрах. Проект включает три уютные спальни, просторную гостиную, два санузла и гардеробную. Компактные размеры 13 × 12 метров обеспечивают рациональное использование участка, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и гармоничный сбалансированный дизайн в теплых тонах.",
+    "url": ""
   }
 ]

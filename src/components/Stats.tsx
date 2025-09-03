@@ -78,34 +78,26 @@ const Stats = () => {
   const stats = [
     {
       icon: Clock,
-      targetNumber: 15,
-      suffix: '+',
-      label: 'лет на рынке',
-      description: 'Работаем с 2008 года',
+      targetNumber: 3,
+      suffix: '',
+      label: 'года на рынке',
+      description: 'Строим дома с 2022 года',
       easeType: 'linear' // равномерно медленно
     },
     {
-      icon: TrendingUp,
-      targetNumber: 2500,
-      suffix: '+',
-      label: 'объектов продано',
-      description: 'Успешных сделок',
-      easeType: 'easeOut' // быстро начинает, медленно заканчивает
-    },
-    {
       icon: Users,
-      targetNumber: 5000,
+      targetNumber: 50,
       suffix: '+',
-      label: 'довольных клиентов',
-      description: 'Рекомендуют нас друзьям',
+      label: 'довольных семей',
+      description: 'Уже живут в построенных домах',
       easeType: 'easeOut' // быстро начинает, медленно заканчивает
     },
     {
       icon: Award,
-      targetNumber: 98,
-      suffix: '%',
-      label: 'положительных отзывов',
-      description: 'Высокий рейтинг качества',
+      targetNumber: 3,
+      suffix: '',
+      label: 'года гарантии',
+      description: 'На все виды работ',
       easeType: 'easeInOut' // плавно медленно
     }
   ];
@@ -114,7 +106,7 @@ const Stats = () => {
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 dark:from-gray-900 dark:via-slate-900 dark:to-black">
       <div className="container mx-auto px-4">
         {/* Statistics */}
-        <div ref={sectionRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div ref={sectionRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <Card key={index} className="text-center border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 hover:shadow-2xl transition-all duration-300 hover:scale-105 shadow-lg dark:shadow-gray-900/50">
               <CardContent className="p-0">

@@ -11,8 +11,8 @@ const ConstructionSquare = () => {
     },
     {
       icon: Users,
-      title: '500+ довольных клиентов',
-      description: 'Высокие оценки и положительные отзывы'
+      title: 'Десятки довольных семей',
+      description: 'Уже живут в своих построенных домах'
     },
     {
       icon: Clock,
@@ -57,7 +57,7 @@ const ConstructionSquare = () => {
               
               <p className="text-xl text-gray-600 leading-relaxed">
                 Полный цикл строительства от проекта до сдачи ключей. 
-                15+ лет опыта, 2500+ реализованных проектов, 98% довольных клиентов.
+                Уже на протяжении 3 лет строим дома в Новороссийске.
               </p>
 
               {/* CTA Buttons */}
@@ -78,18 +78,14 @@ const ConstructionSquare = () => {
             </div>
 
             {/* Right Column - Stats Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-                <div className="text-gray-600 text-sm">лет опыта</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
+                <div className="text-gray-600 text-sm">года опыта</div>
               </div>
               <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                <div className="text-3xl font-bold text-blue-600 mb-2">2500+</div>
-                <div className="text-gray-600 text-sm">реализованных проектов</div>
-              </div>
-              <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                <div className="text-3xl font-bold text-blue-600 mb-2">98%</div>
-                <div className="text-gray-600 text-sm">довольных клиентов</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
+                <div className="text-gray-600 text-sm">года гарантии</div>
               </div>
             </div>
           </div>
