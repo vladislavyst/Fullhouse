@@ -23,7 +23,7 @@ const Header = () => {
               src="/LOGO fullhouse.png" 
               alt="Fullhouse Logo" 
               className="h-48 w-auto drop-shadow-lg"
-              style={{filter: 'brightness(0) saturate(100%) invert(88%) sepia(37%) saturate(784%) hue-rotate(338deg) brightness(105%) contrast(104%)'}}
+              style={{filter: 'brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(1029%) hue-rotate(14deg) brightness(101%) contrast(101%)'}}
             />
           </Link>
 
