@@ -5,15 +5,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: 'Строительство домов', href: '/projects' },
-    { name: 'Реконструкция', href: '/projects' },
-    { name: 'Проектирование', href: '/projects' }
+    { name: 'Строительство домов', href: '/construction' },
+    { name: 'Реконструкция', href: '/reconstruction' },
+    { name: 'Проектирование', href: '/design' }
   ];
 
   const company = [
-    { name: 'О компании', href: '#about' },
-    { name: 'Лицензии', href: '#about' },
-    { name: 'Сертификаты', href: '#about' }
+    { name: 'О компании', href: '/about' },
+    { name: 'Лицензии', href: '/licenses' },
+    { name: 'Сертификаты', href: '/certificates' }
   ];
 
   return (

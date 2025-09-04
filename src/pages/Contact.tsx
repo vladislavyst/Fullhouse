@@ -148,9 +148,19 @@ const Contact = () => {
                           <Phone className="w-5 h-5 mr-2" /> Позвонить: +7 (918)-040-04-02
                         </Button>
                       </a>
+                      <a href="tel:+79883464087" className="block w-full">
+                        <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-base">
+                          <Phone className="w-5 h-5 mr-2" /> Позвонить: +7 988 346-40-87
+                        </Button>
+                      </a>
                       <a href="https://wa.me/79180400402" target="_blank" rel="noopener noreferrer" className="block w-full">
                         <Button variant="outline" className="w-full py-6 text-base border-green-500 text-green-700 hover:bg-green-50">
                           <MessageCircle className="w-5 h-5 mr-2" /> Написать в WhatsApp
+                        </Button>
+                      </a>
+                      <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="block w-full">
+                        <Button variant="outline" className="w-full py-6 text-base border-green-500 text-green-700 hover:bg-green-50">
+                          <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp: +7 988 346-40-87
                         </Button>
                       </a>
                       <a href="mailto:info@fullhouse-neo.ru" className="block w-full">

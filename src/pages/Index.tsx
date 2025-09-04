@@ -7,6 +7,7 @@ import About from '../components/About';
 import Footer from '../components/Footer';
 import ProjectsShowcase from '../components/ProjectsShowcase';
 import PWAInstaller from '../components/PWAInstaller';
+import PWAUpdatePrompt from '../components/PWAUpdatePrompt';
 import PageTransition from '../components/PageTransition';
 import PerformanceOptimizer from '../components/PerformanceOptimizer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
@@ -37,6 +38,7 @@ const Index = () => {
       </main>
       <Footer />
       <PWAInstaller />
+      <PWAUpdatePrompt />
       <WhatsAppFloat />
     </PageTransition>
   );

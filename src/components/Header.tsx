@@ -61,6 +61,12 @@ const Header = () => {
                 +7 (918)-040-04-02
               </a>
             </div>
+            <div className="flex items-center space-x-2 text-sm text-gray-200">
+              <Phone className="w-4 h-4" />
+              <a href="tel:+79883464087" className="hover:text-amber-400 transition-colors">
+                +7 988 346-40-87
+              </a>
+            </div>
             
             <Button className="bg-amber-500 hover:bg-amber-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
               <a href="tel:+79180400402" className="flex items-center space-x-2">

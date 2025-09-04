@@ -1,6 +1,7 @@
-const CACHE_NAME = 'fullhouse-v1.0.0';
+const CACHE_NAME = 'fullhouse-v1.1.0';
 const STATIC_CACHE = 'fullhouse-static-v1';
 const DYNAMIC_CACHE = 'fullhouse-dynamic-v1';
+const JSON_CACHE = 'fullhouse-json-v1';
 
 // Файлы для предварительного кэширования
 const STATIC_FILES = [
@@ -63,46 +64,53 @@ self.addEventListener('fetch', (event) => {
   // Стратегия кэширования для разных типов запросов
   if (request.method === 'GET') {
     // API запросы - Network First с fallback на кэш
-    if (url.pathname.includes('/api/') || url.pathname.includes('/projects.json')) {
-      event.respondWith(
-        fetch(request)
-          .then((response) => {
-            // Кэшируем успешные ответы
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches.open(DYNAMIC_CACHE).then((cache) => {
-                cache.put(request, responseClone);
-              });
-            }
-            return response;
-          })
-          .catch(() => {
-            // Fallback на кэш при ошибке сети
-            return caches.match(request);
-          })
-      );
+    if (url.pathname.endsWith('/projects.json')) {
+      // Stale-While-Revalidate с коротким TTL через ручную проверку заголовка Date
+      event.respondWith((async () => {
+        const cache = await caches.open(JSON_CACHE);
+        const cached = await cache.match(request);
+        const fetchAndUpdate = fetch(request).then(async (networkResp) => {
+          if (networkResp && networkResp.status === 200) {
+            await cache.put(request, networkResp.clone());
+          }
+          return networkResp;
+        });
+
+        if (!cached) return fetchAndUpdate;
+        // Возвращаем кэш сразу, параллельно обновляя
+        event.waitUntil(fetchAndUpdate);
+        return cached;
+      })());
     }
     // Статические ресурсы - Cache First с fallback на сеть
-    else if (request.destination === 'image' || 
-             request.destination === 'style' || 
-             request.destination === 'script') {
+    else if (request.destination === 'image') {
+      // Stale-While-Revalidate для изображений
+      event.respondWith((async () => {
+        const cache = await caches.open(DYNAMIC_CACHE);
+        const cached = await cache.match(request);
+        const fetchAndUpdate = fetch(request).then(async (networkResp) => {
+          if (networkResp && networkResp.status === 200) {
+            await cache.put(request, networkResp.clone());
+          }
+          return networkResp;
+        });
+        if (!cached) return fetchAndUpdate;
+        event.waitUntil(fetchAndUpdate);
+        return cached;
+      })());
+    }
+    else if (request.destination === 'style' || request.destination === 'script') {
+      // Cache First с догрузкой
       event.respondWith(
-        caches.match(request)
-          .then((response) => {
-            if (response) {
-              return response;
+        caches.match(request).then((response) => {
+          return response || fetch(request).then((resp) => {
+            if (resp && resp.status === 200) {
+              const clone = resp.clone();
+              caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, clone));
             }
-            return fetch(request).then((response) => {
-              // Кэшируем новые ресурсы
-              if (response.status === 200) {
-                const responseClone = response.clone();
-                caches.open(DYNAMIC_CACHE).then((cache) => {
-                  cache.put(request, responseClone);
-                });
-              }
-              return response;
-            });
-          })
+            return resp;
+          });
+        })
       );
     }
     // HTML страницы - Network First с fallback на кэш

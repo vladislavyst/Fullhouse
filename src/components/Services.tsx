@@ -106,6 +106,47 @@ const Services = () => {
     </svg>
   );
 
+  const ConstructionIcon = () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <linearGradient id="constructionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#1D4ED8" />
+        </linearGradient>
+      </defs>
+      {/* Crane */}
+      <rect x="18" y="20" width="4" height="60" fill="#1D4ED8" />
+      <rect x="18" y="20" width="50" height="4" fill="#1D4ED8" />
+      <rect x="60" y="20" width="4" height="14" fill="#1D4ED8" />
+      <rect x="58" y="34" width="8" height="8" fill="#F59E0B" />
+      {/* House base */}
+      <path d="M25 80 L50 55 L75 80 L75 88 L25 88 Z" fill="url(#constructionGrad)" opacity="0.9"/>
+      <rect x="45" y="72" width="10" height="16" fill="#1D4ED8" />
+      <rect x="30" y="76" width="6" height="8" fill="#60A5FA" />
+      <rect x="64" y="76" width="6" height="8" fill="#60A5FA" />
+    </svg>
+  );
+
+  const LegalIcon = () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <linearGradient id="legalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#059669" />
+        </linearGradient>
+      </defs>
+      {/* Shield */}
+      <path d="M50 18 L75 26 L75 46 C75 62 64 76 50 82 C36 76 25 62 25 46 L25 26 Z" fill="url(#legalGrad)" opacity="0.9"/>
+      {/* Scales */}
+      <rect x="48" y="30" width="4" height="26" fill="#065F46" />
+      <rect x="36" y="40" width="28" height="3" fill="#065F46" />
+      <circle cx="36" cy="43" r="1.5" fill="#065F46" />
+      <circle cx="64" cy="43" r="1.5" fill="#065F46" />
+      <path d="M30 43 Q36 53 42 43" stroke="#065F46" strokeWidth="2" fill="none" />
+      <path d="M58 43 Q64 53 70 43" stroke="#065F46" strokeWidth="2" fill="none" />
+    </svg>
+  );
+
   const { ref: sectionRef, isVisible } = useScrollAnimation({ 
     threshold: 0.1, 
     delay: 100,
@@ -113,6 +154,32 @@ const Services = () => {
   });
 
   const services = [
+    {
+      icon: ConstructionIcon,
+      title: 'Строительство',
+      description: 'Выполняем полный цикл строительных работ под ключ.',
+      features: [
+        'Строительство домов под ключ',
+        'Реконструкция и пристройки',
+        'Достраиваем объекты',
+        'Монолитные и каменные работы',
+        'Инженерные сети и коммуникации',
+        'Внутренняя и внешняя отделка'
+      ]
+    },
+    {
+      icon: LegalIcon,
+      title: 'Юридическое сопровождение',
+      description: 'Комплексная правовая проверка и сопровождение сделок и участков.',
+      features: [
+        'Проверка ВРИ (вида разрешенного использования)',
+        'Проверка охранных зон и санитарно-защитных зон',
+        'Проверка арестов и обременений',
+        'Правовая экспертиза документов',
+        'Сопровождение сделки купли-продажи',
+        'Согласования и разрешения'
+      ]
+    },
     {
       icon: BuyingIcon,
       title: 'Подбор земельных участков',
@@ -174,7 +241,6 @@ const Services = () => {
       features: [
         'Оценка рыночной стоимости недвижимости',
         'Анализ инвестиционной привлекательности',
-        'Юридическое сопровождение сделок',
         'Консультации по налогообложению',
         'Помощь в решении спорных вопросов',
         'Рекомендации по оптимизации инвестиций',
@@ -210,40 +276,35 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => {
-            // Different background colors for each service icon
-            const iconBgClasses = [
-              'bg-gradient-to-br from-emerald-500 to-teal-500 dark:from-emerald-400 dark:to-teal-400', // Green for land selection
-              'bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400', // Orange for mortgage
-              'bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400' // Purple for consultation
-            ];
+            // Icon container background unified for better contrast
             
             return (
-              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm h-full">
+              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1.5 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm h-full overflow-hidden">
                 <CardContent className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-                  <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4 lg:mb-6">
-                    <div className={`${iconBgClasses[index]} p-2 sm:p-3 rounded-lg w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg flex-shrink-0`}>
+                  <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4 lg:mb-6 lg:min-h-[120px]">
+                    <div className={`bg-white ring-1 ring-slate-200 p-2 sm:p-3 rounded-lg w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg flex-shrink-0`}>
                       <service.icon />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-slate-800 dark:text-white mb-2 leading-tight break-words">
                         {service.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+                      <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed break-words">
                         {service.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Features List */}
-                  <div className="mb-4 sm:mb-6 flex-grow">
+                  <div className="mb-4 sm:mb-6 flex-grow lg:min-h-[140px]">
                     <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white mb-2 sm:mb-3">
                       Наши услуги:
                     </h4>
                     <ul className="space-y-1.5 sm:space-y-2">
                       {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
+                        <li key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm break-words">
                           <div className="w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
                           <span className="text-slate-600 dark:text-gray-300 leading-relaxed">{feature}</span>
                         </li>

@@ -13,6 +13,8 @@ interface SEOConfig {
   semanticPhrases?: string[];
   localKeywords?: string[];
   longTailKeywords?: string[];
+  // Дополнительно
+  hreflangs?: { hrefLang: string; href: string }[];
 }
 
 export const useSEO = (config: SEOConfig) => {
@@ -104,6 +106,19 @@ export const useSEO = (config: SEOConfig) => {
     }
     canonicalLink.setAttribute('href', config.url || window.location.href);
     
+    // Обновляем hreflang ссылки, если переданы
+    const existingHrefLangs = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+    existingHrefLangs.forEach((ln) => ln.parentNode?.removeChild(ln));
+    if (config.hreflangs && config.hreflangs.length > 0) {
+      config.hreflangs.forEach(({ hrefLang, href }) => {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', hrefLang);
+        link.setAttribute('href', href);
+        document.head.appendChild(link);
+      });
+    }
+    
     // Добавляем структурированные данные если есть
     if (config.structuredData) {
       // Удаляем существующий JSON-LD если есть
@@ -152,18 +167,35 @@ export const seoConfigs = {
       "лучшие строительные компании Новороссийска", "проекты домов для семьи с детьми",
       "строительство энергоэффективного дома", "отзывы о строительстве домов"
     ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Fullhouse - Строительная компания",
-      "url": "https://sk-fullhouse.com",
-      "description": "Строительство домов под ключ в Новороссийске",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://sk-fullhouse.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Fullhouse - Строительная компания",
+        "url": "https://sk-fullhouse.com",
+        "description": "Строительство домов под ключ в Новороссийске",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://sk-fullhouse.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Fullhouse",
+        "url": "https://sk-fullhouse.com",
+        "logo": "https://sk-fullhouse.com/Logonew.png",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+7-918-040-04-02",
+          "contactType": "customer service",
+          "areaServed": "RU",
+          "availableLanguage": ["ru"]
+        }],
+        "sameAs": []
       }
-    }
+    ]
   },
   
   projects: {
@@ -183,23 +215,22 @@ export const seoConfigs = {
       "проект дома 150 кв м Новороссийск", "готовые проекты коттеджей с гаражом",
       "проекты домов в стиле модерн", "планировка дома для большой семьи"
     ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Проекты домов и коттеджей",
-      "description": "Каталог готовых проектов от Fullhouse",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "House",
-            "name": "Forest Residence",
-            "url": "https://sk-fullhouse.com/projects/forest-residence"
-          }
-        }
-      ]
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://sk-fullhouse.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Проекты", "item": "https://sk-fullhouse.com/projects"}
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Проекты домов и коттеджей",
+        "description": "Каталог готовых проектов от Fullhouse"
+      }
+    ]
   },
   
   services: {
@@ -250,12 +281,34 @@ export const seoConfigs = {
       "бесплатная консультация по строительству дома", "выезд специалиста на участок",
       "расчет стоимости строительства онлайн", "заказать звонок строительной компании"
     ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Контакты Fullhouse",
-      "description": "Свяжитесь с нами для заказа строительства"
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Контакты Fullhouse",
+        "description": "Свяжитесь с нами для заказа строительства"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Fullhouse",
+        "image": "https://sk-fullhouse.com/Logonew.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Хворостьянского, 4",
+          "addressLocality": "Новороссийск",
+          "postalCode": "353900",
+          "addressCountry": "RU"
+        },
+        "telephone": "+7-918-040-04-02",
+        "openingHours": [
+          "Mo-Fr 09:00-18:00",
+          "Sa 10:00-16:00",
+          "Su 10:00-14:00"
+        ],
+        "url": "https://sk-fullhouse.com/contact"
+      }
+    ]
   }
 };
 

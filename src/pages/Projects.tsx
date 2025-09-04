@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useProjects } from '@/hooks/useProjects';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
@@ -28,6 +29,7 @@ const Projects = () => {
   const [items, setItems] = useState<ProjectItem[]>([]);
   const [itemsWithAspect, setItemsWithAspect] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { data: allProjects, isLoading: queryLoading } = useProjects({ staleTime: 1000 * 60 * 10 });
 
   // Фильтры
   const [priceMin, setPriceMin] = useState<string>('');
@@ -54,45 +56,35 @@ const Projects = () => {
 
   useEffect(() => {
     let active = true;
-    const load = async () => {
+    const prepare = async () => {
       try {
         setLoading(true);
-        const res = await fetch('/projects.json', { cache: 'no-store' });
-        const data = await res.json();
-        if (active && Array.isArray(data)) {
-          const realizedSlugs = new Set([
-            'nova',
-            'grinvud',
-            'riga',
-            'orehovaya-roshcha',
-            'yantarny',
-            'krop',
-            'znamensky',
-            'klubny',
-            'nikola',
-          ]);
-          const filtered = data.filter((item: any) => !realizedSlugs.has((item.slug || '').toLowerCase()));
-          setItems(filtered);
-          
-          // Сортируем проекты по соотношению сторон изображений
-          const itemsWithAspectRatio = await Promise.all(
-            filtered.map(async (item: ProjectItem) => {
-              const isWide = item.imageUrl ? await checkImageAspectRatio(item.imageUrl) : false;
-              return { ...item, isWide };
-            })
-          );
-
-          if (active) setItemsWithAspect(itemsWithAspectRatio);
-        }
+        const data = Array.isArray(allProjects) ? allProjects : [];
+        const realizedSlugs = new Set([
+          'nova','grinvud','riga','orehovaya-roshcha','yantarny','krop','znamensky','klubny','nikola',
+        ]);
+        const filtered = data.filter((item: any) => !realizedSlugs.has((item.slug || '').toLowerCase()));
+        if (!active) return;
+        setItems(filtered);
+        const itemsWithAspectRatio = await Promise.all(
+          filtered.map(async (item: ProjectItem) => {
+            const isWide = item.imageUrl ? await checkImageAspectRatio(item.imageUrl) : false;
+            return { ...item, isWide };
+          })
+        );
+        if (active) setItemsWithAspect(itemsWithAspectRatio);
       } finally {
-        if (active) setLoading(false);
+        if (active) setLoading(queryLoading);
       }
     };
-    load();
-    return () => {
-      active = false;
-    };
-  }, []);
+    prepare();
+    return () => { active = false; };
+  }, [allProjects, queryLoading]);
+
+  // Prefetch detail page chunk on hover
+  const prefetchDetail = () => {
+    import('@/pages/ProjectDetail');
+  };
 
   // Утилиты парсинга
   const parsePrice = (price?: string): number | null => {
@@ -339,8 +331,14 @@ const Projects = () => {
                               </div>
                             )}
                             <div className="mt-4 flex gap-2">
+                              <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+                                <Button size="sm" className="fh-btn-primary">Рассчитать смету</Button>
+                              </a>
+                              <a href="tel:+79180400402">
+                                <Button size="sm" className="fh-btn-secondary">Получить консультацию</Button>
+                              </a>
                               {p.slug && (
-                                <Button asChild size="sm" className="fh-btn-primary">
+                                <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
                                   <Link to={`/projects/${p.slug}`}>Подробнее</Link>
                                 </Button>
                               )}
@@ -431,8 +429,14 @@ const Projects = () => {
                         </div>
                       )}
                       <div className="mt-4 flex gap-2">
+                        <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" className="fh-btn-primary">Рассчитать смету</Button>
+                        </a>
+                        <a href="tel:+79180400402">
+                          <Button size="sm" className="fh-btn-secondary">Получить консультацию</Button>
+                        </a>
                         {p.slug && (
-                          <Button asChild size="sm" className="fh-btn-primary">
+                          <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
                             <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
                           </Button>
                         )}

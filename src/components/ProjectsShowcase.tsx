@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useProjects } from '@/hooks/useProjects';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -22,6 +23,7 @@ const ProjectsShowcase = () => {
   const [items, setItems] = useState<ShowcaseProject[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const { data: allProjects, isLoading: queryLoading, isError } = useProjects({ staleTime: 1000 * 60 * 10 });
   const { ref: sectionRef, isVisible } = useScrollAnimation({ 
     threshold: 0.1, 
     delay: 100,
@@ -29,30 +31,10 @@ const ProjectsShowcase = () => {
   });
 
   useEffect(() => {
-    let active = true;
-    const load = async () => {
-      try {
-        setLoading(true);
-        setError(false);
-        const res = await fetch('/projects.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Failed to load projects.json');
-        const data: ShowcaseProject[] = await res.json();
-        if (!Array.isArray(data)) throw new Error('Invalid projects.json format');
-        if (active) setItems(data);
-      } catch {
-        if (active) {
-          setError(true);
-          setItems([]);
-        }
-      } finally {
-        if (active) setLoading(false);
-      }
-    };
-    load();
-    return () => {
-      active = false;
-    };
-  }, []);
+    setLoading(queryLoading);
+    setError(!!isError);
+    if (Array.isArray(allProjects)) setItems(allProjects as any);
+  }, [allProjects, queryLoading, isError]);
 
   const realizedSlugs = new Set(['nova','grinvud','riga','orehovaya-roshcha']);
   const topSix = useMemo(() => {
@@ -98,7 +80,7 @@ const ProjectsShowcase = () => {
                     <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl">
                       <div className="fh-card__image">
                         {p.imageUrl ? (
-                          <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white" />
+                          <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white" loading="lazy" decoding="async" sizes="100vw" />
                         ) : (
                           <div className="w-full h-56 bg-gray-200" />
                         )}
@@ -173,7 +155,7 @@ const ProjectsShowcase = () => {
             >
               <div className="fh-card__image">
                 {p.imageUrl ? (
-                  <img src={p.imageUrl} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <img src={p.imageUrl} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" />
                 ) : (
                   <div className="w-full h-full bg-gray-200" />
                 )}

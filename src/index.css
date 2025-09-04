@@ -384,7 +384,12 @@ html {
 /* Fullhouse common card styles */
 @layer components {
   .fh-card {
-    @apply bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200;
+    @apply bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200 active:translate-y-0.5;
+  }
+  .fh-card a:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 0.625rem;
   }
   .fh-card__image {
     @apply relative h-48 w-full;
@@ -408,6 +413,10 @@ html {
     @apply absolute top-3 left-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow;
   }
   .fh-btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg;
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px;
+  }
+
+  .fh-btn-secondary {
+    @apply bg-white text-primary border border-slate-200 hover:bg-slate-50 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-px;
   }
 }

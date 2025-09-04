@@ -8,6 +8,7 @@ import { Maximize, Ruler, Timer, ArrowLeft, Bath, BedDouble, Sofa, Shirt } from 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import { useSEO } from '@/hooks/useSEO';
 
 type Project = {
   title: string;
@@ -62,6 +63,46 @@ const ProjectDetail = () => {
     setActivePlanIdx(0);
   }, [project?.slug]);
 
+  // SEO
+  useSEO({
+    title: project ? `${project.title} | Проекты домов Fullhouse` : 'Проект | Fullhouse',
+    description: project?.about || 'Детальная страница проекта дома с фото и планировками от Fullhouse.',
+    image: project?.gallery && project.gallery.length > 0 ? project.gallery[0] : project?.imageUrl,
+    url: typeof window !== 'undefined' ? window.location.href : undefined,
+    type: 'product',
+    structuredData: project ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://sk-fullhouse.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Проекты", "item": "https://sk-fullhouse.com/projects"},
+          {"@type": "ListItem", "position": 3, "name": project.title, "item": typeof window !== 'undefined' ? window.location.href : ''}
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": project.title,
+        "image": project.gallery && project.gallery.length > 0 ? project.gallery : (project.imageUrl ? [project.imageUrl] : []),
+        "description": project.about || '',
+        "brand": { "@type": "Organization", "name": "Fullhouse" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "RUB",
+          "price": (project.price || '').replace(/[^0-9]/g, '') || undefined,
+          "url": typeof window !== 'undefined' ? window.location.href : undefined,
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Площадь", "value": project.area || ''},
+          {"@type": "PropertyValue", "name": "Размер", "value": project.size || ''},
+          {"@type": "PropertyValue", "name": "Этажей", "value": typeof project.floors === 'number' ? String(project.floors) : ''}
+        ]
+      }
+    ] : undefined,
+  });
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -115,7 +156,7 @@ const ProjectDetail = () => {
                     <CarouselContent>
                       {project.gallery.map((src, i) => (
                         <CarouselItem key={`${src}-${i}`}>
-                          <img src={src} alt={`${project.title} фото ${i + 1}`} className="w-full h-[420px] object-contain bg-white" />
+                          <img src={src} alt={`${project.title} фото ${i + 1}`} className="w-full h-[420px] object-contain bg-white" loading="lazy" decoding="async" sizes="(min-width:1024px) 66vw, 100vw" />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
@@ -130,7 +171,7 @@ const ProjectDetail = () => {
           </Card>
         </section>
 
-        {/* Summary + toolbar like on source */}
+        {/* Summary + CTA */}
         <section className="container mx-auto px-4 pt-6">
           {/* Summary grid */}
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
@@ -142,8 +183,19 @@ const ProjectDetail = () => {
             <Card className="border-0 bg-white"><CardContent className="p-4"><div className="text-xs text-muted-foreground mb-1">Длина дома</div><div className="text-lg font-semibold">{project.length ?? '—'}</div></CardContent></Card>
           </div>
 
+          {/* CTA */}
+          <div className="flex flex-wrap gap-2">
+            <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+              <Button className="fh-btn-primary">Рассчитать смету</Button>
+            </a>
+            <a href="tel:+79180400402">
+              <Button className="fh-btn-secondary">Получить консультацию</Button>
+            </a>
+            <Button variant="outline" className="fh-btn-secondary">Скачать PDF</Button>
+          </div>
+
           {/* Icons row with tooltips */}
-          <div className="grid grid-cols-4 gap-6 text-sm mb-4">
+          <div className="grid grid-cols-4 gap-6 text-sm mb-4 mt-4">
             <Tooltip>
               <TooltipTrigger asChild>
                 <div className="flex items-center gap-2 cursor-default"><Bath className="h-5 w-5 text-muted-foreground" />{project.stats?.bathrooms ?? 0}</div>
@@ -195,7 +247,7 @@ const ProjectDetail = () => {
                       <img
                         src={project.planVariants[activePlanIdx]}
                         alt={`Планировка вариант ${activePlanIdx + 1}`}
-                        className="max-w-full max-h-[620px] object-contain"
+                        className="max-w-full max-h-[620px] object-contain" loading="lazy" decoding="async"
                       />
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -216,7 +268,7 @@ const ProjectDetail = () => {
                 ) : project.plans && project.plans.length > 0 ? (
                   <div className="grid sm:grid-cols-2 gap-4">
                     {project.plans.map((src, i) => (
-                      <img key={`${src}-${i}`} src={src} alt={`Планировка ${i + 1}`} className="w-full h-64 object-contain bg-white rounded-lg" />
+                      <img key={`${src}-${i}`} src={src} alt={`Планировка ${i + 1}`} className="w-full h-64 object-contain bg-white rounded-lg" loading="lazy" decoding="async" />
                     ))}
                   </div>
                 ) : (
@@ -245,14 +297,34 @@ const ProjectDetail = () => {
                     <div className="font-medium">{project.buildTime ?? '—'}</div>
                   </div>
                 </div>
-                <Button className="w-full">Получить консультацию</Button>
+                <div className="grid grid-cols-1 gap-2">
+                  <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full fh-btn-primary">Рассчитать смету</Button>
+                  </a>
+                  <a href="tel:+79180400402" className="w-full">
+                    <Button className="w-full fh-btn-secondary">Получить консультацию</Button>
+                  </a>
+                  <Button variant="outline" className="w-full fh-btn-secondary">Скачать PDF</Button>
+                </div>
               </CardContent>
             </Card>
-            {/* Specs block akin to source layout */}
+            {/* Specs block: normalized table */}
             <Card className="border-0 bg-white">
               <CardContent className="p-6 space-y-3">
-                <h2 className="text-lg font-semibold text-primary">Характеристики</h2>
-                <div className="text-sm text-muted-foreground">Материал, этажность, терраса и другие параметры при необходимости можно дополнить.</div>
+                <h2 className="text-lg font-semibold text-primary mb-3">Характеристики</h2>
+                <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Общая площадь</span><span className="font-medium">{project.area || '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Строительная площадь</span><span className="font-medium">{project.buildingArea || '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Террасы/балконы</span><span className="font-medium">{project.terracesArea || '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Этажей</span><span className="font-medium">{project.floors ?? '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Размеры</span><span className="font-medium">{project.size || `${project.width || '—'} × ${project.length || '—'}`}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Срок строительства</span><span className="font-medium">{project.buildTime || '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Спальни</span><span className="font-medium">{project.stats?.bedrooms ?? '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Санузлы</span><span className="font-medium">{project.stats?.bathrooms ?? '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Гардеробные</span><span className="font-medium">{project.stats?.wardrobes ?? '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Гостиные</span><span className="font-medium">{(project.stats as any)?.livingRooms ?? '—'}</span></div>
+                  <div className="flex items-center justify-between"><span className="text-muted-foreground">Гараж</span><span className="font-medium">{project.stats?.garage ?? '—'}</span></div>
+                </div>
               </CardContent>
             </Card>
           </div>

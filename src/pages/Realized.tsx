@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useProjects } from '@/hooks/useProjects';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -28,22 +29,17 @@ const realizedSlugs = new Set([
 const Realized = () => {
   const [items, setItems] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { data: allProjects, isLoading: queryLoading } = useProjects({ staleTime: 1000 * 60 * 10 });
 
   useEffect(() => {
     let active = true;
-    const load = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch('/projects.json', { cache: 'no-store' });
-        const data = await res.json();
-        if (active && Array.isArray(data)) setItems(data);
-      } finally {
-        if (active) setLoading(false);
-      }
+    const apply = () => {
+      setLoading(queryLoading);
+      if (Array.isArray(allProjects) && active) setItems(allProjects as any);
     };
-    load();
+    apply();
     return () => { active = false; };
-  }, []);
+  }, [allProjects, queryLoading]);
 
   const realized = useMemo(() => items.filter(p => realizedSlugs.has((p.slug || '').toLowerCase())), [items]);
 
@@ -98,13 +94,21 @@ const Realized = () => {
                     </Link>
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-primary mb-2">{p.title}</h3>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between gap-2">
                         <div className="text-blue-600 font-semibold">{computed ? `от ${formatRub(computed)}` : (p.price || 'По запросу')}</div>
-                        {p.slug && (
-                          <Button asChild size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                            <Link to={`/projects/${p.slug}`} state={{ from: '/realized' }}>Открыть</Link>
-                          </Button>
-                        )}
+                        <div className="flex gap-2">
+                          <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" className="fh-btn-primary">Рассчитать смету</Button>
+                          </a>
+                          <a href="tel:+79180400402">
+                            <Button size="sm" className="fh-btn-secondary">Позвонить</Button>
+                          </a>
+                          {p.slug && (
+                            <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
+                              <Link to={`/projects/${p.slug}`} state={{ from: '/realized' }}>Открыть</Link>
+                            </Button>
+                          )}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
