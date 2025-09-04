@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -31,6 +31,8 @@ type Project = {
 
 const ProjectDetail = () => {
   const { slug } = useParams();
+  const location = useLocation();
+  const backTo = (location.state as any)?.from || '/projects';
   const [items, setItems] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -98,7 +100,7 @@ const ProjectDetail = () => {
       <main className="pt-20">
         <section className="container mx-auto px-4 py-6">
           <Button asChild variant="ghost" className="mb-4">
-            <Link to="/projects" className="inline-flex items-center gap-2"><ArrowLeft className="h-4 w-4" /> Назад</Link>
+            <Link to={backTo} className="inline-flex items-center gap-2"><ArrowLeft className="h-4 w-4" /> Назад</Link>
           </Button>
           <h1 className="text-3xl lg:text-5xl font-bold text-primary mb-6">{project.title}</h1>
         </section>

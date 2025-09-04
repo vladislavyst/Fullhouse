@@ -47,6 +47,20 @@ const Realized = () => {
 
   const realized = useMemo(() => items.filter(p => realizedSlugs.has((p.slug || '').toLowerCase())), [items]);
 
+  const parseAreaToNumber = (area?: string): number | null => {
+    if (!area) return null;
+    // Examples: "154 м²", "194,7 м²"
+    const normalized = area.replace(/[^0-9,\.]/g, '').replace(',', '.');
+    const n = parseFloat(normalized);
+    return isNaN(n) ? null : n;
+  };
+
+  const formatRub = (value: number): string => {
+    return value.toLocaleString('ru-RU') + ' ₽';
+  };
+
+  const PRICE_PER_M2 = 41000;
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -70,9 +84,12 @@ const Realized = () => {
               <div className="text-muted-foreground">Реализованные проекты не найдены.</div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {realized.map((p, idx) => (
+                {realized.map((p, idx) => {
+                  const areaNum = parseAreaToNumber((p as any).area);
+                  const computed = areaNum ? areaNum * PRICE_PER_M2 : null;
+                  return (
                   <Card key={`${p.slug}-${idx}`} className="border-0 bg-white/90 backdrop-blur-sm overflow-hidden shadow-xl group">
-                    <Link to={p.slug ? `/projects/${p.slug}` : '#'}>
+                    <Link to={p.slug ? `/projects/${p.slug}` : '#'} state={{ from: '/realized' }}>
                       {p.imageUrl ? (
                         <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white transition-transform duration-300 group-hover:scale-105" />
                       ) : (
@@ -82,16 +99,17 @@ const Realized = () => {
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-primary mb-2">{p.title}</h3>
                       <div className="flex items-center justify-between">
-                        <div className="text-blue-600 font-semibold">{p.price || 'По запросу'}</div>
+                        <div className="text-blue-600 font-semibold">{computed ? `от ${formatRub(computed)}` : (p.price || 'По запросу')}</div>
                         {p.slug && (
                           <Button asChild size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                            <Link to={`/projects/${p.slug}`}>Открыть</Link>
+                            <Link to={`/projects/${p.slug}`} state={{ from: '/realized' }}>Открыть</Link>
                           </Button>
                         )}
                       </div>
                     </CardContent>
                   </Card>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

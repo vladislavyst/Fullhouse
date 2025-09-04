@@ -30,7 +30,13 @@ const Contact = () => {
         {/* Contact Information */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Связаться с нами</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Позвоните, напишите в WhatsApp или приезжайте в офис — мы на связи и готовы помочь с вашим проектом.
+              </p>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Contact Cards */}
               <div className="space-y-8">
                 <div>
@@ -131,7 +137,47 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Contact Form removed by request */}
+              {/* Right column: CTA + quick links */}
+              <div className="space-y-8">
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-semibold text-primary mb-4">Как с нами быстро связаться</h3>
+                    <div className="space-y-3">
+                      <a href="tel:+79180400402" className="block w-full">
+                        <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-base">
+                          <Phone className="w-5 h-5 mr-2" /> Позвонить: +7 (918)-040-04-02
+                        </Button>
+                      </a>
+                      <a href="https://wa.me/79180400402" target="_blank" rel="noopener noreferrer" className="block w-full">
+                        <Button variant="outline" className="w-full py-6 text-base border-green-500 text-green-700 hover:bg-green-50">
+                          <MessageCircle className="w-5 h-5 mr-2" /> Написать в WhatsApp
+                        </Button>
+                      </a>
+                      <a href="mailto:info@fullhouse-neo.ru" className="block w-full">
+                        <Button variant="outline" className="w-full py-6 text-base">
+                          <Mail className="w-5 h-5 mr-2" /> info@fullhouse-neo.ru
+                        </Button>
+                      </a>
+                    </div>
+                    <ul className="mt-6 text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                      <li>Работаем ежедневно: Пн-Пт 9:00–18:00, Сб 10:00–16:00</li>
+                      <li>Ответ на e‑mail — в течение 2 часов</li>
+                      <li>Офис: г. Новороссийск, ул. Хворостьянского, 4 (2 этаж, офис 205)</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+                <Card className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-semibold text-primary mb-4">Чем мы поможем</h3>
+                    <div className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                      <div className="p-3 rounded-lg bg-muted/40">Подбор проекта под ваш участок</div>
+                      <div className="p-3 rounded-lg bg-muted/40">Предварительный расчет стоимости</div>
+                      <div className="p-3 rounded-lg bg-muted/40">Сроки и этапы строительства</div>
+                      <div className="p-3 rounded-lg bg-muted/40">Ведомость материалов и комплектовка</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
@@ -155,6 +201,28 @@ const Contact = () => {
                 zoom={16}
                 height="400px"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-4">Готовы обсудить ваш дом?</h3>
+              <p className="text-muted-foreground mb-6">Оставьте заявку в WhatsApp или позвоните — ответим на вопросы и подскажем оптимальные решения.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://wa.me/79180400402" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5">
+                    <MessageCircle className="w-4 h-4 mr-2" /> Написать в WhatsApp
+                  </Button>
+                </a>
+                <a href="tel:+79180400402">
+                  <Button variant="outline" className="px-6 py-2.5">
+                    <Phone className="w-4 h-4 mr-2" /> Позвонить
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>

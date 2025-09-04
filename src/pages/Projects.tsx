@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
@@ -20,12 +20,21 @@ type ProjectItem = {
   url?: string;
   slug?: string;
   about?: string;
+  floors?: number;
+  isWide?: boolean;
 };
 
 const Projects = () => {
   const [items, setItems] = useState<ProjectItem[]>([]);
-  const [sortedItems, setSortedItems] = useState<ProjectItem[]>([]);
+  const [itemsWithAspect, setItemsWithAspect] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+  // Фильтры
+  const [priceMin, setPriceMin] = useState<string>('');
+  const [priceMax, setPriceMax] = useState<string>('');
+  const [areaMin, setAreaMin] = useState<string>('');
+  const [areaMax, setAreaMax] = useState<string>('');
+  const [floorsFilter, setFloorsFilter] = useState<string>('all'); // 'all' | '1' | '2'
 
   // Применяем SEO-оптимизацию для страницы проектов
   useSEO(seoConfigs.projects);
@@ -73,14 +82,7 @@ const Projects = () => {
             })
           );
 
-          // Сортируем: сначала широкие, потом остальные
-          const sorted = itemsWithAspectRatio.sort((a, b) => {
-            if (a.isWide && !b.isWide) return -1;
-            if (!a.isWide && b.isWide) return 1;
-            return 0;
-          });
-
-          if (active) setSortedItems(sorted);
+          if (active) setItemsWithAspect(itemsWithAspectRatio);
         }
       } finally {
         if (active) setLoading(false);
@@ -91,6 +93,63 @@ const Projects = () => {
       active = false;
     };
   }, []);
+
+  // Утилиты парсинга
+  const parsePrice = (price?: string): number | null => {
+    if (!price) return null;
+    const digits = price.replace(/[^0-9]/g, '');
+    if (!digits) return null;
+    try { return parseInt(digits, 10); } catch { return null; }
+  };
+
+  const parseArea = (area?: string): number | null => {
+    if (!area) return null;
+    const cleaned = area.replace(/[^0-9,\.]/g, '').replace(',', '.');
+    const num = parseFloat(cleaned);
+    return isNaN(num) ? null : num;
+  };
+
+  // Применяем фильтры и затем группируем по ширине
+  const displayedItems = useMemo(() => {
+    const minPrice = priceMin ? parseInt(priceMin, 10) : null;
+    const maxPrice = priceMax ? parseInt(priceMax, 10) : null;
+    const minArea = areaMin ? parseFloat(areaMin.replace(',', '.')) : null;
+    const maxArea = areaMax ? parseFloat(areaMax.replace(',', '.')) : null;
+    const floors = floorsFilter === 'all' ? null : parseInt(floorsFilter, 10);
+
+    const filtered = itemsWithAspect.filter((p) => {
+      const pPrice = parsePrice(p.price);
+      const pArea = parseArea(p.area);
+      const pFloors = typeof p.floors === 'number' ? p.floors : null;
+
+      if (minPrice !== null && (pPrice === null || pPrice < minPrice)) return false;
+      if (maxPrice !== null && (pPrice === null || pPrice > maxPrice)) return false;
+
+      if (minArea !== null && (pArea === null || pArea < minArea)) return false;
+      if (maxArea !== null && (pArea === null || pArea > maxArea)) return false;
+
+      if (floors !== null && pFloors !== null && pFloors !== floors) return false;
+      if (floors !== null && pFloors === null) return false; // если фильтр по этажности выбран, требуем значение
+
+      return true;
+    });
+
+    // Сортируем: сначала широкие, потом остальные
+    return filtered.sort((a, b) => {
+      const aW = !!a.isWide; const bW = !!b.isWide;
+      if (aW && !bW) return -1;
+      if (!aW && bW) return 1;
+      return 0;
+    });
+  }, [itemsWithAspect, priceMin, priceMax, areaMin, areaMax, floorsFilter]);
+
+  const resetFilters = () => {
+    setPriceMin('');
+    setPriceMax('');
+    setAreaMin('');
+    setAreaMax('');
+    setFloorsFilter('all');
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -109,8 +168,80 @@ const Projects = () => {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl lg:text-6xl font-bold text-slate-800 mb-4">Все проекты</h1>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Полная витрина проектов с ключевыми характеристиками. Данные берутся из projects.json.
+              Полная витрина проектов с ключевыми характеристиками.
             </p>
+          </div>
+        </section>
+
+        {/* Панель фильтров */}
+        <section className="-mt-8 pb-4">
+          <div className="container mx-auto px-4">
+            <div className="bg-white/90 backdrop-blur rounded-2xl shadow-lg ring-1 ring-slate-200/60 px-4 sm:px-6 py-5">
+              <div className="grid md:grid-cols-5 gap-4">
+                <div>
+                  <label className="block text-xs text-slate-500 mb-1">Цена от (руб.)</label>
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    value={priceMin}
+                    onChange={(e) => setPriceMin(e.target.value)}
+                    className="w-full h-10 rounded-md border border-slate-200 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    placeholder="5 000 000"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-slate-500 mb-1">Цена до (руб.)</label>
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    value={priceMax}
+                    onChange={(e) => setPriceMax(e.target.value)}
+                    className="w-full h-10 rounded-md border border-slate-200 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    placeholder="15 000 000"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-slate-500 mb-1">Площадь от (м²)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    inputMode="decimal"
+                    value={areaMin}
+                    onChange={(e) => setAreaMin(e.target.value)}
+                    className="w-full h-10 rounded-md border border-slate-200 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    placeholder="120"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-slate-500 mb-1">Площадь до (м²)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    inputMode="decimal"
+                    value={areaMax}
+                    onChange={(e) => setAreaMax(e.target.value)}
+                    className="w-full h-10 rounded-md border border-slate-200 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    placeholder="300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-slate-500 mb-1">Этажность</label>
+                  <select
+                    value={floorsFilter}
+                    onChange={(e) => setFloorsFilter(e.target.value)}
+                    className="w-full h-10 rounded-md border border-slate-200 px-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  >
+                    <option value="all">Все</option>
+                    <option value="1">1 этаж</option>
+                    <option value="2">2 этажа</option>
+                  </select>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center justify-between text-sm">
+                <div className="text-slate-500">Найдено: <span className="font-medium text-slate-700">{displayedItems.length}</span></div>
+                <button onClick={resetFilters} className="text-blue-700 hover:text-blue-800">Сбросить фильтры</button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -120,7 +251,7 @@ const Projects = () => {
             {loading ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <Card key={i} className="fh-card">
+                  <Card key={i} className="fh-card rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                     <div className="w-full h-56 bg-gray-200 animate-pulse" />
                     <CardContent className="p-6">
                       <div className="h-6 w-2/3 bg-gray-200 animate-pulse rounded mb-3" />
@@ -140,11 +271,11 @@ const Projects = () => {
             ) : (
               <div className="space-y-12">
                 {/* Широкие изображения */}
-                {sortedItems.filter((p: any) => p.isWide).length > 0 && (
+                {displayedItems.filter((p: any) => p.isWide).length > 0 && (
                   <div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {sortedItems.filter((p: any) => p.isWide).map((p, idx) => (
-                        <Card key={`wide-${p.title}-${idx}`} className="fh-card group">
+                      {displayedItems.filter((p: any) => p.isWide).map((p, idx) => (
+                        <Card key={`wide-${p.title}-${idx}`} className="fh-card group rounded-2xl shadow-lg hover:shadow-2xl transition-shadow ring-1 ring-slate-200/60">
                           <div className="relative overflow-hidden">
                             {p.title.trim().toLowerCase() === 'алстен' ? (
                               <div className="relative group">
@@ -174,7 +305,7 @@ const Projects = () => {
                               </div>
                             ) : p.imageUrl ? (
                               <div className="relative">
-                                <Link to={p.slug ? `/projects/${p.slug}` : '#'}>
+                                <Link to={p.slug ? `/projects/${p.slug}` : '#'} state={{ from: '/projects' }}>
                                   <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white transition-transform duration-300 group-hover:scale-105" />
                                 </Link>
 
@@ -227,11 +358,11 @@ const Projects = () => {
                 )}
 
                 {/* Квадратные/вертикальные изображения */}
-                {sortedItems.filter((p: any) => !p.isWide).length > 0 && (
+                {displayedItems.filter((p: any) => !p.isWide).length > 0 && (
                   <div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {sortedItems.filter((p: any) => !p.isWide).map((p, idx) => (
-                  <Card key={`${p.title}-${idx}`} className="fh-card group">
+                      {displayedItems.filter((p: any) => !p.isWide).map((p, idx) => (
+                  <Card key={`${p.title}-${idx}`} className="fh-card group rounded-2xl shadow-lg hover:shadow-2xl transition-shadow ring-1 ring-slate-200/60">
                     <div className="relative overflow-hidden">
                       {p.title.trim().toLowerCase() === 'алстен' ? (
                         <div className="relative group">
@@ -261,7 +392,7 @@ const Projects = () => {
                         </div>
                       ) : p.imageUrl ? (
                         <div className="relative">
-                          <Link to={p.slug ? `/projects/${p.slug}` : '#'}>
+                          <Link to={p.slug ? `/projects/${p.slug}` : '#'} state={{ from: '/projects' }}>
                             <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white transition-transform duration-300 group-hover:scale-105" />
                           </Link>
                           {/* Индикатор типа изображения */}
@@ -276,7 +407,7 @@ const Projects = () => {
                       )}
                     </div>
                     <CardContent className="p-6">
-                      <Link to={p.slug ? `/projects/${p.slug}` : '#'} className="block">
+                      <Link to={p.slug ? `/projects/${p.slug}` : '#'} className="block" state={{ from: '/projects' }}>
                         <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-700 transition-colors">{p.title}</h3>
                       </Link>
                       {p.price && <div className="text-blue-600 font-semibold mb-4">{p.price}</div>}
@@ -302,7 +433,7 @@ const Projects = () => {
                       <div className="mt-4 flex gap-2">
                         {p.slug && (
                           <Button asChild size="sm" className="fh-btn-primary">
-                            <Link to={`/projects/${p.slug}`}>Подробнее</Link>
+                            <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
                           </Button>
                         )}
                         {p.url && (

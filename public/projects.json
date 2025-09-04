@@ -1097,4 +1097,221 @@
     ],
     "about": "Реализованный проект 'Ореховая Роща'. Галерея берется из public/Ореховая Роща."
   }
+  ,
+  {
+    "title": "Бейрут",
+    "slug": "beirut",
+    "price": "от 13 365 960 руб.",
+    "area": "296,56 м²",
+    "buildingArea": "330 м²",
+    "terracesArea": "215 м²",
+    "floors": 2,
+    "width": "16 м",
+    "length": "21,7 м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 0,
+      "bedrooms": 3,
+      "wardrobes": 3,
+      "garage": 1
+    },
+    "size": "16 × 21,7",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 64 109 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/7f3/sqyq5fsu2p9bc0tojhjti6e4ot37vgha/1920_1080_102ac2dafdae9ba029c6325be6592945b/109-1-_1_.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/7f3/sqyq5fsu2p9bc0tojhjti6e4ot37vgha/1920_1080_102ac2dafdae9ba029c6325be6592945b/109-1-_1_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/5a3/0c9miv7ije2qvq8x422t51gr5con06x8/1920_1080_102ac2dafdae9ba029c6325be6592945b/109-1-_3_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/896/rh8pae7v1tt6ik2zf3z4le5nmgn5onfb/1920_1080_102ac2dafdae9ba029c6325be6592945b/109-1-_4_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/af2/5a0slejbwdaiy7jcyh6bgnb00dpd5a2m/1920_1080_102ac2dafdae9ba029c6325be6592945b/109-1-_2_.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/gXra7z8xR1DJuSArqG9UnX1Ft6XmrPCtrA8zaNXI.jpg",
+      "https://s.iimg.su/s/04/gzSpRIoxa06nGmo7Tm55I018ZItkT8EaMww4nZZp.jpg",
+      "https://s.iimg.su/s/04/gNBKrQCxQ8IDA2SFio4RVdFn0oKBYnbpb2ORT73H.jpg"
+    ],
+    "about": "Двухэтажный дом 'Бейрут' с общей площадью 296,56 м²: три спальни, три гардероба, два санузла и гараж. Срок строительства — от 6 месяцев."
+  }
+  ,
+  {
+    "title": "Ален",
+    "slug": "alen",
+    "price": "от 10 996 130 руб.",
+    "area": "239 м²",
+    "buildingArea": "286 м²",
+    "terracesArea": "48 м²",
+    "floors": 2,
+    "width": "13,6 м",
+    "length": "13,4 м",
+    "stats": {
+      "bathrooms": 3,
+      "livingRooms": 1,
+      "bedrooms": 4,
+      "wardrobes": 2,
+      "garage": 1
+    },
+    "size": "13,6 × 13,4",
+    "buildTime": "от 7 мес.",
+    "mortgagePrice": "от 52 742 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/6cc/let3kpvj53lzq6i452gvwmysvqfdbfmk/1024_768_102ac2dafdae9ba029c6325be6592945b/157_2.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/6cc/let3kpvj53lzq6i452gvwmysvqfdbfmk/1024_768_102ac2dafdae9ba029c6325be6592945b/157_2.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/35e/zoo3o6y3mw63bpcn1hip6rx1m93wd8qr/1024_768_102ac2dafdae9ba029c6325be6592945b/157_3.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/0fd/g1e8xol3wfoqorntvblkdjxatharymzl/1920_1080_102ac2dafdae9ba029c6325be6592945b/View01spalnya0000.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/b5c/h83rnrvxeylj28il2x3xqepgob2nkbvj/1920_1080_102ac2dafdae9ba029c6325be6592945b/View07vanna0000.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/2f8/hyezry47ryahn3v1tvy21kbggw1vhn8l/1920_1080_102ac2dafdae9ba029c6325be6592945b/Dushevaya70000.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/gUGJvXfxa6ZBOdMBpfZB5ypL4teKzMzVH4DnugYO.jpg",
+      "https://s.iimg.su/s/04/gC9AHFCxKNib5QaaueJUyMra54TT3Lfj8C1aAeWr.jpg",
+      "https://s.iimg.su/s/04/gz6G1H4xPc8ZYsOIeM09e1Yto65qgW3Ik1zligkr.jpg"
+    ],
+    "about": "Двухэтажный дом 'Ален' с общей площадью 239 м²: четыре спальни, три санузла, гараж и просторные жилые зоны. Срок строительства от 7 месяцев."
+  }
+  ,
+  {
+    "title": "Фес",
+    "slug": "fes",
+    "price": "от 9 221 000 руб.",
+    "area": "206 м²",
+    "buildingArea": "201 м²",
+    "terracesArea": "38 м²",
+    "floors": 2,
+    "width": "18,1 м",
+    "length": "10,96 м",
+    "stats": {
+      "bathrooms": 2,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1,
+      "garage": 1
+    },
+    "size": "18,1 × 10,96",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 44 228 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/fc7/thhpg0qg986g7gdiajksv3llw237wwx4/1920_1080_102ac2dafdae9ba029c6325be6592945b/1.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/fc7/thhpg0qg986g7gdiajksv3llw237wwx4/1920_1080_102ac2dafdae9ba029c6325be6592945b/1.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/1bb/bpr24lp21unxlg1jmgto5rgj4nmm0w21/1920_1080_102ac2dafdae9ba029c6325be6592945b/2.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/ca0/pnfpc8j1oildpt1y4o2yoz2x2r7nicn6/1920_1080_102ac2dafdae9ba029c6325be6592945b/3.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/6aa/6pz7di1x0przotteurrs4ojx564bztyg/1920_1080_102ac2dafdae9ba029c6325be6592945b/WhatsApp-Image-2024_01_10-at-16.12.25-_1_.jpeg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/647/84rf1fioh8y90oshnciecv1eqa91s1l8/1920_1080_102ac2dafdae9ba029c6325be6592945b/WhatsApp-Image-2024_01_10-at-16.12.25-_2_.jpeg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/0c6/7s638ewtdm9x8hj4sugbmp29c88b3mwo/1920_1080_102ac2dafdae9ba029c6325be6592945b/WhatsApp-Image-2024_01_10-at-16.12.25-_3_.jpeg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/363/iwsu8zjnx00ch3zq6dnx8q170f3faslu/1920_1080_102ac2dafdae9ba029c6325be6592945b/WhatsApp-Image-2024_01_10-at-16.12.25.jpeg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/baf/l6h8e8qesf3j9q09en63zx910775fav4/1920_1080_102ac2dafdae9ba029c6325be6592945b/WhatsApp-Image-2024_01_10-at-16.12.26.jpeg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/gA42AV3xhk7lhK45ZAmEvWzfheZqqKY56W6s9sBr.jpg",
+      "https://s.iimg.su/s/04/gFlQZGtxpAQz3m8nZY5rEBRpY0VWdcmiU5OgKhAn.jpg",
+      "https://s.iimg.su/s/04/g2XvF0BxdylkOqzru7K1YLQJD7RupAzfM7gKmTGX.jpg"
+    ],
+    "about": "Двухэтажный дом 'Фес' с общей площадью 206 м²: три спальни, два санузла, гараж. Срок строительства от 6 месяцев."
+  }
+  ,
+  {
+    "title": "Вильц",
+    "slug": "vilts",
+    "price": "от 10 249 000 руб.",
+    "area": "214 м²",
+    "buildingArea": "312 м²",
+    "terracesArea": "33 м²",
+    "floors": 1,
+    "width": "22 м",
+    "length": "19,45 м",
+    "stats": {
+      "bathrooms": 3,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 4
+    },
+    "size": "22 × 19,45",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 49 158 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/f6e/tjpnb41anhjbqidc7dcpq5d599ob9kti/1920_1080_102ac2dafdae9ba029c6325be6592945b/1_55.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/f6e/tjpnb41anhjbqidc7dcpq5d599ob9kti/1920_1080_102ac2dafdae9ba029c6325be6592945b/1_55.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/448/vb0n2ldg083o41o6z1tjn9kr9wckiztx/1920_1080_102ac2dafdae9ba029c6325be6592945b/4-_-55.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/2bd/lc657mfr7w9u76wxd8sng5x6vnq9lgjl/1920_1080_102ac2dafdae9ba029c6325be6592945b/2-_-55.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/941/yy2bn92p63ghvg53nl4q9hqnpe391grw/1920_1080_102ac2dafdae9ba029c6325be6592945b/3-_-55.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/g7ENBanxPIvPWtNEgkiLXMlZwzZPMTeHN9YDhrCq.jpg",
+      "https://s.iimg.su/s/04/gKfedyTxrLhYR62EtUbbRAbrCvthsJVX98XjOvkA.jpg",
+      "https://s.iimg.su/s/04/gfddiZuxXBVcaTI7cLVXmHPFvKGArED1DnzWaZt6.jpg"
+    ],
+    "about": "Одноэтажный дом 'Вильц' с общей площадью 214 м²: три спальни, три санузла и четыре гардероба, просторная гостиная. Срок строительства от 6 месяцев."
+  }
+  ,
+  {
+    "title": "Берн",
+    "slug": "bern",
+    "price": "от 10 409 500 руб.",
+    "area": "217 м²",
+    "terracesArea": "92,35 м²",
+    "floors": 1,
+    "width": "18,5 м",
+    "length": "20,3 м",
+    "stats": {
+      "bathrooms": 3,
+      "livingRooms": 1,
+      "bedrooms": 3,
+      "wardrobes": 1,
+      "garage": 1
+    },
+    "size": "18,5 × 20,3",
+    "buildTime": "от 4 мес.",
+    "mortgagePrice": "от 49 928 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/96a/x8kons11ukk34tg29j4mtakxsffbq43y/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-108-_2_.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/96a/x8kons11ukk34tg29j4mtakxsffbq43y/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-108-_2_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/392/g2qc6pyeppnefo2lva4l61otdbvaz9g7/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-108-_3_.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/733/ffug0ehivqs2dg20pj7vtxmelki1p1zc/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-108-_1_.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/gK0D66HxjIHhch9QKw2VAS13ia9J4OMmMgUfjeIB.jpg",
+      "https://s.iimg.su/s/04/gjj2HWTxHDzSKFC9e2U1qlLKydwNQa3X9I9zZt04.jpg",
+      "https://s.iimg.su/s/04/gPyoJp0xSSgvVSeGC136gk0BWMUOZDCbBTLEme9E.jpg"
+    ],
+    "about": "Одноэтажный дом 'Берн' с общей площадью 217 м²: три спальни, три санузла, гардеробная, гостиная и гараж. Срок строительства — от 4 месяцев."
+  }
+  ,
+  {
+    "title": "Бонн",
+    "slug": "bonn",
+    "price": "от 20 291 000 руб.",
+    "area": "426 м²",
+    "buildingArea": "359 м²",
+    "terracesArea": "89 м²",
+    "floors": 2,
+    "width": "13,8 м",
+    "length": "29,9 м",
+    "stats": {
+      "bathrooms": 4,
+      "livingRooms": 1,
+      "bedrooms": 5,
+      "wardrobes": 1,
+      "garage": 1
+    },
+    "size": "13,8 × 29,9",
+    "buildTime": "от 6 мес.",
+    "mortgagePrice": "от 97 324 руб/мес",
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "https://kapitaldom.com/upload/resize_cache/iblock/eba/49swwe4i3isf0pwmnf2amho0flreas8b/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-_-128.jpg",
+    "gallery": [
+      "https://kapitaldom.com/upload/resize_cache/iblock/eba/49swwe4i3isf0pwmnf2amho0flreas8b/1920_1080_102ac2dafdae9ba029c6325be6592945b/1-_-128.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/195/xn5dlfsou0sbl1u6lga8s2rcmyyrpvdb/1920_1080_102ac2dafdae9ba029c6325be6592945b/2-_-128.jpg",
+      "https://kapitaldom.com/upload/resize_cache/iblock/79a/1gmv2q40v9u3nq9112t6ggejzaxq9nkc/1920_1080_102ac2dafdae9ba029c6325be6592945b/3-_-128.jpg"
+    ],
+    "planVariants": [
+      "https://s.iimg.su/s/04/gvOjL9ZxQ90ygh5VczMckUzBVP7jwKXcfwLN7sBQ.jpg",
+      "https://s.iimg.su/s/04/gTPefi5x2qVbHn0tKz5gfmIIfgUykI3PR2FWPN4o.jpg",
+      "https://s.iimg.su/s/04/gQc06fUxlc3zqOIIErYQ8rcG9znagA7wadVk6KuM.jpg"
+    ],
+    "about": "Двухэтажный дом 'Бонн' с общей площадью 426 м²: пять спален, четыре санузла, гардеробная, гостиная и гараж. Срок строительства — от 6 месяцев."
+  }
 ]

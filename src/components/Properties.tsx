@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, Square, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Square, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -27,6 +27,15 @@ const Properties = () => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
   
+  const PRICE_PER_M2 = 41000;
+  const parseAreaToNumber = (area?: string): number | null => {
+    if (!area) return null;
+    const normalized = area.replace(/[^0-9,\.]/g, '').replace(',', '.');
+    const n = parseFloat(normalized);
+    return isNaN(n) ? null : n;
+  };
+  const formatRub = (value: number): string => value.toLocaleString('ru-RU') + ' ₽';
+
   const projects = [
     {
       id: 1,
@@ -205,7 +214,10 @@ const Properties = () => {
                 transform: `translateX(-${currentIndex * (isDesktop ? 33.333333 : 100)}%)`
               }}
             >
-              {projects.map((project) => (
+              {projects.map((project) => {
+                const areaNum = parseAreaToNumber(project.area);
+                const computed = areaNum ? areaNum * PRICE_PER_M2 : null;
+                return (
                 <div key={project.id} className="w-full lg:w-1/3 flex-shrink-0 px-3">
                   <Card 
                     className="group hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl h-full"
@@ -246,10 +258,6 @@ const Properties = () => {
                       
                       <div className="space-y-3 mb-6">
                         <div className="flex items-center space-x-2 text-slate-600">
-                          <MapPin className="w-4 h-4" />
-                          <span className="font-medium">{project.location}</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-slate-600">
                           <Calendar className="w-4 h-4" />
                           <span className="font-medium">{project.completion}</span>
                         </div>
@@ -258,6 +266,10 @@ const Properties = () => {
                           <span className="font-medium">{project.area}</span>
                         </div>
                       </div>
+
+                      {computed && (
+                        <div className="text-blue-600 font-semibold mb-4">от {formatRub(computed)}</div>
+                      )}
 
                       {/* Action Buttons */}
                       <div className="flex">
@@ -271,7 +283,7 @@ const Properties = () => {
                     </CardContent>
                   </Card>
                 </div>
-              ))}
+              );})}
             </div>
           </div>
 
