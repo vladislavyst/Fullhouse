@@ -131,67 +131,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Contact Form */}
-              <div>
-                <h2 className="text-3xl font-bold text-primary mb-8">
-                  Напишите нам
-                </h2>
-                
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6">
-                    <form className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-primary mb-2">
-                            Имя *
-                          </label>
-                          <Input 
-                            type="text" 
-                            placeholder="Ваше имя"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-primary mb-2">
-                            Телефон *
-                          </label>
-                          <Input 
-                            type="tel" 
-                            placeholder="+7 (___) ___-__-__"
-                            required
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label className="block text-sm font-medium text-primary mb-2">
-                          Email
-                        </label>
-                        <Input 
-                          type="email" 
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label className="block text-sm font-medium text-primary mb-2">
-                          Сообщение *
-                        </label>
-                        <Textarea 
-                          placeholder="Опишите ваш вопрос или задачу..."
-                          rows={4}
-                          required
-                        />
-                      </div>
-                      
-                      <Button type="submit" className="w-full bg-accent hover:bg-accent-dark">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Отправить сообщение
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* Contact Form removed by request */}
             </div>
           </div>
         </section>

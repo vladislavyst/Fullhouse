@@ -167,9 +167,6 @@ const ProjectDetail = () => {
               <TooltipContent>Гардероб</TooltipContent>
             </Tooltip>
           </div>
-
-          
-
           <div className="h-px bg-border" />
         </section>
 

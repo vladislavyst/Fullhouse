@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Ruler, Timer, Maximize, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -53,9 +54,11 @@ const ProjectsShowcase = () => {
     };
   }, []);
 
+  const realizedSlugs = new Set(['nova','grinvud','riga','orehovaya-roshcha']);
   const topSix = useMemo(() => {
     if (!items) return [];
-    return items.slice(0, 6);
+    const filtered = items.filter(p => !realizedSlugs.has((p.slug || '').toLowerCase()));
+    return filtered.slice(0, 6);
   }, [items]);
 
   const handleViewProject = (slug?: string) => {
@@ -85,8 +88,47 @@ const ProjectsShowcase = () => {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* Mobile Carousel */}
+        <div className="sm:hidden">
+          {!loading && !error && topSix.length > 0 && (
+            <Carousel className="w-full" opts={{ loop: true }}>
+              <CarouselContent>
+                {topSix.map((p, idx) => (
+                  <CarouselItem key={`mobile-${p.title}-${idx}`}>
+                    <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl">
+                      <div className="fh-card__image">
+                        {p.imageUrl ? (
+                          <img src={p.imageUrl} alt={p.title} className="w-full h-56 object-contain bg-white" />
+                        ) : (
+                          <div className="w-full h-56 bg-gray-200" />
+                        )}
+                      </div>
+                      <CardContent className="fh-card__body">
+                        <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">{p.title}</h3>
+                        <div className="space-y-2 mt-2 text-sm text-slate-600 dark:text-gray-300">
+                          <div className="flex items-center gap-1"><Ruler className="w-4 h-4" />{p.area || '—'}</div>
+                          <div className="flex items-center gap-1"><Maximize className="w-4 h-4" />{p.size || '—'}</div>
+                          <div className="flex items-center gap-1"><Timer className="w-4 h-4" />{p.buildTime || '—'}</div>
+                        </div>
+                        <div className="mt-4 flex items-center justify-between">
+                          <div className="text-blue-600 dark:text-blue-400 font-bold text-lg">{p.price || 'По запросу'}</div>
+                          <Button size="sm" variant="default" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg" onClick={() => handleViewProject(p.slug)}>
+                            <ExternalLink className="w-4 h-4 mr-1" /> Открыть
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 !h-10 !w-10 rounded-full bg-white/90 hover:bg-white shadow-lg ring-1 ring-black/5" />
+              <CarouselNext className="right-2 !h-10 !w-10 rounded-full bg-white/90 hover:bg-white shadow-lg ring-1 ring-black/5" />
+            </Carousel>
+          )}
+        </div>
+
+        {/* Grid (tablet/desktop) */}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {loading && (
             Array.from({ length: 6 }).map((_, index) => (
               <Card key={index} className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">

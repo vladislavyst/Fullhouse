@@ -7,23 +7,22 @@ import MobileNavigation from './MobileNavigation';
 const Header = () => {
   const navigation = [
     { name: 'О компании', href: '#about', isAnchor: true },
-    { name: 'Услуги', href: '/services', isAnchor: false },
     { name: 'Проекты', href: '/projects', isAnchor: false },
-    { name: 'Калькулятор', href: '#calculator', isAnchor: true },
+    { name: 'Реализованные', href: '/realized', isAnchor: false },
     { name: 'Контакты', href: '/contact', isAnchor: false },
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-gradient-to-r from-slate-700 via-slate-800 to-gray-900 border-b-2 border-amber-500 shadow-xl z-50 backdrop-blur-sm bg-opacity-95">
+    <header className="fixed top-0 w-full relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-900 to-gray-900 border-b border-amber-500/30 shadow-xl z-50 backdrop-blur-sm">
+      <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at top left, rgba(251, 191, 36, 0.08), transparent 55%)'}} />
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover:opacity-90 transition-all duration-300 hover:scale-105">
             <img 
-              src="/LOGO fullhouse.png" 
+              src="/Logonew.png" 
               alt="Fullhouse Logo" 
-              className="h-48 w-auto drop-shadow-lg"
-              style={{filter: 'brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(1029%) hue-rotate(14deg) brightness(101%) contrast(101%)'}}
+              style={{ height: '220px', width: 'auto' }}
             />
           </Link>
 

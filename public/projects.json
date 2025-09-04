@@ -1026,5 +1026,75 @@
     ],
     "about": "Двухэтажный дом 'Янтарный' с современной архитектурой и элегантным дизайном на 150 квадратных метрах. Проект включает три уютные спальни, просторную гостиную, два санузла и гардеробную. Компактные размеры 13 × 12 метров обеспечивают рациональное использование участка, а продуманная двухэтажная планировка максимально увеличивает жилое пространство. Проект демонстрирует высокое качество строительных работ и гармоничный сбалансированный дизайн в теплых тонах.",
     "url": ""
+  },
+  {
+    "title": "Nova",
+    "slug": "nova",
+    "imageUrl": "/Nova/Render.jpg",
+    "gallery": [
+      "/Nova/Render.jpg",
+      "/Nova/151.jpg",
+      "/Nova/32.jpg",
+      "/Nova/35.jpg",
+      "/Nova/38.jpg",
+      "/Nova/39.jpg"
+    ],
+    "planVariants": [
+      "/Nova/Планировка/Вариант 1.jpg",
+      "/Nova/Планировка/Вариант 2.jpg",
+      "/Nova/Планировка/Вариант 3.jpg"
+    ],
+    "about": "Реализованный проект Nova. Фото и планировки загружены из public/Nova."
+  },
+  {
+    "title": "Гринвуд",
+    "slug": "grinvud",
+    "imageUrl": "/Гринвуд/Render.jpg",
+    "gallery": [
+      "/Гринвуд/Render.jpg",
+      "/Гринвуд/Stroitelstvo_doma_Stupino_KP_Grinvud_foto_15.jpg",
+      "/Гринвуд/Stroitelstvo_doma_Stupino_KP_Grinvud_foto_17.jpg",
+      "/Гринвуд/Stroitelstvo_doma_Stupino_KP_Grinvud_foto_18.jpg",
+      "/Гринвуд/Stroitelstvo_doma_Stupino_KP_Grinvud_foto_21.jpg"
+    ],
+    "planVariants": [
+      "/Гринвуд/Планировка/Планировка 1.jpg"
+    ],
+    "about": "Реализованный проект 'Гринвуд'. Галерея и контент подтягиваются из public/Гринвуд."
+  },
+  {
+    "title": "Рига",
+    "slug": "riga",
+    "imageUrl": "/Рига/Render.jpg",
+    "gallery": [
+      "/Рига/Render.jpg",
+      "/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_18.jpg",
+      "/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_21.jpg",
+      "/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_26.jpg",
+      "/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_29.jpg",
+      "/Рига/Stroitelstvo_doma_KP_Anosino_park_2_foto_30.jpg"
+    ],
+    "planVariants": [
+      "/Рига/Планировки/Вариант 1.jpg",
+      "/Рига/Планировки/Вариант 2.jpg"
+    ],
+    "about": "Реализованный проект 'Рига'. Используются изображения из папки public/Рига."
+  },
+  {
+    "title": "Ореховая Роща",
+    "slug": "orehovaya-roshcha",
+    "imageUrl": "/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_1.jpg",
+    "gallery": [
+      "/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_1.jpg",
+      "/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_2.jpg",
+      "/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_3.jpg",
+      "/Ореховая Роща/Orekhovaya_Roshcha_8_Vid_6.jpg"
+    ],
+    "planVariants": [
+      "/Ореховая Роща/Планировка/Вариант 1.jpg",
+      "/Ореховая Роща/Планировка/Вариант 2.jpg",
+      "/Ореховая Роща/Планировка/Вариант 3.jpg"
+    ],
+    "about": "Реализованный проект 'Ореховая Роща'. Галерея берется из public/Ореховая Роща."
   }
 ]

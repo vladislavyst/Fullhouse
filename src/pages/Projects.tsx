@@ -51,11 +51,23 @@ const Projects = () => {
         const res = await fetch('/projects.json', { cache: 'no-store' });
         const data = await res.json();
         if (active && Array.isArray(data)) {
-          setItems(data);
+          const realizedSlugs = new Set([
+            'nova',
+            'grinvud',
+            'riga',
+            'orehovaya-roshcha',
+            'yantarny',
+            'krop',
+            'znamensky',
+            'klubny',
+            'nikola',
+          ]);
+          const filtered = data.filter((item: any) => !realizedSlugs.has((item.slug || '').toLowerCase()));
+          setItems(filtered);
           
           // Сортируем проекты по соотношению сторон изображений
           const itemsWithAspectRatio = await Promise.all(
-            data.map(async (item: ProjectItem) => {
+            filtered.map(async (item: ProjectItem) => {
               const isWide = item.imageUrl ? await checkImageAspectRatio(item.imageUrl) : false;
               return { ...item, isWide };
             })

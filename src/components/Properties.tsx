@@ -121,7 +121,15 @@ const Properties = () => {
   ];
 
   const handleViewProject = (projectId: number) => {
-    const slug = projectId === 1 ? 'nova' : projectId === 2 ? 'orehovaya-roscha' : projectId === 3 ? 'riga' : projectId === 4 ? 'greenwood' : projectId === 5 ? 'nikola' : projectId === 6 ? 'klubny' : projectId === 7 ? 'znamensky' : projectId === 8 ? 'krop' : 'yantarny';
+    const slug = projectId === 1 ? 'nova' 
+      : projectId === 2 ? 'orehovaya-roshcha' 
+      : projectId === 3 ? 'riga' 
+      : projectId === 4 ? 'grinvud' 
+      : projectId === 5 ? 'nikola' 
+      : projectId === 6 ? 'klubny' 
+      : projectId === 7 ? 'znamensky' 
+      : projectId === 8 ? 'krop' 
+      : 'yantarny';
     window.location.href = `/projects/${slug}`;
   };
 
@@ -168,22 +176,22 @@ const Properties = () => {
         {/* Projects Carousel */}
         <div className="relative">
           {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 hidden lg:block">
+          <div className="absolute top-1/2 -translate-y-1/2 left-2 z-10 lg:left-4">
             <Button
               onClick={prevSlide}
               variant="ghost"
               size="icon"
-              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-12 h-12"
+              className="bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-10 h-10 lg:w-12 lg:h-12"
             >
               <ChevronLeft className="w-6 h-6 text-slate-600" />
             </Button>
           </div>
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 hidden lg:block">
+          <div className="absolute top-1/2 -translate-y-1/2 right-2 z-10 lg:right-4">
             <Button
               onClick={nextSlide}
               variant="ghost"
               size="icon"
-              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-12 h-12"
+              className="bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 rounded-full w-10 h-10 lg:w-12 lg:h-12"
             >
               <ChevronRight className="w-6 h-6 text-slate-600" />
             </Button>
@@ -252,20 +260,12 @@ const Properties = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex gap-2">
+                      <div className="flex">
                         <Button 
                           onClick={() => handleViewProject(project.id)}
-                          className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                         >
                           Подробнее
-                        </Button>
-                        <Button 
-                          variant="outline" 
-                          size="sm"
-                          onClick={() => handleShare(project.id)}
-                          className="px-3"
-                        >
-                          Поделиться
                         </Button>
                       </div>
                     </CardContent>

@@ -44,10 +44,10 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
       description: 'Каталог готовых проектов'
     },
     {
-      title: 'Калькулятор',
-      icon: Calculator,
-      href: '/#calculator',
-      description: 'Расчет стоимости строительства'
+      title: 'Реализованные',
+      icon: ExternalLink,
+      href: '/realized',
+      description: 'Построенные объекты'
     },
     {
       title: 'Контакты',
@@ -97,7 +97,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
   // Определение активной секции
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'services', 'projects', 'calculator', 'contact'];
+      const sections = ['hero', 'about', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {

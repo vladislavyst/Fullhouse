@@ -5,15 +5,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: 'Строительство домов', href: '/services' },
-    { name: 'Реконструкция', href: '/services' },
-    { name: 'Проектирование', href: '/services' }
+    { name: 'Строительство домов', href: '/projects' },
+    { name: 'Реконструкция', href: '/projects' },
+    { name: 'Проектирование', href: '/projects' }
   ];
 
   const company = [
     { name: 'О компании', href: '#about' },
-    { name: 'Лицензии', href: '/services' },
-    { name: 'Сертификаты', href: '/services' }
+    { name: 'Лицензии', href: '#about' },
+    { name: 'Сертификаты', href: '#about' }
   ];
 
   return (
@@ -21,7 +21,8 @@ const Footer = () => {
       {/* Карта сайта для SEO и навигации */}
       
       
-      <footer className="bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 text-white shadow-2xl">
+      <footer className="relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-900 to-gray-900 text-white shadow-2xl border-t border-amber-500/30">
+        <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at bottom right, rgba(251, 191, 36, 0.08), transparent 55%)'}} />
         <div className="container mx-auto px-4">
           {/* Main Footer Content */}
           <div className="py-16">
@@ -30,10 +31,8 @@ const Footer = () => {
               <div className="space-y-6">
                 <Link to="/" className="flex items-center space-x-2 hover:opacity-90 transition-all duration-300 hover:scale-105">
                   <img 
-                    src="/LOGO fullhouse.png" 
+                    src="/Logonew.png" 
                     alt="Fullhouse Logo" 
-                    className="h-32 w-auto drop-shadow-lg"
-                    style={{filter: 'brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(1029%) hue-rotate(14deg) brightness(101%) contrast(101%)'}}
                   />
                 </Link>
                 <p className="text-gray-300 leading-relaxed">

@@ -21,7 +21,7 @@ const Index = () => {
       <PerformanceOptimizer 
         preloadImages={[
           '/Forest Residence.jpeg',
-          '/LOGO fullhouse.png',
+          '/Logonew.png',
           '/Hero-mobile.jpg'
         ]}
         preloadVideos={[]}
