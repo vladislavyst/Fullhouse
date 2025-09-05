@@ -13,6 +13,7 @@ Allow: /construction/
 Allow: /reconstruction/
 Allow: /design/
 Allow: /privacy/
+Allow: /terms/
 
 # Запрещаем индексацию служебных директорий
 Disallow: /node_modules/

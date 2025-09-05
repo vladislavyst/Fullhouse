@@ -18,6 +18,7 @@ const Construction = lazy(() => import("./pages/Construction"));
 const Reconstruction = lazy(() => import("./pages/Reconstruction"));
 const Design = lazy(() => import("./pages/Design"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/reconstruction" element={<Reconstruction />} />
             <Route path="/design" element={<Design />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
             <Route path="/licenses" element={<Licenses />} />
             <Route path="/certificates" element={<Certificates />} />

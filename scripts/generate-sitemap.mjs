@@ -41,6 +41,7 @@ async function main() {
     url(`${base}/reconstruction`, iso),
     url(`${base}/design`, iso),
     url(`${base}/privacy`, iso),
+    url(`${base}/terms`, iso),
   ];
 
   /** Project slugs */
