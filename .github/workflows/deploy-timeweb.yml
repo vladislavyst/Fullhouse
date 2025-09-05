@@ -1,0 +1,62 @@
+name: Deploy to Timeweb Object Storage (S3)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      # Default region used by AWS CLI. Can be overridden via repo secret TW_AWS_REGION if needed.
+      AWS_DEFAULT_REGION: us-east-1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install AWS CLI (if missing)
+        run: |
+          if ! command -v aws >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y awscli
+          fi
+
+      - name: Deploy to Timeweb S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TW_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TW_SECRET_ACCESS_KEY }}
+          # Optional: set TW_AWS_REGION secret to override default region if required by your endpoint
+          AWS_DEFAULT_REGION: ${{ secrets.TW_AWS_REGION }}
+          TW_S3_ENDPOINT: ${{ secrets.TW_S3_ENDPOINT }}
+          TW_S3_BUCKET_NAME: ${{ secrets.TW_S3_BUCKET_NAME }}
+        run: |
+          if [ -z "$TW_S3_ENDPOINT" ] || [ -z "$TW_S3_BUCKET_NAME" ] || [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+            echo "One or more required secrets are missing. Please set TW_S3_ENDPOINT, TW_S3_BUCKET_NAME, TW_ACCESS_KEY_ID, TW_SECRET_ACCESS_KEY."
+            exit 1
+          fi
+          # Sync build output
+          aws s3 sync ./dist s3://$TW_S3_BUCKET_NAME \
+            --delete \
+            --acl public-read \
+            --endpoint-url "$TW_S3_ENDPOINT"
+
+          # Optionally set sensible cache headers (uncomment if desired)
+          # aws s3 cp ./dist s3://$TW_S3_BUCKET_NAME --recursive --exclude "*.html" --cache-control "public, max-age=31536000, immutable" --endpoint-url "$TW_S3_ENDPOINT"
+          # aws s3 cp ./dist s3://$TW_S3_BUCKET_NAME --recursive --exclude "*" --include "*.html" --cache-control "no-store" --endpoint-url "$TW_S3_ENDPOINT"
+
