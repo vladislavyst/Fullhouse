@@ -40,6 +40,7 @@ async function main() {
     url(`${base}/construction`, iso),
     url(`${base}/reconstruction`, iso),
     url(`${base}/design`, iso),
+    url(`${base}/privacy`, iso),
   ];
 
   /** Project slugs */
