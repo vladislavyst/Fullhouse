@@ -36,7 +36,6 @@ async function main() {
     // New content pages
     url(`${base}/about`, iso),
     url(`${base}/licenses`, iso),
-    url(`${base}/certificates`, iso),
     url(`${base}/construction`, iso),
     url(`${base}/reconstruction`, iso),
     url(`${base}/design`, iso),

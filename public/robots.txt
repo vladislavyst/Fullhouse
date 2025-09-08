@@ -8,7 +8,6 @@ Allow: /contact/
 Allow: /catalog/
 Allow: /about/
 Allow: /licenses/
-Allow: /certificates/
 Allow: /construction/
 Allow: /reconstruction/
 Allow: /design/

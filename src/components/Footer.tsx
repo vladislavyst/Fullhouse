@@ -12,8 +12,7 @@ const Footer = () => {
 
   const company = [
     { name: 'О компании', href: '/about' },
-    { name: 'Лицензии', href: '/licenses' },
-    { name: 'Сертификаты', href: '/certificates' }
+    { name: 'Лицензии', href: '/licenses' }
   ];
 
   return (

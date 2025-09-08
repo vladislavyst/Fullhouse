@@ -8,7 +8,7 @@ import { Building2, Calendar, CheckCircle, MapPin, Users, Award, HeartHandshake,
 const About = () => {
   useSEO({
     title: 'О компании Fullhouse | Строим дома с душой',
-    description: 'Fullhouse — строительная компания в Новороссийске. 3 года, 25+ объектов, гарантия 3 года, честные сметы и контроль качества.',
+    description: 'Fullhouse — строительная компания в Новороссийске. 3 года, 50+ объектов, гарантия 3 года, честные сметы и контроль качества.',
     url: typeof window !== 'undefined' ? window.location.href : undefined,
   });
 
@@ -51,7 +51,7 @@ const About = () => {
                 { year: '2021 — Основание', text: 'Основание компанией группы строителей, архитекторов и инженеров с идеей строить качественные дома по честным ценам.' },
                 { year: '2022 — Развитие', text: 'Рост команды, партнёрства с надежными поставщиками, первые 10 сданных объектов.' },
                 { year: '2023 — Признание', text: 'Лицензии и сертификаты качества, 15+ семей получили ключи от своих домов.' },
-                { year: '2024 — Лидерство', text: 'Статус ведущей компании региона, 25+ реализованных проектов, расширение спектра услуг.' },
+                { year: '2024 — Лидерство', text: 'Статус ведущей компании региона, 50+ реализованных проектов, расширение спектра услуг.' },
               ].map((i, idx) => (
                 <Card key={idx} className="border-0 shadow-xl ring-1 ring-slate-200/60 rounded-2xl">
                   <CardContent className="p-6">
@@ -143,7 +143,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-2xl lg:text-3xl font-bold text-primary mb-6 text-center">Достижения и цифры</h2>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {[{icon:Users, val:'25+', label:'Довольных семей'}, {icon:Timer, val:'100%', label:'Сроки соблюдены'}, {icon:Award, val:'3 года', label:'Гарантия работ'}, {icon:HeartHandshake, val:'95%', label:'Рекомендации клиентов'}].map((m:any, i:number) => (
+              {[{icon:Users, val:'50+', label:'Довольных семей'}, {icon:Timer, val:'100%', label:'Сроки соблюдены'}, {icon:Award, val:'3 года', label:'Гарантия работ'}, {icon:HeartHandshake, val:'95%', label:'Рекомендации клиентов'}].map((m:any, i:number) => (
                 <Card key={i} className="border-0 shadow-xl ring-1 ring-slate-200/60 rounded-2xl text-center"><CardContent className="p-6"><div className="mx-auto mb-2 w-10 h-10 rounded-full bg-white ring-1 ring-slate-200 flex items-center justify-center">{m.icon && <m.icon className="w-5 h-5 text-primary" />}</div><div className="text-2xl font-bold text-slate-800">{m.val}</div><div className="text-xs text-muted-foreground mt-1">{m.label}</div></CardContent></Card>
               ))}
             </div>
