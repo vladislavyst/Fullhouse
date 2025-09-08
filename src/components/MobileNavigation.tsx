@@ -21,7 +21,6 @@ interface MobileNavigationProps {
 
 const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('');
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const location = useLocation();
@@ -50,16 +49,16 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
       description: 'Построенные объекты'
     },
     {
+      title: 'О компании',
+      icon: Info,
+      href: '/about',
+      description: 'История и философия компании'
+    },
+    {
       title: 'Контакты',
       icon: Phone,
       href: '/contact',
       description: 'Связаться с нами'
-    },
-    {
-      title: 'О компании',
-      icon: Info,
-      href: '/#about',
-      description: 'Узнать больше о нас'
     }
   ];
 
@@ -93,40 +92,6 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
-
-  // Определение активной секции
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleNavigationClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      // Плавная прокрутка к секции
-      const sectionId = href.substring(2);
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    setIsOpen(false);
-  };
 
   return (
     <div className={`lg:hidden ${className}`} ref={ref}>
@@ -172,33 +137,33 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
             <ul className="space-y-2">
               {navigationItems.map((item, index) => {
                 const Icon = item.icon;
-                const isActive = location.pathname === item.href || 
-                               (item.href.startsWith('/#') && activeSection === item.href.substring(2));
+                const isActive = location.pathname === item.href;
                 
                 return (
                   <li key={item.title}>
-                    <Button
-                      variant="ghost"
-                      className={`w-full justify-start p-4 h-auto text-left transition-all duration-300 ${
-                        isActive 
-                          ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' 
-                          : 'text-white hover:bg-white/10 hover:text-amber-300'
-                      }`}
-                      onClick={() => handleNavigationClick(item.href)}
-                      style={{ 
-                        animationDelay: `${index * 100}ms`,
-                        transform: isOpen ? 'translateX(0)' : 'translateX(-20px)',
-                        opacity: isOpen ? 1 : 0,
-                        transition: `all 0.3s ease ${index * 100}ms`
-                      }}
-                    >
-                      <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                      <div className="flex-1">
-                        <div className="font-medium">{item.title}</div>
-                        <div className="text-xs text-gray-400 mt-1">{item.description}</div>
-                      </div>
-                      <ChevronRight className="w-4 h-4 ml-2 flex-shrink-0" />
-                    </Button>
+                    <Link to={item.href} onClick={() => setIsOpen(false)}>
+                      <Button
+                        variant="ghost"
+                        className={`w-full justify-start p-4 h-auto text-left transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' 
+                            : 'text-white hover:bg-white/10 hover:text-amber-300'
+                        }`}
+                        style={{ 
+                          animationDelay: `${index * 100}ms`,
+                          transform: isOpen ? 'translateX(0)' : 'translateX(-20px)',
+                          opacity: isOpen ? 1 : 0,
+                          transition: `all 0.3s ease ${index * 100}ms`
+                        }}
+                      >
+                        <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
+                        <div className="flex-1">
+                          <div className="font-medium">{item.title}</div>
+                          <div className="text-xs text-gray-400 mt-1">{item.description}</div>
+                        </div>
+                        <ChevronRight className="w-4 h-4 ml-2 flex-shrink-0" />
+                      </Button>
+                    </Link>
                   </li>
                 );
               })}
