@@ -88,6 +88,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
     setIsSubmitting(true);
 
     try {
+      console.log('Sending form data:', {
+        name: formData.name,
+        phone: formatPhoneNumber(formData.phone),
+        comment: formData.comment || 'Без комментариев'
+      });
+
       const response = await fetch('/api/send-telegram', {
         method: 'POST',
         headers: {
@@ -100,6 +106,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }),
       });
 
+      const responseData = await response.json();
+      console.log('API response:', responseData);
+
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', comment: '' });
@@ -108,13 +117,24 @@ const OrderForm: React.FC<OrderFormProps> = ({
           description: "Мы свяжемся с вами в ближайшее время",
         });
       } else {
-        throw new Error('Ошибка отправки');
+        // Показываем конкретную ошибку от сервера
+        const errorMessage = responseData.details || responseData.error || 'Неизвестная ошибка';
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
+      
+      let errorDescription = "Попробуйте позже или позвоните нам напрямую";
+      
+      if (error.message.includes('environment variables')) {
+        errorDescription = "Сервис временно недоступен. Позвоните по телефону +7 918 040-04-02";
+      } else if (error.message.includes('Failed to send to Telegram')) {
+        errorDescription = "Проблема с отправкой сообщения. Позвоните нам напрямую";
+      }
+      
       toast({
         title: "Ошибка отправки",
-        description: "Попробуйте позже или позвоните нам напрямую",
+        description: errorDescription,
         variant: "destructive"
       });
     } finally {
