@@ -6,6 +6,7 @@ import Calculator from '../components/Calculator';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import ProjectsShowcase from '../components/ProjectsShowcase';
+import OrderForm from '../components/OrderForm';
 import PWAInstaller from '../components/PWAInstaller';
 import PWAUpdatePrompt from '../components/PWAUpdatePrompt';
 import PageTransition from '../components/PageTransition';

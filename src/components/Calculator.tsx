@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Calculator as CalculatorIcon, Phone, CheckCircle } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import OrderForm from './OrderForm';
 
 const Calculator = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1, delay: 150 });
@@ -69,7 +70,7 @@ const Calculator = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                 {/* Left Column - Form */}
                 <div className="space-y-6">
                   {/* Area */}
@@ -148,70 +149,69 @@ const Calculator = () => {
                   </div>
                 </div>
 
-                {/* Right Column - Results & Info */}
+                {/* Middle Column - Results */}
                 <div className="space-y-6">
                   {/* Results */}
                   {showResult && (
-                    <Card className="border-0 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 shadow-lg">
+                    <Card className="border-0 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-4 shadow-lg">
                       <div className="text-center">
-                        <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto mb-4" />
-                        <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">
+                        <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400 mx-auto mb-3" />
+                        <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                           Расчет готов!
                         </h3>
-                        <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
+                        <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">
                           {calculatePrice().toLocaleString('ru-RU')} ₽
                         </div>
-                        <p className="text-slate-600 dark:text-gray-300">
-                          Предварительная стоимость строительства
+                        <p className="text-sm text-slate-600 dark:text-gray-300">
+                          Предварительная стоимость
                         </p>
                       </div>
                     </Card>
                   )}
 
                   {/* Info Cards */}
-                  <div className="space-y-4">
-                    <Card className="border-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 shadow-lg">
+                  <div className="space-y-3">
+                    <Card className="border-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-3 shadow-lg">
                       <div className="flex items-start space-x-3">
                         <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-lg shadow-lg">
-                          <CalculatorIcon className="w-5 h-5 text-white" />
+                          <CalculatorIcon className="w-4 h-4 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1">
+                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1 text-sm">
                             Точность расчета
                           </h4>
-                          <p className="text-sm text-slate-600 dark:text-gray-300">
-                            Расчет основан на актуальных ценах материалов и работ в регионе
+                          <p className="text-xs text-slate-600 dark:text-gray-300">
+                            Основан на актуальных ценах материалов
                           </p>
                         </div>
                       </div>
                     </Card>
 
-                    <Card className="border-0 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-4 shadow-lg">
+                    <Card className="border-0 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-3 shadow-lg">
                       <div className="flex items-start space-x-3">
                         <div className="bg-gradient-to-br from-amber-500 to-orange-500 p-2 rounded-lg shadow-lg">
-                          <Phone className="w-5 h-5 text-white" />
+                          <Phone className="w-4 h-4 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1">
+                          <h4 className="font-semibold text-slate-800 dark:text-white mb-1 text-sm">
                             Нужна консультация?
                           </h4>
-                          <p className="text-sm text-slate-600 dark:text-gray-300">
-                            Свяжитесь с нами для детального расчета и консультации
+                          <p className="text-xs text-slate-600 dark:text-gray-300">
+                            Заполните форму справа для детального расчета
                           </p>
                         </div>
                       </div>
                     </Card>
                   </div>
+                </div>
 
-                  {/* CTA */}
-                  <div className="text-center pt-4">
-                    <a href="tel:+79180400402">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                        <Phone className="w-4 h-4 mr-2" />
-                        Получить детальный расчет
-                      </Button>
-                    </a>
-                  </div>
+                {/* Right Column - Order Form */}
+                <div className="space-y-6">
+                  <OrderForm 
+                    title="Получить точный расчет"
+                    description="Оставьте заявку и получите детальный расчет проекта"
+                    className="shadow-lg border-0"
+                  />
                 </div>
               </div>
             </CardContent>
