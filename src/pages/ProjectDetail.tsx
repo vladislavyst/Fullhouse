@@ -58,6 +58,15 @@ const ProjectDetail = () => {
     return items.find(p => (p.slug || p.title?.toLowerCase()) === slug);
   }, [items, slug]);
 
+  const handleDownloadCatalog = () => {
+    const link = document.createElement('a');
+    link.href = '/fullhouse-catalog.pdf';
+    link.download = 'Фулхаус каталог оригинал.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const [activePlanIdx, setActivePlanIdx] = useState(0);
   useEffect(() => {
     setActivePlanIdx(0);
@@ -191,7 +200,7 @@ const ProjectDetail = () => {
             <a href="tel:+79180400402">
               <Button className="fh-btn-secondary">Получить консультацию</Button>
             </a>
-            <Button variant="outline" className="fh-btn-secondary">Скачать PDF</Button>
+            <Button variant="outline" className="fh-btn-secondary" onClick={handleDownloadCatalog}>Скачать PDF</Button>
           </div>
 
           {/* Icons row with tooltips */}
@@ -304,7 +313,7 @@ const ProjectDetail = () => {
                   <a href="tel:+79180400402" className="w-full">
                     <Button className="w-full fh-btn-secondary">Получить консультацию</Button>
                   </a>
-                  <Button variant="outline" className="w-full fh-btn-secondary">Скачать PDF</Button>
+                  <Button variant="outline" className="w-full fh-btn-secondary" onClick={handleDownloadCatalog}>Скачать PDF</Button>
                 </div>
               </CardContent>
             </Card>
