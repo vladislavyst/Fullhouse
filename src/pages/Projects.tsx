@@ -330,23 +330,27 @@ const Projects = () => {
                                 {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                               </div>
                             )}
-                            <div className="mt-4 flex gap-2">
-                              <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
-                                <Button size="sm" className="fh-btn-primary">Рассчитать смету</Button>
-                              </a>
-                              <a href="tel:+79180400402">
-                                <Button size="sm" className="fh-btn-secondary">Получить консультацию</Button>
-                              </a>
-                              {p.slug && (
-                                <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-                                  <Link to={`/projects/${p.slug}`}>Подробнее</Link>
-                                </Button>
-                              )}
-                              {p.url && (
-                                <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-                                  <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
-                                </Button>
-                              )}
+                            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                              <div className="flex gap-2">
+                                <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
+                                  <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
+                                </a>
+                                <a href="tel:+79180400402" className="flex-1">
+                                  <Button size="sm" className="fh-btn-secondary w-full">Получить консультацию</Button>
+                                </a>
+                              </div>
+                              <div className="flex gap-2">
+                                {p.slug && (
+                                  <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                                    <Link to={`/projects/${p.slug}`}>Подробнее</Link>
+                                  </Button>
+                                )}
+                                {p.url && (
+                                  <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                                    <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
+                                  </Button>
+                                )}
+                              </div>
                             </div>
                           </CardContent>
                         </Card>
@@ -428,23 +432,27 @@ const Projects = () => {
                           {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                         </div>
                       )}
-                      <div className="mt-4 flex gap-2">
-                        <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" className="fh-btn-primary">Рассчитать смету</Button>
-                        </a>
-                        <a href="tel:+79180400402">
-                          <Button size="sm" className="fh-btn-secondary">Получить консультацию</Button>
-                        </a>
-                        {p.slug && (
-                          <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-                            <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
-                          </Button>
-                        )}
-                        {p.url && (
-                          <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-                            <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
-                          </Button>
-                        )}
+                      <div className="mt-4 flex flex-col gap-2">
+                        <div className="flex gap-2">
+                          <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
+                            <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
+                          </a>
+                          <a href="tel:+79180400402" className="flex-1">
+                            <Button size="sm" className="fh-btn-secondary w-full">Получить консультацию</Button>
+                          </a>
+                        </div>
+                        <div className="flex gap-2">
+                          {p.slug && (
+                            <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                              <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
+                            </Button>
+                          )}
+                          {p.url && (
+                            <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                              <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
+                            </Button>
+                          )}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
