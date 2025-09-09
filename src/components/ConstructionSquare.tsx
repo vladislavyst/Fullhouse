@@ -11,7 +11,7 @@ const ConstructionSquare = () => {
     },
     {
       icon: Users,
-      title: '25+ довольных семей',
+      title: '50+ довольных семей',
       description: 'Уже живут в своих построенных домах'
     },
     {
