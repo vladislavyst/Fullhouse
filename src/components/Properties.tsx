@@ -136,6 +136,26 @@ const Properties = () => {
       completion: '2024',
       area: '80 м²',
       status: 'Завершен'
+    },
+    {
+      id: 11,
+      title: 'Семигорье 2',
+      category: 'private',
+      image: '/Семигорье 2/sem 1.jpg',
+      location: 'Хутор Семигорье',
+      completion: '2024',
+      area: '85 м²',
+      status: 'Завершен'
+    },
+    {
+      id: 12,
+      title: 'Цемдолина',
+      category: 'private',
+      image: '/Цемдолина/mag 1.jpg',
+      location: 'Цемдолина',
+      completion: '2024',
+      area: '90 м²',
+      status: 'Завершен'
     }
   ];
 
@@ -149,7 +169,9 @@ const Properties = () => {
       : projectId === 7 ? 'znamensky' 
       : projectId === 8 ? 'krop' 
       : projectId === 9 ? 'yantarny' 
-      : 'semigorye';
+      : projectId === 10 ? 'semigorye'
+      : projectId === 11 ? 'semigorye-2'
+      : 'cemdolina';
     window.location.href = `/projects/${slug}`;
   };
 
