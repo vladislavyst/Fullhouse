@@ -126,6 +126,16 @@ const Properties = () => {
       completion: '2024',
       area: '176 м²',
       status: 'Завершен'
+    },
+    {
+      id: 10,
+      title: 'Семигорье',
+      category: 'private',
+      image: '/placeholder.svg',
+      location: 'Хутор Семигорье',
+      completion: '2024',
+      area: '80 м²',
+      status: 'Завершен'
     }
   ];
 
@@ -138,7 +148,8 @@ const Properties = () => {
       : projectId === 6 ? 'klubny' 
       : projectId === 7 ? 'znamensky' 
       : projectId === 8 ? 'krop' 
-      : 'yantarny';
+      : projectId === 9 ? 'yantarny' 
+      : 'semigorye';
     window.location.href = `/projects/${slug}`;
   };
 

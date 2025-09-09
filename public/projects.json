@@ -1310,5 +1310,28 @@
       "https://s.iimg.su/s/04/gQc06fUxlc3zqOIIErYQ8rcG9znagA7wadVk6KuM.jpg"
     ],
     "about": "Двухэтажный дом 'Бонн' с общей площадью 426 м²: пять спален, четыре санузла, гардеробная, гостиная и гараж. Срок строительства — от 6 месяцев."
+  },
+  {
+    "title": "Семигорье",
+    "slug": "semigorye",
+    "area": 80,
+    "floors": 1,
+    "bathrooms": 1,
+    "bedrooms": 2,
+    "living": 1,
+    "garderobe": 1,
+    "garage": 0,
+    "width": 6,
+    "length": 13,
+    "buildTime": "от 4 мес.",
+    "price": 3280000,
+    "designPrice": "от 1000 р/м²",
+    "imageUrl": "/placeholder.svg",
+    "gallery": [
+      "/placeholder.svg"
+    ],
+    "planVariants": [],
+    "location": "Хутор Семигорье",
+    "about": "Реализованный одноэтажный дом 'Семигорье' площадью 80 м² в хуторе Семигорье. Компактный и функциональный проект размером 6×13 метров."
   }
 ]

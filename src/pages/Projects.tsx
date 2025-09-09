@@ -61,7 +61,7 @@ const Projects = () => {
         setLoading(true);
         const data = Array.isArray(allProjects) ? allProjects : [];
         const realizedSlugs = new Set([
-          'nova','grinvud','riga','orehovaya-roshcha','yantarny','krop','znamensky','klubny','nikola',
+          'nova','grinvud','riga','orehovaya-roshcha','yantarny','krop','znamensky','klubny','nikola','semigorye',
         ]);
         const filtered = data.filter((item: any) => !realizedSlugs.has((item.slug || '').toLowerCase()));
         if (!active) return;

@@ -36,7 +36,7 @@ const ProjectsShowcase = () => {
     if (Array.isArray(allProjects)) setItems(allProjects as any);
   }, [allProjects, queryLoading, isError]);
 
-  const realizedSlugs = new Set(['nova','grinvud','riga','orehovaya-roshcha']);
+  const realizedSlugs = new Set(['nova','grinvud','riga','orehovaya-roshcha','semigorye']);
   const topSix = useMemo(() => {
     if (!items) return [];
     const filtered = items.filter(p => !realizedSlugs.has((p.slug || '').toLowerCase()));
