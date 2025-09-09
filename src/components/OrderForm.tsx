@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, User, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { sendToTelegram } from '@/api/dev-telegram';
 
 interface OrderFormProps {
   className?: string;
@@ -88,38 +89,49 @@ const OrderForm: React.FC<OrderFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      console.log('Sending form data:', {
+      const formDataToSend = {
         name: formData.name,
         phone: formatPhoneNumber(formData.phone),
         comment: formData.comment || 'Без комментариев'
-      });
+      };
 
-      const response = await fetch('/api/ultra-simple', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formatPhoneNumber(formData.phone),
-          comment: formData.comment || 'Без комментариев'
-        }),
-      });
+      console.log('Sending form data:', formDataToSend);
 
-      const responseData = await response.json();
-      console.log('API response:', responseData);
+      // Проверяем, запущено ли приложение в dev режиме
+      const isDev = import.meta.env.DEV || window.location.hostname === 'localhost';
+      
+      let result;
+      if (isDev) {
+        // В dev режиме используем локальную функцию
+        result = await sendToTelegram(formDataToSend);
+      } else {
+        // На продакшене используем API
+        const response = await fetch('/api/ultra-simple', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formDataToSend),
+        });
 
-      if (response.ok) {
+        result = await response.json();
+        console.log('API response:', result);
+
+        if (!response.ok) {
+          const errorMessage = result.details || result.error || 'Неизвестная ошибка';
+          throw new Error(errorMessage);
+        }
+      }
+
+      if (result.success) {
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', comment: '' });
         toast({
           title: "Заявка отправлена!",
-          description: "Мы свяжемся с вами в ближайшее время",
+          description: isDev ? result.message : "Мы свяжемся с вами в ближайшее время",
         });
       } else {
-        // Показываем конкретную ошибку от сервера
-        const errorMessage = responseData.details || responseData.error || 'Неизвестная ошибка';
-        throw new Error(errorMessage);
+        throw new Error(result.error || 'Неизвестная ошибка');
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
