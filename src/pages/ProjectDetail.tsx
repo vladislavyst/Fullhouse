@@ -42,7 +42,7 @@ const ProjectDetail = () => {
     const load = async () => {
       try {
         setLoading(true);
-        const res = await fetch('/projects.json', { cache: 'no-store' });
+        const res = await fetch(`/projects.json?t=${Date.now()}`, { cache: 'no-store' });
         const data = await res.json();
         if (active && Array.isArray(data)) setItems(data);
       } finally {
@@ -55,7 +55,11 @@ const ProjectDetail = () => {
 
   const project = useMemo(() => {
     if (!slug) return undefined;
-    return items.find(p => (p.slug || p.title?.toLowerCase()) === slug);
+    console.log('Looking for project with slug:', slug);
+    console.log('Available items:', items.map(p => ({ title: p.title, slug: p.slug })));
+    const found = items.find(p => (p.slug || p.title?.toLowerCase()) === slug);
+    console.log('Found project:', found);
+    return found;
   }, [items, slug]);
 
   const [activePlanIdx, setActivePlanIdx] = useState(0);
