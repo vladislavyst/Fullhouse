@@ -174,7 +174,17 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ className = '' }) =
           <div className="p-4 border-t border-amber-500/30">
             <div className="text-center">
               <p className="text-sm text-gray-400 mb-3">Свяжитесь с нами</p>
-              <div className="flex justify-center space-x-3">
+              <div className="flex flex-col space-y-2">
+                <Button
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-medium transition-all duration-300"
+                  size="sm"
+                  asChild
+                >
+                  <a href="tel:+79180400402" className="flex items-center justify-center space-x-2">
+                    <Phone className="w-4 h-4" />
+                    <span>Бесплатная консультация</span>
+                  </a>
+                </Button>
                 <Button
                   variant="outline"
                   size="sm"
