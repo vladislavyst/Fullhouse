@@ -1,0 +1,29 @@
+# Автоматическая подача WebP изображений
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Проверяем поддержку WebP браузером
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  
+  # Проверяем существование WebP файла
+  RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+  RewriteCond %{REQUEST_FILENAME}\.webp -f
+  
+  # Перенаправляем на WebP версию
+  RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+# Устанавливаем правильные MIME типы
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# Кеширование изображений
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>

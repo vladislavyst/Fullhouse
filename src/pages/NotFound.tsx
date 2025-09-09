@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
+import SEOHead from "../components/SEOHead";
 
 const NotFound = () => {
   const location = useLocation();
@@ -35,7 +36,14 @@ const NotFound = () => {
   }, [items, query]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+    <>
+      <SEOHead 
+        title="404 - Страница не найдена | Fullhouse"
+        description="Запрашиваемая страница не найдена. Воспользуйтесь поиском или вернитесь на главную страницу сайта Fullhouse."
+        statusCode={404}
+        noindex={true}
+      />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
       <div className="w-full max-w-3xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
           <h1 className="text-5xl font-extrabold text-slate-800 mb-2">404</h1>
@@ -73,7 +81,8 @@ const NotFound = () => {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
