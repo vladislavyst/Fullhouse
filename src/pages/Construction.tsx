@@ -137,11 +137,11 @@ const Construction = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <Card className="border-0 shadow-xl ring-1 ring-slate-200/60 rounded-2xl">
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-primary mb-2">Каркасные дома</h3>
+                  <h3 className="font-semibold text-primary mb-2">Керамзитобетонный блок</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>Срок строительства: 2–4 месяца</li>
+                    <li>Срок строительства: 3–5 месяцев</li>
                     <li>Энергоэффективность: высокая</li>
-                    <li>Стоимость: от 25 000 руб/м²</li>
+                    <li>Стоимость: от 35 000 руб/м²</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -151,7 +151,7 @@ const Construction = () => {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li>Срок строительства: 3–6 месяцев</li>
                     <li>Теплоизоляция: отличная</li>
-                    <li>Стоимость: от 30 000 руб/м²</li>
+                    <li>Стоимость: от 35 000 руб/м²</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -161,7 +161,7 @@ const Construction = () => {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li>Срок строительства: 4–8 месяцев</li>
                     <li>Долговечность: 100+ лет</li>
-                    <li>Стоимость: от 35 000 руб/м²</li>
+                    <li>Стоимость: от 42 000 руб/м²</li>
                   </ul>
                 </CardContent>
               </Card>
