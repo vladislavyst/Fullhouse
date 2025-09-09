@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ТЕСТ НОВОГО API</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f0f8ff; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { padding: 15px 30px; font-size: 18px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; margin: 10px 0; }
+        button:hover { background: #218838; }
+        .result { margin-top: 20px; padding: 15px; font-size: 16px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .loading { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ТЕСТ НОВОГО API</h1>
+        <p><strong>/api/send-order</strong> - супер простой ES6 API</p>
+        
+        <button onclick="testNewAPI()">📤 ОТПРАВИТЬ ТЕСТОВУЮ ЗАЯВКУ</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testNewAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">⏳ Отправляем через новый API...</div>';
+            
+            const testData = {
+                name: 'НОВЫЙ API ТЕСТ',
+                phone: '+7 918 040-04-02',
+                comment: 'Тестируем новый /api/send-order endpoint - ' + new Date().toLocaleTimeString()
+            };
+            
+            console.log('Testing new API:', testData);
+            
+            try {
+                const response = await fetch('/api/send-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                console.log('New API Response status:', response.status);
+                console.log('New API Response headers:', [...response.headers.entries()]);
+                
+                const responseText = await response.text();
+                console.log('New API Response text:', responseText);
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    throw new Error('Не JSON ответ: ' + responseText.substring(0, 200));
+                }
+                
+                if (response.ok && result.success) {
+                    resultDiv.innerHTML = '<div class="success">✅ НОВЫЙ API РАБОТАЕТ! Заявка отправлена в Telegram!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ НОВЫЙ API ОШИБКА: ' + (result.error || result.message || 'Unknown error') + '</div>';
+                }
+                
+            } catch (error) {
+                console.error('New API Error:', error);
+                resultDiv.innerHTML = '<div class="error">❌ НОВЫЙ API НЕДОСТУПЕН: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>
