@@ -19,7 +19,7 @@
     
     <p>Этот тест отправит заявку напрямую в ваш Telegram без сложных форм.</p>
     
-    <button onclick="sendTest()">Отправить тестовую заявку</button>
+    <button id="testButton">Отправить тестовую заявку</button>
     
     <div id="result"></div>
 
@@ -71,6 +71,9 @@
             }
         }
         
+        // Добавляем обработчик для кнопки
+        document.getElementById('testButton').addEventListener('click', sendTest);
+
         // Проверяем API при загрузке
         window.addEventListener('load', async function() {
             try {
