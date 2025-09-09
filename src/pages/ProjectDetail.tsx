@@ -99,7 +99,7 @@ const ProjectDetail = () => {
         "offers": {
           "@type": "Offer",
           "priceCurrency": "RUB",
-          "price": (project.price || '').replace(/[^0-9]/g, '') || undefined,
+          "price": typeof project.price === 'number' ? project.price : (project.price || '').replace(/[^0-9]/g, '') || undefined,
           "url": typeof window !== 'undefined' ? window.location.href : undefined,
           "availability": "https://schema.org/InStock"
         },
@@ -291,7 +291,14 @@ const ProjectDetail = () => {
           <div className="space-y-6">
             <Card className="border-0 bg-white">
               <CardContent className="p-6 space-y-4">
-                {project.price && <div className="text-2xl font-bold text-accent">{project.price}</div>}
+                {project.price && (
+                  <div className="text-2xl font-bold text-accent">
+                    {typeof project.price === 'number' 
+                      ? `${project.price.toLocaleString('ru-RU')} ₽` 
+                      : project.price
+                    }
+                  </div>
+                )}
                 <div className="grid grid-cols-1 gap-4 text-sm">
                   <div>
                     <div className="flex items-center gap-2 text-muted-foreground mb-1"><Maximize className="h-4 w-4" /> Площадь</div>
