@@ -23,11 +23,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Загрузка…</div>}>
+    <BrowserRouter>
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Загрузка…</div>}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalog" element={<Catalog />} />
@@ -45,9 +45,9 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+        </TooltipProvider>
+      </Suspense>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 

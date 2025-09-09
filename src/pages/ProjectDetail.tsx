@@ -55,11 +55,7 @@ const ProjectDetail = () => {
 
   const project = useMemo(() => {
     if (!slug) return undefined;
-    console.log('Looking for project with slug:', slug);
-    console.log('Available items:', items.map(p => ({ title: p.title, slug: p.slug })));
-    const found = items.find(p => (p.slug || p.title?.toLowerCase()) === slug);
-    console.log('Found project:', found);
-    return found;
+    return items.find(p => (p.slug || p.title?.toLowerCase()) === slug);
   }, [items, slug]);
 
   const [activePlanIdx, setActivePlanIdx] = useState(0);
