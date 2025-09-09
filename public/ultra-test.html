@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>УЛЬТРА ТЕСТ</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            padding: 20px; 
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        button { 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+        button:hover { background: #0056b3; }
+        .result { 
+            margin-top: 20px; 
+            padding: 15px; 
+            font-size: 16px; 
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .loading { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 УЛЬТРА ТЕСТ TELEGRAM</h1>
+        
+        <label>Имя:</label>
+        <input type="text" id="name" value="Тестовый Пользователь">
+        
+        <label>Телефон:</label>
+        <input type="text" id="phone" value="+7 918 040-04-02">
+        
+        <label>Комментарий:</label>
+        <textarea id="comment" rows="3">Ультра тест формы - проверяем работу API</textarea>
+        
+        <button onclick="sendTest()">📤 ОТПРАВИТЬ В TELEGRAM</button>
+        
+        <div id="result"></div>
+        
+        <hr style="margin: 30px 0;">
+        <h3>Диагностика:</h3>
+        <button onclick="checkAPI()">🔍 ПРОВЕРИТЬ API</button>
+        <button onclick="testDirectly()">⚡ ПРЯМОЙ ТЕСТ</button>
+    </div>
+
+    <script>
+        async function sendTest() {
+            const resultDiv = document.getElementById('result');
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const comment = document.getElementById('comment').value;
+            
+            if (!name || !phone) {
+                resultDiv.innerHTML = '<div class="error">❌ Заполните имя и телефон!</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="loading">⏳ Отправляем заявку...</div>';
+            
+            const data = { name, phone, comment };
+            console.log('Отправляем:', data);
+            
+            try {
+                const response = await fetch('/api/ultra-simple', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response headers:', [...response.headers.entries()]);
+                
+                const responseText = await response.text();
+                console.log('Response text:', responseText);
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    throw new Error('Не JSON ответ: ' + responseText.substring(0, 200));
+                }
+                
+                if (response.ok && result.success) {
+                    resultDiv.innerHTML = '<div class="success">✅ УСПЕШНО! Заявка отправлена в Telegram!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ ОШИБКА: ' + (result.error || result.message || 'Unknown error') + '</div>';
+                }
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                resultDiv.innerHTML = '<div class="error">❌ СЕТЕВАЯ ОШИБКА: ' + error.message + '</div>';
+            }
+        }
+        
+        async function checkAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">🔍 Проверяем API...</div>';
+            
+            try {
+                const response = await fetch('/api/ultra-simple', {
+                    method: 'OPTIONS'
+                });
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="success">✅ API доступен!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ API недоступен: ' + response.status + '</div>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">❌ API недоступен: ' + error.message + '</div>';
+            }
+        }
+        
+        async function testDirectly() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">⚡ Прямой тест...</div>';
+            
+            try {
+                const response = await fetch('/api/ultra-simple', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'ПРЯМОЙ ТЕСТ',
+                        phone: '+7 918 040-04-02',
+                        comment: 'Прямой тест API - ' + new Date().toLocaleTimeString()
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="success">✅ ПРЯМОЙ ТЕСТ УСПЕШЕН!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ ПРЯМОЙ ТЕСТ НЕУДАЧЕН: ' + JSON.stringify(result) + '</div>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">❌ ПРЯМОЙ ТЕСТ ОШИБКА: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>

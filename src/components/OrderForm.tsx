@@ -94,7 +94,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         comment: formData.comment || 'Без комментариев'
       });
 
-      const response = await fetch('/api/final-telegram', {
+      const response = await fetch('/api/ultra-simple', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
