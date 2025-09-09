@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>БАЗОВЫЙ ТЕСТ API</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f0f8ff; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { padding: 15px 30px; font-size: 18px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; margin: 10px 0; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; font-size: 16px; border-radius: 5px; font-family: monospace; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .loading { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        pre { white-space: pre-wrap; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 БАЗОВЫЙ ТЕСТ API</h1>
+        <p>Проверяем работает ли вообще API на Vercel:</p>
+        
+        <button onclick="testBasicAPI()">🧪 ТЕСТ /api/test (GET)</button>
+        <button onclick="testBasicAPIPOST()">📤 ТЕСТ /api/test (POST)</button>
+        <button onclick="testSendOrder()">🏠 ТЕСТ /api/send-order (Telegram)</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testBasicAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">⏳ Тестируем GET /api/test...</div>';
+            
+            try {
+                const response = await fetch('/api/test', {
+                    method: 'GET'
+                });
+                
+                console.log('Basic API GET Response:', response.status, response.statusText);
+                
+                const responseText = await response.text();
+                console.log('Basic API GET Response text:', responseText);
+                
+                if (response.status === 404) {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ API НE НАЙДЕН</strong><br>Vercel не видит /api/test endpoint</div>';
+                    return;
+                }
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ НЕ JSON ОТВЕТ</strong><br><pre>' + responseText.substring(0, 500) + '</pre></div>';
+                    return;
+                }
+                
+                if (response.ok && result.success) {
+                    resultDiv.innerHTML = '<div class="success"><strong>✅ API РАБОТАЕТ!</strong><br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ API ОШИБКА</strong><br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                }
+                
+            } catch (error) {
+                console.error('Basic API Error:', error);
+                resultDiv.innerHTML = '<div class="error"><strong>❌ СЕТЕВАЯ ОШИБКА</strong><br>' + error.message + '</div>';
+            }
+        }
+        
+        async function testBasicAPIPOST() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">⏳ Тестируем POST /api/test...</div>';
+            
+            try {
+                const response = await fetch('/api/test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ test: 'data' })
+                });
+                
+                console.log('Basic API POST Response:', response.status, response.statusText);
+                
+                const responseText = await response.text();
+                console.log('Basic API POST Response text:', responseText);
+                
+                let result = JSON.parse(responseText);
+                
+                if (response.ok && result.success) {
+                    resultDiv.innerHTML = '<div class="success"><strong>✅ POST API РАБОТАЕТ!</strong><br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ POST API ОШИБКА</strong><br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                }
+                
+            } catch (error) {
+                console.error('POST API Error:', error);
+                resultDiv.innerHTML = '<div class="error"><strong>❌ POST ОШИБКА</strong><br>' + error.message + '</div>';
+            }
+        }
+        
+        async function testSendOrder() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">⏳ Тестируем /api/send-order...</div>';
+            
+            try {
+                const response = await fetch('/api/send-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'ТЕСТ С БАЗОВОЙ СТРАНИЦЫ',
+                        phone: '+7 918 040-04-02',
+                        comment: 'Тест с базовой диагностической страницы - ' + new Date().toLocaleTimeString()
+                    })
+                });
+                
+                console.log('Send Order Response:', response.status, response.statusText);
+                
+                const responseText = await response.text();
+                console.log('Send Order Response text:', responseText);
+                
+                if (response.status === 404) {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ SEND-ORDER НE НАЙДЕН</strong><br>Endpoint /api/send-order не существует</div>';
+                    return;
+                }
+                
+                let result = JSON.parse(responseText);
+                
+                if (response.ok && result.success) {
+                    resultDiv.innerHTML = '<div class="success"><strong>✅ TELEGRAM API РАБОТАЕТ!</strong><br>Заявка отправлена в Telegram!<br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error"><strong>❌ TELEGRAM API ОШИБКА</strong><br><pre>' + JSON.stringify(result, null, 2) + '</pre></div>';
+                }
+                
+            } catch (error) {
+                console.error('Send Order Error:', error);
+                resultDiv.innerHTML = '<div class="error"><strong>❌ SEND ORDER ОШИБКА</strong><br>' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>
