@@ -102,8 +102,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
       
       let result;
       if (isDev) {
-        // В dev режиме используем локальную функцию
+        // В dev режиме используем локальную функцию с реальной отправкой
         result = await sendToTelegram(formDataToSend);
+        if (!result.success) {
+          throw new Error(result.error || 'Dev mode error');
+        }
       } else {
         // На продакшене используем API
         const response = await fetch('/api/ultra-simple', {
