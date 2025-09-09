@@ -131,7 +131,7 @@ const Properties = () => {
       id: 10,
       title: 'Семигорье',
       category: 'private',
-      image: '/placeholder.svg',
+      image: '/Семигорье/pic 11.jpg',
       location: 'Хутор Семигорье',
       completion: '2024',
       area: '80 м²',
