@@ -330,23 +330,23 @@ const Projects = () => {
                                 {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                               </div>
                             )}
-                            <div className="mt-4 flex flex-col sm:flex-row gap-2 bg-red-50 p-2 rounded">
-                              <div className="flex gap-2">
-                                <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
-                                  <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
+                            <div className="mt-4 space-y-2">
+                              <div className="grid grid-cols-2 gap-2">
+                                <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+                                  <Button size="sm" className="fh-btn-primary w-full text-xs">Смета</Button>
                                 </a>
-                                <a href="tel:+79180400402" className="flex-1">
-                                  <Button size="sm" className="fh-btn-secondary w-full">Получить консультацию</Button>
+                                <a href="tel:+79180400402">
+                                  <Button size="sm" className="fh-btn-secondary w-full text-xs">Консультация</Button>
                                 </a>
                               </div>
-                              <div className="flex gap-2">
+                              <div className="grid grid-cols-2 gap-2">
                                 {p.slug && (
-                                  <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                                  <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
                                     <Link to={`/projects/${p.slug}`}>Подробнее</Link>
                                   </Button>
                                 )}
                                 {p.url && (
-                                  <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                                  <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
                                     <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
                                   </Button>
                                 )}
@@ -432,23 +432,23 @@ const Projects = () => {
                           {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                         </div>
                       )}
-                      <div className="mt-4 flex flex-col gap-2 bg-red-50 p-2 rounded">
-                        <div className="flex gap-2">
-                          <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
-                            <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
+                      <div className="mt-4 space-y-2">
+                        <div className="grid grid-cols-2 gap-2">
+                          <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" className="fh-btn-primary w-full text-xs">Смета</Button>
                           </a>
-                          <a href="tel:+79180400402" className="flex-1">
-                            <Button size="sm" className="fh-btn-secondary w-full">Получить консультацию</Button>
+                          <a href="tel:+79180400402">
+                            <Button size="sm" className="fh-btn-secondary w-full text-xs">Консультация</Button>
                           </a>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="grid grid-cols-2 gap-2">
                           {p.slug && (
-                            <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                            <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
                               <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
                             </Button>
                           )}
                           {p.url && (
-                            <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 flex-1">
+                            <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
                               <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
                             </Button>
                           )}
