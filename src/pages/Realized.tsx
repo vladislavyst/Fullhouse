@@ -33,8 +33,6 @@ const Realized = () => {
   const [items, setItems] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { data: allProjects, isLoading: queryLoading, error } = useProjects({ staleTime: 1000 * 60 * 10 });
-  
-  console.log('Realized component:', { allProjects, queryLoading, error, items });
 
   useEffect(() => {
     setLoading(queryLoading);
@@ -45,9 +43,11 @@ const Realized = () => {
 
   const realized = useMemo(() => items.filter(p => realizedSlugs.has((p.slug || '').toLowerCase())), [items]);
 
-  const parseAreaToNumber = (area?: string): number | null => {
+  const parseAreaToNumber = (area?: string | number): number | null => {
     if (!area) return null;
-    // Examples: "154 м²", "194,7 м²"
+    // If it's already a number, return it
+    if (typeof area === 'number') return area;
+    // If it's a string, parse it (Examples: "154 м²", "194,7 м²")
     const normalized = area.replace(/[^0-9,\.]/g, '').replace(',', '.');
     const n = parseFloat(normalized);
     return isNaN(n) ? null : n;
