@@ -24,6 +24,7 @@ const realizedSlugs = new Set([
   'znamensky',
   'krop',
   'yantarny',
+  'semigorye',
 ]);
 
 const Realized = () => {
