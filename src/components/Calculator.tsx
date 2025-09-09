@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Calculator as CalculatorIcon, Phone, CheckCircle } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import OrderForm from './OrderForm';
+import FrontendOrderForm from './FrontendOrderForm';
 
 const Calculator = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1, delay: 150 });
@@ -207,7 +207,7 @@ const Calculator = () => {
 
                 {/* Right Column - Order Form */}
                 <div className="space-y-6">
-                  <OrderForm 
+                  <FrontendOrderForm 
                     title="Получить точный расчет"
                     description="Оставьте заявку и получите детальный расчет проекта"
                     className="shadow-lg border-0"

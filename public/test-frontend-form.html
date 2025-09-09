@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ТЕСТ ФРОНТЕНД ФОРМЫ</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.1); 
+            backdrop-filter: blur(10px); 
+            padding: 30px; 
+            border-radius: 15px; 
+        }
+        .form-group { 
+            margin-bottom: 20px; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-weight: bold; 
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            border-radius: 8px; 
+            background: rgba(255,255,255,0.1); 
+            color: white; 
+            font-size: 16px;
+        }
+        input::placeholder, textarea::placeholder { 
+            color: rgba(255,255,255,0.7); 
+        }
+        button { 
+            width: 100%; 
+            padding: 15px; 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 18px; 
+            cursor: pointer; 
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #218838; 
+            transform: translateY(-2px); 
+        }
+        button:disabled { 
+            background: #6c757d; 
+            cursor: not-allowed; 
+            transform: none;
+        }
+        .status { 
+            margin-top: 20px; 
+            padding: 15px; 
+            border-radius: 8px; 
+            text-align: center; 
+            font-weight: bold;
+        }
+        .success { 
+            background: rgba(40, 167, 69, 0.2); 
+            border: 1px solid #28a745; 
+        }
+        .error { 
+            background: rgba(220, 53, 69, 0.2); 
+            border: 1px solid #dc3545; 
+        }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ТЕСТ ФРОНТЕНД ФОРМЫ</h1>
+        <p>Прямая отправка в Telegram без бэкенда:</p>
+        
+        <form id="telegramForm">
+            <div class="form-group">
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" placeholder="Введите ваше имя" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Телефон *</label>
+                <input type="tel" id="phone" placeholder="+7 918 040-04-02" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" rows="4" placeholder="Расскажите, что вас интересует..."></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn">📤 Отправить в Telegram</button>
+        </form>
+        
+        <div id="statusMessage"></div>
+    </div>
+
+    <script>
+        // ПРЯМАЯ ОТПРАВКА В TELEGRAM БЕЗ БЭКЕНДА
+        const BOT_TOKEN = '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
+        const CHAT_ID = '546005770';
+        const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        function sendToTelegram(name, phone, comment) {
+            const message = `🏠 <b>ТЕСТ ФРОНТЕНД ФОРМЫ</b>
+
+👤 <b>Имя:</b> ${name}
+📞 <b>Телефон:</b> ${phone}
+💬 <b>Комментарий:</b> ${comment || 'Без комментариев'}
+
+📅 <b>Дата:</b> ${new Date().toLocaleString('ru-RU', {
+                timeZone: 'Europe/Moscow'
+            })}
+🌐 <b>Источник:</b> Тестовая фронтенд форма`;
+
+            return fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            });
+        }
+
+        document.getElementById('telegramForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const comment = document.getElementById('comment').value.trim();
+            const status = document.getElementById('statusMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!name || !phone) {
+                status.innerHTML = '<div class="status error">❌ Пожалуйста, заполните имя и телефон</div>';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Отправляем...';
+            status.innerHTML = '';
+
+            try {
+                console.log('Отправляем данные:', { name, phone, comment });
+
+                const response = await sendToTelegram(name, phone, comment);
+                const result = await response.json();
+
+                console.log('Ответ Telegram:', result);
+
+                if (response.ok && result.ok) {
+                    status.innerHTML = '<div class="status success">✅ Заявка успешно отправлена в Telegram!</div>';
+                    document.getElementById('telegramForm').reset();
+                } else {
+                    throw new Error('Ошибка Telegram API: ' + JSON.stringify(result));
+                }
+
+            } catch (error) {
+                console.error('Ошибка:', error);
+                status.innerHTML = '<div class="status error">❌ Ошибка отправки: ' + error.message + '</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📤 Отправить в Telegram';
+            }
+        });
+    </script>
+</body>
+</html>

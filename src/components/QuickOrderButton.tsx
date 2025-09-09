@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Phone, MessageSquare } from 'lucide-react';
-import OrderForm from './OrderForm';
+import FrontendOrderForm from './FrontendOrderForm';
 
 interface QuickOrderButtonProps {
   className?: string;
@@ -34,7 +34,7 @@ const QuickOrderButton: React.FC<QuickOrderButtonProps> = ({
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden">
-        <OrderForm 
+        <FrontendOrderForm 
           title="Заказать обратный звонок"
           description="Оставьте свои контакты и мы перезвоним в течение 30 минут"
           className="border-0 shadow-none"
