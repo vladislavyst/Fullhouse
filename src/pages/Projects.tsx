@@ -333,20 +333,20 @@ const Projects = () => {
                             <div className="mt-4 space-y-2">
                               <div className="grid grid-cols-2 gap-2">
                                 <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
-                                  <Button size="sm" className="fh-btn-primary w-full text-xs">Смета</Button>
+                                  <Button size="sm" className="fh-btn-primary w-full text-sm font-medium py-2">Смета</Button>
                                 </a>
                                 <a href="tel:+79180400402">
-                                  <Button size="sm" className="fh-btn-secondary w-full text-xs">Консультация</Button>
+                                  <Button size="sm" className="fh-btn-secondary w-full text-sm font-medium py-2">Консультация</Button>
                                 </a>
                               </div>
                               <div className="grid grid-cols-2 gap-2">
                                 {p.slug && (
-                                  <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
+                                  <Button asChild size="sm" className="border-2 border-blue-300 text-blue-700 hover:bg-blue-100 bg-white w-full text-sm font-medium py-2">
                                     <Link to={`/projects/${p.slug}`}>Подробнее</Link>
                                   </Button>
                                 )}
                                 {p.url && (
-                                  <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
+                                  <Button asChild variant="outline" size="sm" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-100 w-full text-sm font-medium py-2">
                                     <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
                                   </Button>
                                 )}
@@ -435,20 +435,20 @@ const Projects = () => {
                       <div className="mt-4 space-y-2">
                         <div className="grid grid-cols-2 gap-2">
                           <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer">
-                            <Button size="sm" className="fh-btn-primary w-full text-xs">Смета</Button>
+                            <Button size="sm" className="fh-btn-primary w-full text-sm font-medium py-2">Смета</Button>
                           </a>
                           <a href="tel:+79180400402">
-                            <Button size="sm" className="fh-btn-secondary w-full text-xs">Консультация</Button>
+                            <Button size="sm" className="fh-btn-secondary w-full text-sm font-medium py-2">Консультация</Button>
                           </a>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           {p.slug && (
-                            <Button asChild size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
+                            <Button asChild size="sm" className="border-2 border-blue-300 text-blue-700 hover:bg-blue-100 bg-white w-full text-sm font-medium py-2">
                               <Link to={`/projects/${p.slug}`} state={{ from: '/projects' }}>Подробнее</Link>
                             </Button>
                           )}
                           {p.url && (
-                            <Button asChild variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 w-full text-xs">
+                            <Button asChild variant="outline" size="sm" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-100 w-full text-sm font-medium py-2">
                               <a href={p.url} target="_blank" rel="noopener noreferrer">Источник</a>
                             </Button>
                           )}
