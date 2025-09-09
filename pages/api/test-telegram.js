@@ -1,9 +1,9 @@
 // Vercel Serverless Function для тестирования Telegram API
 module.exports = async (req, res) => {
   try {
-    // Проверяем переменные окружения
-    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+    // Проверяем переменные окружения (с fallback)
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '546005770';
 
     const diagnostics = {
       method: req.method,

@@ -26,21 +26,22 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Name and phone are required' });
     }
 
-    // Telegram Bot Token из переменных окружения
-    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+    // Telegram Bot Token - временно прямо в коде
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '546005770';
 
     console.log('Environment check:', {
       hasToken: !!BOT_TOKEN,
       hasChat: !!CHAT_ID,
-      tokenLength: BOT_TOKEN ? BOT_TOKEN.length : 0
+      tokenLength: BOT_TOKEN ? BOT_TOKEN.length : 0,
+      usingFallback: !process.env.TELEGRAM_BOT_TOKEN
     });
 
     if (!BOT_TOKEN || !CHAT_ID) {
       console.error('Missing Telegram credentials');
       return res.status(500).json({ 
         error: 'Server configuration error',
-        details: 'Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID environment variables'
+        details: 'Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID'
       });
     }
 

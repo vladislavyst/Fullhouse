@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Clock, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import QuickOrderButton from './QuickOrderButton';
+import SimpleCallButton from './SimpleCallButton';
 
 const heroImage = '/0_3.png';
 const heroImageMobile = '/Hero-mobile.jpg';
@@ -75,11 +75,12 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <QuickOrderButton 
+              <SimpleCallButton 
                 size="lg" 
                 text="Получить консультацию"
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl"
                 showIcon={false}
+                phone="+79180400402"
               />
               
               <Link to="/projects">
