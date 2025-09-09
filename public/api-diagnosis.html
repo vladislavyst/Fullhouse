@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>API ДИАГНОСТИКА</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin: 10px 0; padding: 15px; border-radius: 5px; font-family: monospace; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+        pre { white-space: pre-wrap; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 API ДИАГНОСТИКА</h1>
+        <p>Проверим все возможные пути API:</p>
+        
+        <button onclick="testAPI('/api/working-telegram')">ТЕСТ /api/working-telegram</button>
+        <button onclick="testAPI('/api/ultra-simple')">ТЕСТ /api/ultra-simple</button>
+        <button onclick="testAPI('/pages/api/working-telegram')">ТЕСТ /pages/api/working-telegram</button>
+        <button onclick="testAPI('/pages/api/ultra-simple')">ТЕСТ /pages/api/ultra-simple</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function testAPI(endpoint) {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = `<strong>Тестируем ${endpoint}...</strong>`;
+            resultsDiv.appendChild(resultDiv);
+            
+            const testData = {
+                name: 'ДИАГНОСТИЧЕСКИЙ ТЕСТ',
+                phone: '+7 918 040-04-02',
+                comment: `Тест API ${endpoint} - ${new Date().toLocaleTimeString()}`
+            };
+            
+            try {
+                console.log(`Testing ${endpoint}:`, testData);
+                
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                console.log(`${endpoint} Response status:`, response.status);
+                console.log(`${endpoint} Response headers:`, [...response.headers.entries()]);
+                
+                const responseText = await response.text();
+                console.log(`${endpoint} Response text:`, responseText);
+                
+                resultDiv.className = 'result';
+                
+                if (response.status === 404) {
+                    resultDiv.className += ' error';
+                    resultDiv.innerHTML = `<strong>${endpoint}: 404 NOT FOUND</strong><br>Endpoint не существует`;
+                    return;
+                }
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    resultDiv.className += ' error';
+                    resultDiv.innerHTML = `<strong>${endpoint}: PARSE ERROR</strong><br>Не JSON ответ:<br><pre>${responseText.substring(0, 300)}</pre>`;
+                    return;
+                }
+                
+                if (response.ok && result.success) {
+                    resultDiv.className += ' success';
+                    resultDiv.innerHTML = `<strong>${endpoint}: ✅ SUCCESS</strong><br>Заявка отправлена в Telegram!<br><pre>${JSON.stringify(result, null, 2)}</pre>`;
+                } else {
+                    resultDiv.className += ' error';
+                    resultDiv.innerHTML = `<strong>${endpoint}: ❌ ERROR</strong><br>Status: ${response.status}<br><pre>${JSON.stringify(result, null, 2)}</pre>`;
+                }
+                
+            } catch (error) {
+                console.error(`${endpoint} Error:`, error);
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>${endpoint}: ❌ NETWORK ERROR</strong><br>${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

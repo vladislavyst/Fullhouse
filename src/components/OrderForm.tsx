@@ -109,7 +109,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
       } else {
         // На продакшене используем API
-        const response = await fetch('/api/ultra-simple', {
+        const response = await fetch('/api/working-telegram', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
