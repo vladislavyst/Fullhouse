@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ФИНАЛЬНАЯ ДИАГНОСТИКА API</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .container { max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; }
+        button { padding: 15px 25px; font-size: 16px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%; margin: 8px 0; transition: all 0.3s; }
+        button:hover { background: #218838; transform: translateY(-2px); }
+        .result { margin: 15px 0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; }
+        .success { background: rgba(40, 167, 69, 0.2); border: 1px solid #28a745; }
+        .error { background: rgba(220, 53, 69, 0.2); border: 1px solid #dc3545; }
+        .loading { background: rgba(255, 193, 7, 0.2); border: 1px solid #ffc107; }
+        pre { white-space: pre-wrap; word-break: break-all; }
+        h1 { text-align: center; margin-bottom: 30px; }
+        .status { font-weight: bold; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ФИНАЛЬНАЯ ДИАГНОСТИКА API</h1>
+        <p>Проверяем все API endpoints по порядку:</p>
+        
+        <button onclick="testHello()">1️⃣ ТЕСТ /api/hello (простейший)</button>
+        <button onclick="testTelegram()">2️⃣ ТЕСТ /api/telegram (Telegram API)</button>
+        <button onclick="testMainForm()">3️⃣ ТЕСТ основной формы</button>
+        
+        <div id="results"></div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+            <h3>🔍 Что означают результаты:</h3>
+            <ul>
+                <li><strong>✅ Success:</strong> API работает, JSON получен</li>
+                <li><strong>❌ 404 Error:</strong> Vercel не видит API endpoint</li>
+                <li><strong>❌ HTML Error:</strong> Получили HTML вместо JSON (404 страница)</li>
+                <li><strong>❌ Network Error:</strong> Проблемы с сетью</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function addResult(content, type = 'loading') {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `result ${type}`;
+            resultDiv.innerHTML = content;
+            resultsDiv.appendChild(resultDiv);
+            return resultDiv;
+        }
+
+        async function testHello() {
+            const resultDiv = addResult('<div class="status">🧪 Тестируем /api/hello...</div>', 'loading');
+            
+            try {
+                const response = await fetch('/api/hello');
+                console.log('Hello API Response:', response.status, response.statusText);
+                
+                const responseText = await response.text();
+                console.log('Hello API Response text:', responseText);
+                
+                if (response.status === 404) {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ /api/hello НE НАЙДЕН</div>Vercel не видит простейший API endpoint';
+                    return;
+                }
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ /api/hello ВОЗВРАЩАЕТ HTML</div><pre>' + responseText.substring(0, 200) + '...</pre>';
+                    return;
+                }
+                
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = '<div class="status">✅ /api/hello РАБОТАЕТ!</div><pre>' + JSON.stringify(result, null, 2) + '</pre>';
+                
+            } catch (error) {
+                console.error('Hello API Error:', error);
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '<div class="status">❌ /api/hello СЕТЕВАЯ ОШИБКА</div>' + error.message;
+            }
+        }
+        
+        async function testTelegram() {
+            const resultDiv = addResult('<div class="status">📤 Тестируем /api/telegram...</div>', 'loading');
+            
+            const testData = {
+                name: 'ФИНАЛЬНЫЙ ТЕСТ',
+                phone: '+7 918 040-04-02',
+                comment: 'Финальный тест API - ' + new Date().toLocaleTimeString()
+            };
+            
+            try {
+                const response = await fetch('/api/telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                });
+                
+                console.log('Telegram API Response:', response.status, response.statusText);
+                
+                const responseText = await response.text();
+                console.log('Telegram API Response text:', responseText);
+                
+                if (response.status === 404) {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ /api/telegram НE НАЙДЕН</div>Telegram API endpoint не существует';
+                    return;
+                }
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ /api/telegram ВОЗВРАЩАЕТ HTML</div><pre>' + responseText.substring(0, 200) + '...</pre>';
+                    return;
+                }
+                
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = '<div class="status">✅ /api/telegram РАБОТАЕТ!</div>Заявка отправлена в Telegram!<br><pre>' + JSON.stringify(result, null, 2) + '</pre>';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ /api/telegram ОШИБКА</div><pre>' + JSON.stringify(result, null, 2) + '</pre>';
+                }
+                
+            } catch (error) {
+                console.error('Telegram API Error:', error);
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '<div class="status">❌ /api/telegram ОШИБКА</div>' + error.message;
+            }
+        }
+        
+        async function testMainForm() {
+            const resultDiv = addResult('<div class="status">🏠 Симуляция основной формы...</div>', 'loading');
+            
+            // Симулируем то же самое что делает основная форма
+            const formData = {
+                name: 'ТЕСТ ОСНОВНОЙ ФОРМЫ',
+                phone: '+7 918 040-04-02',
+                comment: 'Тест через основную форму - ' + new Date().toLocaleTimeString()
+            };
+            
+            try {
+                const response = await fetch('/api/telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = '<div class="status">✅ ОСНОВНАЯ ФОРМА БУДЕТ РАБОТАТЬ!</div>Все API endpoints настроены правильно';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = '<div class="status">❌ ОСНОВНАЯ ФОРМА НЕ БУДЕТ РАБОТАТЬ</div>' + JSON.stringify(result, null, 2);
+                }
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '<div class="status">❌ ОСНОВНАЯ ФОРМА НЕ БУДЕТ РАБОТАТЬ</div>' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
