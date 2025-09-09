@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>СУПЕР ПРОСТОЙ ТЕСТ</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 20px; font-size: 18px; background: red; color: white; border: none; cursor: pointer; }
+        .result { margin-top: 20px; padding: 15px; font-size: 16px; }
+        .success { background: green; color: white; }
+        .error { background: red; color: white; }
+    </style>
+</head>
+<body>
+    <h1>СУПЕР ПРОСТОЙ ТЕСТ TELEGRAM</h1>
+    <button onclick="sendMessage()">ОТПРАВИТЬ ТЕСТ В TELEGRAM</button>
+    <div id="result"></div>
+
+    <script>
+        async function sendMessage() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Отправляем...';
+            
+            const data = {
+                name: 'ТЕСТОВЫЙ ПОЛЬЗОВАТЕЛЬ',
+                phone: '+7 918 040-04-02',
+                comment: 'СУПЕР ПРОСТОЙ ТЕСТ - ' + new Date().toLocaleTimeString()
+            };
+            
+            console.log('Отправляем данные:', data);
+            
+            try {
+                const response = await fetch('/api/final-telegram', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                
+                const responseText = await response.text();
+                console.log('Response text:', responseText);
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    throw new Error('Не JSON ответ: ' + responseText.substring(0, 100));
+                }
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="success">✅ УСПЕШНО! Проверьте Telegram!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ ОШИБКА: ' + (result.error || 'Unknown') + '</div>';
+                }
+                
+            } catch (error) {
+                console.error('Полная ошибка:', error);
+                resultDiv.innerHTML = '<div class="error">❌ ОШИБКА: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>
