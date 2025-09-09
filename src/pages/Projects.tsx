@@ -330,7 +330,7 @@ const Projects = () => {
                                 {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                               </div>
                             )}
-                            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                            <div className="mt-4 flex flex-col sm:flex-row gap-2 bg-red-50 p-2 rounded">
                               <div className="flex gap-2">
                                 <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
                                   <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
@@ -432,7 +432,7 @@ const Projects = () => {
                           {(p.about || '').slice(0, 220)}{p.about && p.about.length > 220 ? '…' : ''}
                         </div>
                       )}
-                      <div className="mt-4 flex flex-col gap-2">
+                      <div className="mt-4 flex flex-col gap-2 bg-red-50 p-2 rounded">
                         <div className="flex gap-2">
                           <a href="https://wa.me/79883464087" target="_blank" rel="noopener noreferrer" className="flex-1">
                             <Button size="sm" className="fh-btn-primary w-full">Рассчитать смету</Button>
