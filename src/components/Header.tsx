@@ -69,16 +69,6 @@ const Header = () => {
                 </a>
               </div>
             </div>
-            
-            <Button 
-              asChild
-              className="bg-amber-500 hover:bg-amber-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              <a href="tel:+79180400402" className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>Бесплатная консультация</span>
-              </a>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
