@@ -20,7 +20,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover:opacity-90 transition-all duration-300 hover:scale-105">
             <img 
-              src="/Logonew.png" 
+              src="/LOGOLOGO.png" 
               alt="Fullhouse Logo" 
               style={{ height: '220px', width: 'auto' }}
             />

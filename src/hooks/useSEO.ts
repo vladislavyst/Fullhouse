@@ -185,7 +185,7 @@ export const seoConfigs = {
         "@type": "Organization",
         "name": "Fullhouse",
         "url": "https://sk-fullhouse.com",
-        "logo": "https://sk-fullhouse.com/Logonew.png",
+        "logo": "https://sk-fullhouse.com/LOGOLOGO.png",
         "contactPoint": [{
           "@type": "ContactPoint",
           "telephone": "+7-918-040-04-02",
@@ -292,7 +292,7 @@ export const seoConfigs = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Fullhouse",
-        "image": "https://sk-fullhouse.com/Logonew.png",
+        "image": "https://sk-fullhouse.com/LOGOLOGO.png",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "ул. Хворостьянского, 4",
