@@ -1,5 +1,5 @@
 // Прямая отправка тестовой заявки в Telegram
-const https = require('https');
+import https from 'https';
 const querystring = require('querystring');
 
 const BOT_TOKEN = '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
