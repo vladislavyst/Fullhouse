@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест формы Telegram</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007bff; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Тест формы отправки в Telegram</h1>
+    
+    <div class="info">
+        <h3>Инструкция:</h3>
+        <ol>
+            <li>Заполните форму ниже</li>
+            <li>Нажмите "Отправить тест"</li>
+            <li>Откройте консоль браузера (F12) для подробных логов</li>
+            <li>Проверьте ваш Telegram</li>
+        </ol>
+    </div>
+
+    <form id="testForm">
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" value="Тестовый Пользователь" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" value="+7 918 040-04-02" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="comment">Комментарий:</label>
+            <textarea id="comment" name="comment" rows="3">Тестирую форму отправки заявок</textarea>
+        </div>
+        
+        <button type="submit">Отправить тест</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                comment: document.getElementById('comment').value
+            };
+
+            console.log('🚀 Отправляем данные:', formData);
+            
+            resultDiv.innerHTML = '<div class="info">Отправляем...</div>';
+
+            try {
+                // Сначала тестируем API статус
+                console.log('🔍 Проверяем API статус...');
+                const testResponse = await fetch('/api/test-telegram');
+                const testData = await testResponse.json();
+                console.log('📊 API статус:', testData);
+
+                // Отправляем основной запрос
+                console.log('📤 Отправляем заявку...');
+                const response = await fetch('/api/send-telegram', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const responseData = await response.json();
+                console.log('📥 Ответ сервера:', responseData);
+
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <h3>✅ Успешно отправлено!</h3>
+                            <p>Заявка отправлена в Telegram. Проверьте ваши сообщения.</p>
+                            <p><strong>ID сообщения:</strong> ${responseData.messageId || 'неизвестен'}</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(responseData.error || 'Неизвестная ошибка');
+                }
+            } catch (error) {
+                console.error('❌ Ошибка:', error);
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <h3>❌ Ошибка отправки</h3>
+                        <p><strong>Сообщение:</strong> ${error.message}</p>
+                        <p><strong>Что делать:</strong> Откройте консоль браузера (F12) для подробной информации</p>
+                    </div>
+                `;
+            }
+        });
+
+        // Автоматически проверяем API при загрузке страницы
+        window.addEventListener('load', async function() {
+            console.log('🔄 Автоматическая проверка API...');
+            try {
+                const response = await fetch('/api/test-telegram');
+                const data = await response.json();
+                console.log('🎯 Результат автопроверки:', data);
+                
+                if (data.success) {
+                    console.log('✅ API работает корректно');
+                } else {
+                    console.log('⚠️ Проблема с API:', data.error);
+                }
+            } catch (error) {
+                console.log('❌ API недоступен:', error.message);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -24,7 +24,8 @@ module.exports = async (req, res) => {
     }
 
     // Тестируем подключение к Telegram API
-    const testResponse = await fetch(
+    const fetchFunction = global.fetch || require('node-fetch');
+    const testResponse = await fetchFunction(
       `https://api.telegram.org/bot${BOT_TOKEN}/getMe`,
       { method: 'GET' }
     );

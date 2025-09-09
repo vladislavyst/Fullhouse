@@ -63,8 +63,11 @@ module.exports = async (req, res) => {
 
     console.log('Sending message to Telegram...');
 
+    // Используем глобальный fetch или импортируем node-fetch для старых версий Node.js
+    const fetchFunction = global.fetch || require('node-fetch');
+
     // Отправляем сообщение в Telegram
-    const telegramResponse = await fetch(
+    const telegramResponse = await fetchFunction(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
       {
         method: 'POST',
