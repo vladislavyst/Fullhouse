@@ -32,16 +32,15 @@ const realizedSlugs = new Set([
 const Realized = () => {
   const [items, setItems] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const { data: allProjects, isLoading: queryLoading } = useProjects({ staleTime: 1000 * 60 * 10 });
+  const { data: allProjects, isLoading: queryLoading, error } = useProjects({ staleTime: 1000 * 60 * 10 });
+  
+  console.log('Realized component:', { allProjects, queryLoading, error, items });
 
   useEffect(() => {
-    let active = true;
-    const apply = () => {
-      setLoading(queryLoading);
-      if (Array.isArray(allProjects) && active) setItems(allProjects as any);
-    };
-    apply();
-    return () => { active = false; };
+    setLoading(queryLoading);
+    if (Array.isArray(allProjects)) {
+      setItems(allProjects as any);
+    }
   }, [allProjects, queryLoading]);
 
   const realized = useMemo(() => items.filter(p => realizedSlugs.has((p.slug || '').toLowerCase())), [items]);
@@ -67,7 +66,15 @@ const Realized = () => {
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-8">Реализованные проекты</h1>
-            {loading ? (
+            {error ? (
+              <div className="text-red-600">
+                Ошибка загрузки проектов: {error.message}
+                <br />
+                <Button onClick={() => window.location.reload()} className="mt-4">
+                  Перезагрузить страницу
+                </Button>
+              </div>
+            ) : loading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <Card key={i} className="border-0 bg-white/90 backdrop-blur-sm overflow-hidden shadow-xl">
@@ -80,7 +87,11 @@ const Realized = () => {
                 ))}
               </div>
             ) : realized.length === 0 ? (
-              <div className="text-muted-foreground">Реализованные проекты не найдены.</div>
+              <div className="text-muted-foreground">
+                Реализованные проекты не найдены. Всего проектов: {items.length}
+                <br />
+                Ожидаемые slug: {Array.from(realizedSlugs).join(', ')}
+              </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {realized.map((p, idx) => {
