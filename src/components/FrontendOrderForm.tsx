@@ -118,6 +118,19 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
 
     // Ждем отправки всех сообщений
     const responses = await Promise.all(promises);
+    const results = await Promise.all(responses.map(r => r.json()));
+    
+    // Подсчитываем успешные отправки
+    let successCount = 0;
+    responses.forEach((response, index) => {
+      if (response.ok && results[index].ok) {
+        successCount++;
+      } else {
+        console.warn(`Не удалось отправить в чат ${CHAT_IDS[index]}:`, results[index]);
+      }
+    });
+    
+    console.log(`Заявка доставлена в ${successCount} из ${CHAT_IDS.length} чатов`);
     
     // Возвращаем первый успешный ответ
     return responses.find(response => response.ok) || responses[0];

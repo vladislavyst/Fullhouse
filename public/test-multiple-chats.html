@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ТЕСТ МНОЖЕСТВЕННЫХ CHAT ID</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.1); 
+            backdrop-filter: blur(10px); 
+            padding: 30px; 
+            border-radius: 15px; 
+        }
+        button { 
+            padding: 15px 25px; 
+            font-size: 16px; 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            margin: 10px 0; 
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #218838; 
+            transform: translateY(-2px); 
+        }
+        .result { 
+            margin: 15px 0; 
+            padding: 15px; 
+            border-radius: 8px; 
+            font-family: monospace; 
+            font-size: 14px;
+        }
+        .success { 
+            background: rgba(40, 167, 69, 0.2); 
+            border: 1px solid #28a745; 
+        }
+        .error { 
+            background: rgba(220, 53, 69, 0.2); 
+            border: 1px solid #dc3545; 
+        }
+        .loading { 
+            background: rgba(255, 193, 7, 0.2); 
+            border: 1px solid #ffc107; 
+        }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        }
+        .chat-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ДИАГНОСТИКА МНОЖЕСТВЕННЫХ CHAT ID</h1>
+        
+        <div class="chat-info">
+            <h3>📋 Chat ID которые мы тестируем:</h3>
+            <ul>
+                <li><strong>546005770</strong> - Основной пользователь</li>
+                <li><strong>7731686826</strong> - Второй пользователь</li>
+                <li><strong>6962024711</strong> - Третий пользователь</li>
+            </ul>
+        </div>
+        
+        <button onclick="testEachChatSeparately()">🧪 ТЕСТ КАЖДОГО CHAT ID ОТДЕЛЬНО</button>
+        <button onclick="testAllChatsAtOnce()">📤 ТЕСТ ВСЕХ CHAT ID СРАЗУ</button>
+        <button onclick="checkBotInfo()">🤖 ПРОВЕРИТЬ ИНФОРМАЦИЮ О БОТЕ</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
+        const CHAT_IDS = [
+            { id: '546005770', name: 'Основной пользователь' },
+            { id: '7731686826', name: 'Второй пользователь' },
+            { id: '6962024711', name: 'Третий пользователь' }
+        ];
+        const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        function addResult(content, type = 'loading') {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `result ${type}`;
+            resultDiv.innerHTML = content;
+            resultsDiv.appendChild(resultDiv);
+            return resultDiv;
+        }
+
+        async function testEachChatSeparately() {
+            document.getElementById('results').innerHTML = '';
+            addResult('<h3>🧪 Тестируем каждый Chat ID отдельно...</h3>', 'loading');
+
+            for (const chat of CHAT_IDS) {
+                const resultDiv = addResult(`<strong>Тестируем ${chat.name} (${chat.id}):</strong> Отправляем...`, 'loading');
+
+                try {
+                    const message = `🧪 <b>ТЕСТ ОТДЕЛЬНОГО CHAT ID</b>
+
+👤 <b>Chat ID:</b> ${chat.id}
+👥 <b>Пользователь:</b> ${chat.name}
+📅 <b>Время:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}
+
+⚠️ <b>Важно:</b> Этот пользователь должен сначала написать боту /start`;
+
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: chat.id,
+                            text: message,
+                            parse_mode: 'HTML'
+                        })
+                    });
+
+                    const result = await response.json();
+                    console.log(`Chat ${chat.id} response:`, result);
+
+                    if (response.ok && result.ok) {
+                        resultDiv.className = 'result success';
+                        resultDiv.innerHTML = `<strong>✅ ${chat.name} (${chat.id}):</strong> Сообщение доставлено!`;
+                    } else {
+                        resultDiv.className = 'result error';
+                        let errorText = result.description || 'Unknown error';
+                        if (result.error_code === 403) {
+                            errorText = 'Пользователь заблокировал бота или не написал /start';
+                        }
+                        resultDiv.innerHTML = `<strong>❌ ${chat.name} (${chat.id}):</strong> ${errorText}`;
+                    }
+
+                } catch (error) {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ ${chat.name} (${chat.id}):</strong> ${error.message}`;
+                }
+
+                // Небольшая пауза между запросами
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        }
+
+        async function testAllChatsAtOnce() {
+            document.getElementById('results').innerHTML = '';
+            const resultDiv = addResult('<h3>📤 Тестируем все Chat ID сразу...</h3>', 'loading');
+
+            try {
+                const message = `🏠 <b>МАССОВЫЙ ТЕСТ ЗАЯВКИ</b>
+
+👤 <b>Имя:</b> Тестовый Клиент
+📞 <b>Телефон:</b> +7 918 040-04-02
+💬 <b>Комментарий:</b> Проверяем доставку во все чаты
+
+📅 <b>Дата:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}
+🌐 <b>Источник:</b> Массовый тест`;
+
+                const promises = CHAT_IDS.map(chat => 
+                    fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: chat.id,
+                            text: message,
+                            parse_mode: 'HTML'
+                        })
+                    })
+                );
+
+                const responses = await Promise.all(promises);
+                const results = await Promise.all(responses.map(r => r.json()));
+
+                let successCount = 0;
+                let details = '<br><strong>Детали доставки:</strong><br>';
+
+                results.forEach((result, index) => {
+                    const chat = CHAT_IDS[index];
+                    if (responses[index].ok && result.ok) {
+                        successCount++;
+                        details += `✅ ${chat.name}: Доставлено<br>`;
+                    } else {
+                        let errorText = result.description || 'Unknown error';
+                        if (result.error_code === 403) {
+                            errorText = 'Пользователь не активировал бота';
+                        }
+                        details += `❌ ${chat.name}: ${errorText}<br>`;
+                    }
+                });
+
+                if (successCount > 0) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Доставлено в ${successCount} из ${CHAT_IDS.length} чатов</strong>${details}`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ Не доставлено ни в один чат</strong>${details}`;
+                }
+
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>❌ Ошибка массовой отправки:</strong> ${error.message}`;
+            }
+        }
+
+        async function checkBotInfo() {
+            document.getElementById('results').innerHTML = '';
+            const resultDiv = addResult('<h3>🤖 Проверяем информацию о боте...</h3>', 'loading');
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getMe`);
+                const result = await response.json();
+
+                if (response.ok && result.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Бот активен:</strong><br>
+                        Имя: ${result.result.first_name}<br>
+                        Username: @${result.result.username}<br>
+                        ID: ${result.result.id}<br><br>
+                        <strong>📋 Инструкция для новых пользователей:</strong><br>
+                        1. Найти бота @${result.result.username}<br>
+                        2. Написать команду /start<br>
+                        3. После этого бот сможет отправлять сообщения`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ Ошибка бота:</strong> ${JSON.stringify(result)}`;
+                }
+
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>❌ Ошибка запроса:</strong> ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
