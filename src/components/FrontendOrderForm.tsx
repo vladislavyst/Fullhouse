@@ -80,7 +80,14 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
   const sendToTelegram = async (name: string, phone: string, comment: string) => {
     // ПРЯМАЯ ОТПРАВКА В TELEGRAM БЕЗ БЭКЕНДА
     const BOT_TOKEN = '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
-    const CHAT_ID = '546005770';
+    
+    // СПИСОК CHAT ID - добавьте сюда ID всех пользователей
+    const CHAT_IDS = [
+      '546005770', // Ваш основной Chat ID
+      '7731686826', // Второй пользователь
+      '6962024711', // Третий пользователь
+    ];
+    
     const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
     const message = `🏠 <b>ЗАЯВКА С САЙТА FULLHOUSE</b>
@@ -94,19 +101,26 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
     })}
 🌐 <b>Источник:</b> sk-fullhouse.com`;
 
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: 'HTML'
+    // Отправляем сообщение всем пользователям
+    const promises = CHAT_IDS.map(chatId => 
+      fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'HTML'
+        })
       })
-    });
+    );
 
-    return response;
+    // Ждем отправки всех сообщений
+    const responses = await Promise.all(promises);
+    
+    // Возвращаем первый успешный ответ
+    return responses.find(response => response.ok) || responses[0];
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

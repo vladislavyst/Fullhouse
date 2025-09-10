@@ -110,10 +110,14 @@
     <script>
         // ПРЯМАЯ ОТПРАВКА В TELEGRAM БЕЗ БЭКЕНДА
         const BOT_TOKEN = '8430823667:AAEhuKe7X8vgs3SsB44dmtYjqjz7rlWMyoE';
-        const CHAT_ID = '546005770';
+        const CHAT_IDS = [
+            '546005770', // Основной Chat ID
+            '7731686826', // Второй пользователь
+            '6962024711', // Третий пользователь
+        ];
         const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-        function sendToTelegram(name, phone, comment) {
+        async function sendToTelegram(name, phone, comment) {
             const message = `🏠 <b>ТЕСТ ФРОНТЕНД ФОРМЫ</b>
 
 👤 <b>Имя:</b> ${name}
@@ -125,17 +129,23 @@
             })}
 🌐 <b>Источник:</b> Тестовая фронтенд форма`;
 
-            return fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message,
-                    parse_mode: 'HTML'
+            // Отправляем всем пользователям
+            const promises = CHAT_IDS.map(chatId => 
+                fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
                 })
-            });
+            );
+
+            const responses = await Promise.all(promises);
+            return responses.find(response => response.ok) || responses[0];
         }
 
         document.getElementById('telegramForm').addEventListener('submit', async function(e) {
