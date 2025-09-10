@@ -145,7 +145,23 @@
             );
 
             const responses = await Promise.all(promises);
-            return responses.find(response => response.ok) || responses[0];
+            const results = await Promise.all(responses.map(r => r.json()));
+            
+            let successCount = 0;
+            responses.forEach((response, index) => {
+                if (response.ok && results[index].ok) {
+                    successCount++;
+                } else {
+                    console.warn(`Не удалось отправить в чат ${CHAT_IDS[index]}:`, results[index]);
+                }
+            });
+            
+            return {
+                success: successCount > 0,
+                deliveredTo: successCount,
+                totalChats: CHAT_IDS.length,
+                firstResponse: responses.find(response => response.ok) || responses[0]
+            };
         }
 
         document.getElementById('telegramForm').addEventListener('submit', async function(e) {
@@ -169,16 +185,15 @@
             try {
                 console.log('Отправляем данные:', { name, phone, comment });
 
-                const response = await sendToTelegram(name, phone, comment);
-                const result = await response.json();
+                const telegramResponse = await sendToTelegram(name, phone, comment);
 
-                console.log('Ответ Telegram:', result);
+                console.log('Результат отправки:', telegramResponse);
 
-                if (response.ok && result.ok) {
-                    status.innerHTML = '<div class="status success">✅ Заявка успешно отправлена в Telegram!</div>';
+                if (telegramResponse.success) {
+                    status.innerHTML = `<div class="status success">✅ Заявка успешно отправлена! Доставлено в ${telegramResponse.deliveredTo} из ${telegramResponse.totalChats} чатов</div>`;
                     document.getElementById('telegramForm').reset();
                 } else {
-                    throw new Error('Ошибка Telegram API: ' + JSON.stringify(result));
+                    throw new Error('Не удалось отправить заявку ни в один чат');
                 }
 
             } catch (error) {

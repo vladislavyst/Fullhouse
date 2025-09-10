@@ -132,8 +132,13 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
     
     console.log(`Заявка доставлена в ${successCount} из ${CHAT_IDS.length} чатов`);
     
-    // Возвращаем первый успешный ответ
-    return responses.find(response => response.ok) || responses[0];
+    // Возвращаем результат: успех если хотя бы один чат получил сообщение
+    return {
+      success: successCount > 0,
+      deliveredTo: successCount,
+      totalChats: CHAT_IDS.length,
+      firstResponse: responses.find(response => response.ok) || responses[0]
+    };
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -153,12 +158,10 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
         comment
       });
 
-      const response = await sendToTelegram(formData.name, formattedPhone, comment);
-      const result = await response.json();
-
-      console.log('Ответ Telegram:', result);
-
-      if (response.ok && result.ok) {
+      const telegramResponse = await sendToTelegram(formData.name, formattedPhone, comment);
+      
+      // Проверяем результат отправки
+      if (telegramResponse.success) {
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', comment: '' });
         toast({
@@ -166,7 +169,7 @@ const FrontendOrderForm: React.FC<FrontendOrderFormProps> = ({
           description: "Мы свяжемся с вами в ближайшее время"
         });
       } else {
-        throw new Error('Ошибка Telegram API: ' + JSON.stringify(result));
+        throw new Error('Не удалось отправить заявку ни в один чат');
       }
 
     } catch (error: any) {
