@@ -21,7 +21,7 @@ const Footer = () => {
       
       
       <footer className="relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-900 to-gray-900 text-white shadow-2xl border-t border-amber-500/30">
-        <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at bottom right, rgba(251, 191, 36, 0.08), transparent 55%)'}} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-radial-amber-bottom" />
         <div className="container mx-auto px-4">
           {/* Main Footer Content */}
           <div className="py-16">
@@ -127,7 +127,10 @@ const Footer = () => {
               <div className="text-gray-400 text-sm">
                 © {currentYear} Строительная компания Фулл-Хаус. Все права защищены.
               </div>
-              <div className="flex space-x-6 text-sm">
+              <div className="flex flex-wrap space-x-6 text-sm justify-center md:justify-end">
+                <a href="https://federationigs.ru/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                  Федерация ИЖС
+                </a>
                 <Link to="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors">
                   Политика конфиденциальности
                 </Link>

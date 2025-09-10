@@ -18,7 +18,7 @@ const About = () => {
       <main className="pt-24">
         {/* Hero */}
         <section className="relative py-14 sm:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 overflow-hidden">
-          <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at top left, rgba(59,130,246,0.12), transparent 60%)'}} />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-radial-blue" />
           <div className="container mx-auto px-4 text-center relative">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 mb-3">О компании Fullhouse</h1>
             <p className="text-lg sm:text-xl text-slate-700 max-w-3xl mx-auto">Строим дома с душой уже 3 года</p>
@@ -176,7 +176,7 @@ const About = () => {
 
         {/* CTA */}
         <section className="relative py-14 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-          <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at bottom right, rgba(59,130,246,0.10), transparent 60%)'}} />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-radial-blue-bottom" />
           <div className="container mx-auto px-4 text-center">
             <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-3">Хотите стать частью нашей истории?</h3>
             <p className="text-muted-foreground mb-6">Обратитесь к нам, и мы построим дом, в котором будут жить поколения вашей семьи.</p>

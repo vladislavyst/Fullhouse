@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-900 to-gray-900 border-b border-amber-500/30 shadow-xl z-50 backdrop-blur-sm">
-      <div className="pointer-events-none absolute inset-0" style={{background: 'radial-gradient(ellipse at top left, rgba(251, 191, 36, 0.08), transparent 55%)'}} />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-amber" />
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
