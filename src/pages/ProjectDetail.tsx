@@ -60,7 +60,7 @@ const ProjectDetail = () => {
 
   const handleDownloadCatalog = () => {
     const link = document.createElement('a');
-    link.href = '/fullhouse-catalog.pdf';
+    link.href = '/Фулхаус каталог оригинал.pdf';
     link.download = 'Фулхаус каталог оригинал.pdf';
     document.body.appendChild(link);
     link.click();
